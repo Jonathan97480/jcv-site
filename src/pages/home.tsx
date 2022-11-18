@@ -18,18 +18,22 @@ export default function Home() {
 
   return (
     <div className="home">
-      <section className="home__hero">
-        <h1 className="homeHero__title">JCV CONSULTING</h1>
 
-        <p className="homeHero__text">
+      <section className="hero">
+
+        <h1 className="hero__title">JCV CONSULTING</h1>
+
+        <p className="hero__text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dignissim
           sit tincidunt non. Laoreet at nibh elit, ridiculus ultrices
           pellentesque tincidunt ut nunc.
         </p>
+
       </section>
 
-      <section className="home__about">
-        <div className="homeAbout__content">
+      <section className="about">
+
+        <div className="about__content">
           <h2>JCV Consulting</h2>
           <span>Lorem ipsum dolor sit amet consectetur.</span>
           <p>
@@ -47,7 +51,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="home__products">
+      <section className="products">
         <h3>Catégorie de produits</h3>
 
         {loading === true ? (

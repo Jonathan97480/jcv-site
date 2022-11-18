@@ -10,10 +10,12 @@ export default function Header() {
 
     return (
         <header className="header" >
+
             <div>
                 <img src={require('../img/logo-jcv.png')} alt="" />
             </div>
-            <nav>
+
+            <nav className="header__nav">
                 <ul>
                     <li>
                         <Link to="/">Accueil</Link>
