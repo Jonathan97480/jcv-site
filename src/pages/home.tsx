@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ApiGetAllCategories } from "../api/apiRequest";
 import Api from "../api/conf";
 import { apiCategories } from "../interface";
+import CSS from 'csstype';
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,7 +20,7 @@ export default function Home() {
   return (
     <div className="home">
 
-      <section className="hero">
+    {/*   <section className="hero">
 
         <h1 className="hero__title">JCV CONSULTING</h1>
 
@@ -49,9 +50,9 @@ export default function Home() {
           src={require("../img/About-pic.png")}
           alt="Apropos image représentation"
         />
-      </section>
+      </section> */}
 
-      <section className="products">
+      <section className="products" style={divStyle}>
         <h3>Catégorie de produits</h3>
 
         {loading === true ? (
@@ -78,3 +79,4 @@ export default function Home() {
     </div>
   );
 }
+const divStyle : CSS.Properties= {display:'none'};

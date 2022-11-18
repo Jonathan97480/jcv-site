@@ -1,20 +1,18 @@
 :root {
-    /* background */
- 
+  --bkg-primary-color: #ffffff;
+  --bkg-secondary-color: #f2f7f5;
 
-    /* btn primary */
+  --txt-primary-color: #475d5b;
 
+  --links-primary-color: #fa5246;
 
-    /* btn secondary */
+  font-size: 62.5%;
+  a {
+    text-decoration: none;
+  }
+}
 
-
-    /* text */
- 
-
-    /* stroke */
- 
-
-   
-
-    font-size: 62.5%;
+.max-w {
+  max-width: 1920px;
+  margin: auto;
 }

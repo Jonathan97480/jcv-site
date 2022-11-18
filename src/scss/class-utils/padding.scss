@@ -1,0 +1,11 @@
+.padding{
+    padding: 7rem ;
+}
+
+.padding__header{
+  padding: 2rem;
+
+    @include media (medium){
+        padding: 3.6rem 7rem;
+    }
+}
