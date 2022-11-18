@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="home">
 
-    {/*   <section className="hero">
+      <section className="hero">
 
         <h1 className="hero__title">JCV CONSULTING</h1>
 
@@ -50,9 +50,9 @@ export default function Home() {
           src={require("../img/About-pic.png")}
           alt="Apropos image représentation"
         />
-      </section> */}
+      </section>
 
-      <section className="products" style={divStyle}>
+      <section className="products">
         <h3>Catégorie de produits</h3>
 
         {loading === true ? (
@@ -67,7 +67,7 @@ export default function Home() {
               >
                 <img
                   src={Api.url + category.attributes.pic.data.attributes.url}
-                  alt=""
+                  alt="" width={300}
                 />
                 <h4>{category.attributes.name}</h4>
                 <button>Voir Produit</button>
@@ -79,4 +79,4 @@ export default function Home() {
     </div>
   );
 }
-const divStyle : CSS.Properties= {display:'none'};
+

@@ -9,3 +9,10 @@
         padding: 3.6rem 7rem;
     }
 }
+
+.padding__footer{
+    padding: 1.3rem 0;
+    @include media(large){
+        padding: 3rem 7.7rem;
+    }
+}
