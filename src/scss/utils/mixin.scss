@@ -7,7 +7,10 @@ $breakpoints:(
     ),
     "large":(
         min-width: 1300px
-    )
+    ),
+    "largeXl":(
+        min-width: 1600px
+    ),
 );
 
 @mixin media($name) {
