@@ -4,11 +4,10 @@ import { IoMdMailOpen } from "react-icons/io";
 
 export default function Contact() {
   return (
-      <section className="contact">
-        <div className="contact__content max-w padding">
+    <section className="contact">
+      <div className="contact__content max-w padding">
         <h1>Contacter-nous</h1>
         <div className="contact__form">
-
           <form action="">
             <div className="contact__formInput">
               <label htmlFor="name">Nom *</label>
@@ -74,8 +73,7 @@ export default function Contact() {
             <span>Du lundi au vendredi de 7h30 à 8h30</span>
           </div>
         </div>
-        </div>
-
-      </section>
+      </div>
+    </section>
   );
 }
