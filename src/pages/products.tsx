@@ -9,7 +9,8 @@ export default function Products() {
     const [products, setProducts] = useState<apiProduct[]>([]);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    console.log(id);
+
+
 
     useEffect(() => {
 
@@ -19,10 +20,8 @@ export default function Products() {
             setLoading(false);
         })
 
-
-
     }, []);
-    console.log(products);
+
     return (
         <div className='products'>
 
@@ -36,10 +35,7 @@ export default function Products() {
                         return (
                             <Card
                                 key={product.id}
-                                id={product.id}
-                                name={product.attributes.name}
-                                pic={product.attributes.pic.data[0].attributes.url}
-                                desc={product.attributes.desc}
+                                product={product}
                             />
                         )
                     }

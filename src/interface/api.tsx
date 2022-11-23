@@ -1,19 +1,28 @@
-import { Attributes } from "react";
+
 
 export interface apiCategories {
 
     id: number;
     attributes: {
-        name: string;
+        nom: string;
         description: string;
-        pic: {
+        color: string;
+        sous_categories: {
             data: {
+
+                id: number,
                 attributes: {
-                    url: string;
+                    name: string;
+                    image: {
+                        data: {
+                            id: number;
+                            attributes: {
+                                url: string;
+                            }
+                        }
+                    }
                 }
-            }
-
-
+            }[]
         }
     }
 }
@@ -22,30 +31,46 @@ export interface apiProduct {
 
     id: number;
     attributes: {
-        name: string;
-        desc: string;
-        energy_class: string | null,
-        Availablity: string | null,
-        Repairability_Index: string | null,
-        ability: string | null,
-        Nominal_power: number | null,
-        Feed: string,
-        Guarantee: string,
-        weight: string,
-        pic: {
+        nom: string;
+        description: string;
+        classe_energetique: string | null,
+        disponibilite: boolean,
+        indice_reparabilite: number,
+        capacite: string | null,
+        alimentation: string,
+        garantie: string,
+        poids: string,
+
+        images: {
             data: picData[]
         },
         dimension: {
             height: number;
             width: number;
         },
-        categorie: {
+        category: {
+            data: {
+                attributes: {
+                    nom: string;
+                    color: string;
+
+                }
+            }
+        },
+        sous_categories: {
             data: {
                 attributes: {
                     name: string;
 
                 }
-            }
+            }[]
+        }, documentation: {
+            data: {
+                id: number;
+                attributes: {
+                    url: string;
+                }
+            }[]
         }
 
     },

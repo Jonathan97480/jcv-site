@@ -1,86 +1,122 @@
-import React, { useEffect, useState } from "react";
-import { ApiGetProductById } from "../api/apiRequest";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { apiProduct } from "../interface";
 import Api from "../api/conf";
 
-
+import { Carousel } from 'react-carousel-minimal';
+import { picData } from "../interface/api";
 
 export default function Product() {
 
     const { id } = useParams();
-    const [product, setProduct] = useState<apiProduct>({} as apiProduct);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        ApiGetProductById(parseInt(id === undefined ? "1" : id)).then((data) => {
-            setProduct(data);
-            setLoading(false);
-        })
-    }, []);
+    const product = useLocation().state as apiProduct;
+    const navigate = useNavigate();
 
 
+
+    console.log('MY PRODUCT', product);
+
+
+    const pictureList = fixePictureUrl(product.attributes.images.data);
     return (
 
         <>
-            {loading === true ? <p>Chargement...</p> :
-                < div className="product" >
+            {
+                product !== undefined ? (
+                    < div className="product" >
 
-                    <div>
-                        <h1>{product.attributes.name}</h1>
+                        <div>
+                            <h1>{product.attributes.nom}</h1>
+                        </div>
+
+                        <div>
+                            <img src={Api.url + product.attributes.images.data[0].attributes.url} alt="" />
+                            <Carousel
+                                data={pictureList}
+                                time={2000}
+                                width="850px"
+                                height="500px"
+
+                                radius="10px"
+                                slideNumber={true}
+
+                                captionPosition="bottom"
+                                automatic={true}
+                                dots={true}
+                                pauseIconColor="white"
+                                pauseIconSize="40px"
+                                slideBackgroundColor="darkgrey"
+                                slideImageFit="cover"
+                                thumbnails={true}
+                                thumbnailWidth="100px"
+                                style={{
+                                    textAlign: "center",
+                                    maxWidth: "850px",
+                                    maxHeight: "500px",
+                                    margin: "40px auto",
+                                }}
+                            />
+                            <p>{product.attributes.description}</p>
+                        </div>
+
+                        <div className="product__info" >
+
+                            <h2>Caractéritiques</h2>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit pellentesque in tristique commodo mattis in. Pellentesque odio ultricies dictumst sed adipiscing viverra integer augue elementum. Ut amet, feugiat feugiat sit. Nunc porttitor adipiscing viverra porttitor nascetur aliquam.</p>
+
+                            {
+                                product.attributes.garantie !== null ?
+                                    <span>Garantie :{product.attributes.garantie}</span> : null}
+                            {
+                                product.attributes.classe_energetique !== null ?
+                                    <span>Classe énergétique : {product.attributes.classe_energetique}</span> : null}
+
+                            {
+                                product.attributes.disponibilite !== null ?
+                                    <span>Disponible : {product.attributes.disponibilite ? 'En stock' : 'Rupture'}  </span> : null}
+
+                            {
+                                product.attributes.alimentation !== null ?
+                                    <span>Alimentation :230 V Monophasé</span> : null}
+
+                            {
+                                product.attributes.dimension !== undefined ?
+                                    <span>Dimension : {product.attributes.dimension.width + ' x ' + product.attributes.dimension.height + ' mm'}</span>
+                                    : null
+                            }
+
+
+                            {
+                                product.attributes.indice_reparabilite !== null ?
+                                    <span>Index de réparabilité : {product.attributes.indice_reparabilite}</span> : null}
+
+                            {
+
+                                product.attributes.dimension !== null ?
+                                    < span > Poids : 75kg</span> : null
+                            }
+
+                        </div>
+
+
                     </div>
+                ) : navigate('/')}
 
-                    <div>
-                        <img src={Api.url + product.attributes.pic.data[0].attributes.url} alt="" />
-                        <p>{product.attributes.desc}</p>
-                    </div>
-
-                    <div className="product__info" >
-
-                        <h2>Caractéritiques</h2>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit pellentesque in tristique commodo mattis in. Pellentesque odio ultricies dictumst sed adipiscing viverra integer augue elementum. Ut amet, feugiat feugiat sit. Nunc porttitor adipiscing viverra porttitor nascetur aliquam.</p>
-
-                        {
-                            product.attributes.Guarantee !== null ?
-                                <span>Garantie :{product.attributes.Guarantee}</span> : null}
-                        {
-                            product.attributes.energy_class !== null ?
-                                <span>Classe énergétique : {product.attributes.energy_class}</span> : null}
-
-                        {
-                            product.attributes.Availablity !== null ?
-                                <span>Disponible : {product.attributes.Availablity ? 'En stock' : 'Rupture'}  </span> : null}
-
-                        {
-                            product.attributes.Feed !== null ?
-                                <span>Alimentation :230 V Monophasé</span> : null}
-
-                        <span>Dimension : {product.attributes.dimension.width + ' x ' + product.attributes.dimension.height + ' mm'}</span>
-
-                        {
-                            product.attributes.ability !== null ?
-                                <span>Capacité :{product.attributes.ability}</span> : null}
-
-                        {
-                            product.attributes.Nominal_power !== null ?
-                                <span>Puissance nominale : {product.attributes.Nominal_power}w</span> : null}
-
-                        {
-                            product.attributes.Repairability_Index !== null ?
-                                <span>Index de réparabilité : {product.attributes.Repairability_Index}</span> : null}
-
-                        {
-                            product.attributes.weight !== null ?
-                                < span > Poids : 75kg</span> : null}
-
-                    </div>
-
-
-                </div>
-            }
         </>
     )
 
+
+}
+
+
+function fixePictureUrl(pic: picData[]) {
+    return pic.map((p) => {
+        return {
+            image: Api.url + p.attributes.url,
+            caption: ''
+        }
+    })
 
 }

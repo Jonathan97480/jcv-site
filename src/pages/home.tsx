@@ -62,32 +62,39 @@ export default function Home() {
 
       <section className="products">
         <div className="products__content max-w padding">
-          <h3 className="products__title">Catégorie de produits</h3>
-          <div className="products__gallery">
-            {loading === true ? (
-              <p>Chargement...</p>
-            ) : (
-              categories.map((category: apiCategories) => {
-                return (
-                  <Link
-                    style={{
-                      backgroundImage: `url(${
-                        Api.url + category.attributes.pic.data.attributes.url
-                      })`,
-                    }}
-                    key={category.id}
-                    className="products__card"
-                    to={"/products/" + category.id}
-                  >
-                    <div className="products__card-hover">
-                      <h4>{category.attributes.name}</h4>
-                      <button className="btn">En savoir plus</button>
-                    </div>
-                  </Link>
-                );
-              })
-            )}
-          </div>
+          {loading === true ? (
+            <p>Chargement...</p>
+          ) : (categories.map((category: apiCategories) => {
+            return (
+              <div key={category.id}>
+                <h3 className="products__title" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
+                <div className="products__gallery">
+
+                  {
+                    category.attributes.sous_categories.data.map((sous_category) => {
+                      return (
+                        <Link
+                          style={{
+                            backgroundImage: `url(${Api.url + sous_category.attributes.image.data.attributes.url})`,
+                          }}
+                          key={sous_category.id}
+                          className="products__card"
+                          to={"/products/" + sous_category.id}
+                        >
+                          <div className="products__card-hover">
+                            <h4>{sous_category.attributes.name}</h4>
+                            <button className="btn">En savoir plus</button>
+                          </div>
+                        </Link>
+                      )
+                    })
+
+                  }
+
+                </div>
+              </div>
+            )
+          }))}
         </div>
       </section>
     </div>
