@@ -1,14 +1,17 @@
 //Abstratc
 @import "utils/mixin";
-@import "typo/font.scss";
+@import "typo/font";
 
 //base
 @import "base/base";
 @import "base/reset";
 
 
-//pages
-@import "page/home";
+//section
+@import "section/home";
+@import "section/about";
+@import "section/products";
+@import "section/contact";
 
 
 
@@ -17,3 +20,11 @@
 //layout
 @import "layout/header";
 @import "layout/footer";
+
+//component
+@import "components/btn";
+@import "components/switch";
+
+
+//class-utils
+@import "class-utils/padding";
