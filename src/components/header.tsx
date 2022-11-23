@@ -27,16 +27,19 @@ export default function Header() {
             <li>
               <Link to="/">Accueil</Link>
             </li>
-            <span>
-              Service <img src={serviceIcon} alt="" width={18} height={9} />
-            </span>
+            <li>
+            <Link to="/">
+            Service <img src={serviceIcon} alt="" width={18} height={9} />
+            </Link>
+
+            </li>
             <li>
               <Link to="/">contact</Link>
             </li>
             <ul className="headerSmall__list">
-              <li>Chauffe-eau</li>
-              <li>Photovoltaïque</li>
-              <li>Sécurité</li>
+              <li><Link to="/">Chauffe-eau</Link></li>
+              <li><Link to="/">Photovoltaïque</Link></li>
+              <li><Link to="/">Sécurité</Link></li>
             </ul>
           </ul>
         </nav>

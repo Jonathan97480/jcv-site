@@ -11,23 +11,23 @@ export default function Footer() {
 
           <div className="footer__navLinks">
             <h4>Navigation</h4>
-            <span>Accueil</span>
-            <span>Services</span>
-            <span>Contact</span>
+            <Link to="/">Accueil</Link>
+            <Link to="/">Services</Link>
+            <Link to="/">Contact</Link>
           </div>
 
           <div className="footer__services">
             <h4>Services</h4>
-            <span>Energie renouvelable</span>
-            <span>Incendie</span>
-            <span>Maleveillance</span>
+            <Link to="/">Energie renouvelable</Link>
+            <Link to="/">Incendie</Link>
+            <Link to="/">Maleveillance</Link>
           </div>
 
           <div className="footer__info">
             <h4>Information</h4>
-            <span>06 92 01 02 03</span>
-            <span>JCV@gmail.com</span>
-            <span>La reunion 97410</span>
+            <a href="#">06 92 01 02 03</a>
+            <a href="#">JCV@gmail.com</a>
+            <a href="#">La reunion 97410</a>
           </div>
 
           <div className="footer__social">

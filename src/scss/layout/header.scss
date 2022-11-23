@@ -19,6 +19,11 @@
 
   a {
     color: var(--txt-primary-color);
+    font-family: "Inter";
+    font-weight: 500;
+    @include media (large){
+      font-size: 2rem;
+    }
   }
 
   &__burger {

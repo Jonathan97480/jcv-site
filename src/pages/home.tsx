@@ -32,15 +32,11 @@ export default function Home() {
       </section>
 
       <section className="about">
-
         <div className=" about__content max-w  padding">
-
-
           <div className="about__contentInfo">
-
             <div className="about__contentTxt ">
-            <h2>JCV Consulting</h2>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+              <h2>JCV Consulting</h2>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
               <p>
                 Lorem ipsum dolor sit amet consectetur. Faucibus vitae ornare eu
                 mattis pellentesque morbi et duis condimentum. Sollicitudin
@@ -51,7 +47,6 @@ export default function Home() {
               <Link className="btn about__btn" to={"/About"}>
                 En savoir plus
               </Link>
-
             </div>
 
             <img
@@ -61,36 +56,39 @@ export default function Home() {
               height={207}
               loading="lazy"
             />
-
           </div>
-
         </div>
       </section>
 
       <section className="products">
-        <h3>Catégorie de produits</h3>
-
-        {loading === true ? (
-          <p>Chargement...</p>
-        ) : (
-          categories.map((category: apiCategories) => {
-            return (
-              <Link
-                key={category.id}
-                className="homeProducts__category"
-                to={"/products/" + category.id}
-              >
-                <img
-                  src={Api.url + category.attributes.pic.data.attributes.url}
-                  alt=""
-                  width={300}
-                />
-                <h4>{category.attributes.name}</h4>
-                <button>Voir Produit</button>
-              </Link>
-            );
-          })
-        )}
+        <div className="products__content max-w padding">
+          <h3 className="products__title">Catégorie de produits</h3>
+          <div className="products__gallery">
+            {loading === true ? (
+              <p>Chargement...</p>
+            ) : (
+              categories.map((category: apiCategories) => {
+                return (
+                  <Link
+                    style={{
+                      backgroundImage: `url(${
+                        Api.url + category.attributes.pic.data.attributes.url
+                      })`,
+                    }}
+                    key={category.id}
+                    className="products__card"
+                    to={"/products/" + category.id}
+                  >
+                    <div className="products__card-hover">
+                      <h4>{category.attributes.name}</h4>
+                      <button className="btn">En savoir plus</button>
+                    </div>
+                  </Link>
+                );
+              })
+            )}
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -6,10 +6,11 @@
 }
 
 .padding__header{
+
   padding: 2rem;
 
     @include media (medium){
-        padding: 3.6rem 7rem;
+        padding: 1.7rem 7rem;
     }
 }
 

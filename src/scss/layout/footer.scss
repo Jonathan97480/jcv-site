@@ -6,6 +6,7 @@
   align-items: center;
   text-align: center;
   background-color: var(--bkg-secondary-color);
+  font-family: "Inter";
   gap: 3.9rem;
   &__navLinks,
   &__services,
@@ -25,6 +26,8 @@
   h4 {
     font-weight: 700;
     font-size: 2.2rem;
+  font-family: "Inter";
+
   }
   &__content{
     justify-content: space-between;
@@ -40,6 +43,9 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: flex-start;
+    }
+    a{
+      color: var(--txt-color);
     }
 }
 &__end, &__partner{
