@@ -23,13 +23,12 @@ export default function Products() {
     }, []);
 
     return (
-        <div className='products'>
+        <div className='products padding'>
 
-            <div>
-                <h1>{type}</h1>
-            </div>
 
             <section className='productsList max-w padding'>
+            <h1>{type}</h1>
+
                 {
                     loading === true ? <p>Chargement...</p> : products.map((product: apiProduct) => {
                         return (
