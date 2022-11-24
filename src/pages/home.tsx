@@ -79,7 +79,7 @@ export default function Home() {
                           }}
                           key={sous_category.id}
                           className="products__card"
-                          to={"/products/" + sous_category.id}
+                          to={"/products/" + sous_category.id + '/' + sous_category.attributes.name}
                         >
                           <div className="products__card-hover">
                             <h4>{sous_category.attributes.name}</h4>

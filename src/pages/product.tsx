@@ -27,11 +27,14 @@ export default function Product() {
                     < div className="product" >
 
                         <div>
-                            <h1>{product.attributes.nom}</h1>
+                            <h1
+                            style={{
+                        color:product.attributes.category.data.attributes.color
+                    }}
+                    >{product.attributes.nom}</h1>
                         </div>
 
                         <div>
-                            <img src={Api.url + product.attributes.images.data[0].attributes.url} alt="" />
                             <Carousel
                                 data={pictureList}
                                 time={2000}

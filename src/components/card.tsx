@@ -8,7 +8,6 @@ interface cardProps {
     product: apiProduct;
 }
 
-
 export default function Card(props: cardProps) {
 
     const navigate = useNavigate();
@@ -17,26 +16,34 @@ export default function Card(props: cardProps) {
 
     return (
         <div className='card' >
-            <div className='card__img'>
+            <div className='card__content'>
                 {
                     product.attributes.images.data != null ? (
-                        <img src={Api.url + product.attributes.images.data[0].attributes.url} alt="" />
+                        <img src={Api.url + product.attributes.images.data[0].attributes.url} alt="" width={306}
+                        height={246}/>
                     ) : (
-                        <img src="https://via.placeholder.com/150" alt="" />
+                        <img src="https://via.placeholder.com/150" alt=""  />
                     )
                 }
 
-                <h2>{product.attributes.nom}</h2>
+                <h2>{sliceText(product.attributes.nom,42)}
+                </h2>
 
 
-                <p>{product.attributes.description} </p>
+                <p>{sliceText(product.attributes.description,60)} </p>
                 <button
                     onClick={() => {
                         navigate(`/product/${product.id}`, { state: product });
+                    }}
+                    style={{
+                        color:product.attributes.category.data.attributes.color
                     }}
                 >En savoir plus</button>
             </div>
         </div>
     )
 
+}
+const sliceText = (title: string,size:number) => {
+    return title.length > size ? title.slice(0, size) + '...' : title;
 }

@@ -10,8 +10,9 @@
 //section
 @import "section/home";
 @import "section/about";
-@import "section/products";
 @import "section/contact";
+@import "section/product";
+@import "section/products";
 
 
 
@@ -24,6 +25,7 @@
 //component
 @import "components/btn";
 @import "components/switch";
+@import "components/card";
 
 
 //class-utils
