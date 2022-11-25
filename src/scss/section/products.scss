@@ -2,15 +2,10 @@
   h1 {
     width: 100%;
     margin: auto;
-    font-family: "Inter";
-    font-weight: bold;
     text-align: center;
-    font-size: 2.4rem;
     grid-column: 1 ;
     grid-row: 1;
-    @include media(small) {
-      width: 93%;
-    }
+
     @include media(medium) {
         grid-column: 1 / 3 ;
         grid-row: 1;

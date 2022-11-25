@@ -3,29 +3,18 @@
   --bkg-secondary-color: #f2f7f5;
 
   --txt-primary-color: #475d5b;
-
+  --title-primary-color: #078080;
+  --title-secondary-color: ;
   --links-primary-color: #fa5246;
-
   font-size: 62.5%;
 
   a {
     text-decoration: none;
   }
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Inter";
-    font-weight: 700;
-  }
-  h2,
-  h3,
-  h4 {
-    font-size: 2.4rem;
 
-    @include media(medium) {
-      font-size: 3.6rem;
-    }
+  a,
+  button {
+    cursor: pointer;
   }
 
   p {

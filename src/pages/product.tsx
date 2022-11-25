@@ -20,7 +20,7 @@ export default function Product() {
       {product !== undefined ? (
         <div className="product max-w padding">
           <div>
-            <h1
+            <h1 className="title title-secondary"
               style={{
                 color: product.attributes.category.data.attributes.color,
               }}
@@ -56,7 +56,7 @@ export default function Product() {
           <p>{product.attributes.description}</p>
 
           <div className="product__info">
-            <h2>Caractéritiques</h2>
+            <h2 className="title title-secondary">Caractéritiques</h2>
 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit

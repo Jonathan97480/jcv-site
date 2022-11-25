@@ -1,39 +1,30 @@
-.legal{
-    h1{
-        font-size: 2.8rem;
-        font-family: "Inter";
-        font-weight: bold;
-        color: var(--txt-color);
-        @include media (large){
-margin-bottom: 3.6rem;
-        }
+.legal {
+  h2 {
+    font-size: 2.4rem;
+  }
 
-    }
-    h2{
-        font-size: 2.4rem;
-    }
-   &__content{
+  &__content {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
-    &Info{
-        line-height: 1.5;
+    @include media(large) {
+      gap: 3.8rem;
     }
-   }
-   &__partner{
+  }
+  &__partner {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
-    &Img{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3.6rem;
-        @include media (small){
-            flex-direction: row;
-            justify-content: flex-start;
-        }
+    &Img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3.6rem;
+      @include media(small) {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
     }
-   }
+  }
 }

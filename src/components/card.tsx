@@ -26,7 +26,7 @@ export default function Card(props: cardProps) {
                     )
                 }
 
-                <h2>{sliceText(product.attributes.nom,42)}
+                <h2>{sliceText(product.attributes.nom,30)}
                 </h2>
 
 

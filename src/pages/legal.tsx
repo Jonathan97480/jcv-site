@@ -4,9 +4,9 @@ export default function Legal() {
   return (
     <section className="legal">
       <div className="legal__content max-w padding">
-          <h1>Mentions légales</h1>
+          <h1 className="title">Mentions légales</h1>
         <div className="legal__contentInfo">
-          <h2>JCV CONSULTING</h2>
+          <h2 className="title">JCV CONSULTING</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
             faucibus nulla urna dignissim massa sed adipiscing sed odio.
@@ -23,7 +23,7 @@ export default function Legal() {
           </p>
         </div>
         <div className="legal__contentInfo">
-          <h2>Décline toute responsabilité</h2>
+          <h2 className="title">Décline toute responsabilité</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
             faucibus nulla urna dignissim massa sed adipiscing sed odio.
@@ -40,7 +40,7 @@ export default function Legal() {
           </p>
         </div>{" "}
         <div className="legal__contentInfo">
-          <h2>Politique de contenu du site</h2>
+          <h2 className="title">Politique de contenu du site</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
             faucibus nulla urna dignissim massa sed adipiscing sed odio.
@@ -57,7 +57,7 @@ export default function Legal() {
           </p>
         </div>{" "}
         <div className="legal__contentInfo">
-          <h2>Information l’égale</h2>
+          <h2 className="title">Information l’égale</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
             faucibus nulla urna dignissim massa sed adipiscing sed odio.
@@ -75,13 +75,21 @@ export default function Legal() {
         </div>
         <div className="legal__partner">
           <div className="legal__partnerImg">
+
             <img
               src={require("../img/logo_region.png")}
               alt="logo de la Région"
+              width={215}
+              height={101}
+              loading='lazy'
             />
+
             <img
               src={require("../img/europe.png")}
               alt="logo de l'uniom Europe"
+              width={134}
+              height={101}
+              loading='lazy'
             />
           </div>
           <p>

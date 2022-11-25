@@ -21,7 +21,7 @@ export default function Home() {
     <div className="home">
       <section className="hero">
         <div className="hero__content max-w padding">
-          <h1 className="hero__title">JCV CONSULTING</h1>
+          <h1 className="hero__title title">JCV CONSULT</h1>
 
           <p className="hero__text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
@@ -35,7 +35,7 @@ export default function Home() {
         <div className=" about__content max-w  padding">
           <div className="about__contentInfo">
             <div className="about__contentTxt ">
-              <h2>JCV Consulting</h2>
+              <h2 className="title title-secondary">JCV Consult</h2>
               <p>Lorem ipsum dolor sit amet consectetur.</p>
               <p>
                 Lorem ipsum dolor sit amet consectetur. Faucibus vitae ornare eu
@@ -51,7 +51,7 @@ export default function Home() {
 
             <img
               src={require("../img/hero/home.jpg")}
-              alt="Apropos image représentation"
+              alt="A propos image de représentation"
               width={328}
               height={207}
               loading="lazy"
@@ -67,7 +67,7 @@ export default function Home() {
           ) : (categories.map((category: apiCategories) => {
             return (
               <div key={category.id}>
-                <h3 className="products__title" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
+                <h3 className="products__title title title-secondary" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
                 <div className="products__gallery">
 
                   {
@@ -82,7 +82,7 @@ export default function Home() {
                           to={"/products/" + sous_category.id + '/' + sous_category.attributes.name}
                         >
                           <div className="products__card-hover">
-                            <h4>{sous_category.attributes.name}</h4>
+                            <h4 className="title">{sous_category.attributes.name}</h4>
                             <button className="btn">En savoir plus</button>
                           </div>
                         </Link>

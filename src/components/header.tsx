@@ -21,15 +21,16 @@ export default function Header() {
             className="header__logo"
             src={require("../img/logo-jcv.png")}
             alt="Logo entreprise"
+            width={135} height={64}
+            loading='lazy'
           />
-
           <ul className="header__list">
             <li>
               <Link to="/">Accueil</Link>
             </li>
             <li>
             <Link to="/">
-            Service <img src={serviceIcon} alt="" width={18} height={9} />
+            Services <img src={serviceIcon} alt="" width={18} height={9} loading='lazy'/>
             </Link>
 
             </li>
@@ -44,7 +45,7 @@ export default function Header() {
           </ul>
         </nav>
         <Link to={"/devis"} className=" header__btn btn ">
-          Etude personaliser
+          Etude personalisée
         </Link>
       </div>
     </header>

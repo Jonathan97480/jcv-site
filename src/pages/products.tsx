@@ -27,7 +27,7 @@ export default function Products() {
 
 
             <section className='productsList max-w padding'>
-            <h1>{type}</h1>
+            <h1 className='title'>{type}</h1>
 
                 {
                     loading === true ? <p>Chargement...</p> : products.map((product: apiProduct) => {
@@ -42,7 +42,6 @@ export default function Products() {
                 }
 
             </section>
-
         </div>
     );
 

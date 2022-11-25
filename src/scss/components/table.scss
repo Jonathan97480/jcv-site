@@ -5,9 +5,9 @@
   width: 100%;
   text-align: center;
   border-radius: 50rem;
-@include media(small){
+  @include media(small) {
     width: 50.2rem;
-}
+  }
   tr {
     height: 50px;
   }
