@@ -1,0 +1,25 @@
+$breakpoints:(
+    "smallXs":(
+        max-width: 325px
+    ),
+    "small":(
+        min-width: 576px
+    ),
+    "medium":(
+        min-width: 992px
+    ),
+    "large":(
+        min-width: 1280px
+    ),
+    "largeXl":(
+        min-width: 1600px
+    ),
+);
+
+@mixin media($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+}

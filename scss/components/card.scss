@@ -1,0 +1,57 @@
+.card {
+  width: 32.7rem;
+  height: 44.7rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+background-color: var(--bkg-primary-color);
+  margin: auto;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.18);
+  @include media (small){
+    width: 37.7rem;
+  }
+  @include media (medium){
+  }
+  @include media (large){
+    width: 35.7rem;
+  }
+  &__content {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem;
+  height: 100%;
+  img{
+  border-radius: 0.5rem;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.18);
+  object-fit: contain;
+  }
+  h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 2.4rem;
+    height: 4.8rem;
+  }
+
+  p{
+    height: 6.4rem;
+    font-size: 1.8rem;
+  }
+  }
+  button{
+    padding: 1.2rem 1.1rem;
+    color:#CF4826 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    line-height: 0.1;
+    border-bottom: 0.1rem solid;
+    font-family: "Inter";
+    font-weight: 500;
+    min-width: 8.4rem;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

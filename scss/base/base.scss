@@ -1,0 +1,34 @@
+:root {
+  --bkg-primary-color: #ffffff;
+  --bkg-secondary-color: #f2f7f5;
+
+  --txt-primary-color: #475d5b;
+  --title-primary-color: #078080;
+  --title-secondary-color: ;
+  --links-primary-color: #fa5246;
+  font-size: 62.5%;
+
+  a {
+    text-decoration: none;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 1.8rem;
+    font-family: "Inter";
+    font-weight: 400;
+    color: var(--txt-primary-color);
+    @include media(medium) {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.max-w {
+  max-width: 1920px;
+  margin: auto;
+}
