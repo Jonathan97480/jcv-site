@@ -32,7 +32,8 @@ export default function Footer() {
 
           <div className="footer__social">
             <h4>Suivez moi</h4>
-            <img src={facebook} alt="" />
+            <a href="#"><img src={facebook} alt="" width={30} height={29} loading='lazy'/></a>
+
           </div>
         </div>
 

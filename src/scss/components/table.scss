@@ -1,0 +1,28 @@
+.table {
+  font-size: 1.6rem;
+  font-family: "Inter";
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  border-radius: 50rem;
+  @include media(small) {
+    width: 50.2rem;
+  }
+  tr {
+    height: 50px;
+  }
+  td,
+  th {
+    vertical-align: middle;
+  }
+
+  tr,
+  td {
+    border-collapse: collapse;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  th,
+  td {
+    padding: 1rem;
+  }
+}

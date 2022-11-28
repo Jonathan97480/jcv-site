@@ -8,7 +8,7 @@ export default function Products() {
 
     const [products, setProducts] = useState<apiProduct[]>([]);
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const { id, type } = useParams();
 
 
 
@@ -23,13 +23,12 @@ export default function Products() {
     }, []);
 
     return (
-        <div className='products'>
+        <div className='products padding'>
 
-            <div>
-                <h1>Produits</h1>
-            </div>
 
-            <section>
+            <section className='productsList max-w padding'>
+            <h1 className='title'>{type}</h1>
+
                 {
                     loading === true ? <p>Chargement...</p> : products.map((product: apiProduct) => {
                         return (
@@ -43,7 +42,6 @@ export default function Products() {
                 }
 
             </section>
-
         </div>
     );
 

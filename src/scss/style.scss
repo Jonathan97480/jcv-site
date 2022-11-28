@@ -10,8 +10,11 @@
 //section
 @import "section/home";
 @import "section/about";
-@import "section/products";
 @import "section/contact";
+@import "section/product";
+@import "section/products";
+@import "section/legal";
+@import "section/aboutPage";
 
 
 
@@ -24,7 +27,12 @@
 //component
 @import "components/btn";
 @import "components/switch";
+@import "components/card";
+@import "components/caroussel";
+@import "components/table";
 
 
 //class-utils
 @import "class-utils/padding";
+@import "class-utils/title";
+
