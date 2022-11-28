@@ -1,0 +1,22 @@
+.padding{
+    padding: 4.4rem 2rem;
+    @include media (large){
+        padding: 7.1rem 6rem;
+    }
+}
+
+.padding__header{
+
+  padding: 2rem;
+
+    @include media (medium){
+        padding: 1.7rem 7rem;
+    }
+}
+
+.padding__footer{
+    padding: 4.3rem 0;
+    @include media(large){
+        padding: 3rem 7.7rem;
+    }
+}

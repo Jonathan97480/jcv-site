@@ -1,0 +1,79 @@
+.header {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+&__content{
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+  color: var(--txt-primary-color);
+  @include media(medium){
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+}
+
+  a {
+    color: var(--txt-primary-color);
+    font-family: "Inter";
+    font-weight: 500;
+    @include media (large){
+      font-size: 2rem;
+    }
+  }
+
+  &__burger {
+    margin-left: auto;
+    filter: invert(44%) sepia(46%) saturate(3487%) hue-rotate(334deg)
+      brightness(102%) contrast(103%);
+      @include media(medium){
+        display: none;
+    }
+  }
+
+
+  &__nav,
+  &__list,
+  &Small__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.6rem;
+  }
+  &__nav,
+  &__list,
+  &Small__list{
+    display: none;
+  }
+
+  &__nav,
+  &__list,
+  &__btn {
+    @include media(medium){
+        display: flex;
+    }
+  }
+
+  &__nav, &__list,{
+    @include media(medium){
+        flex-direction: row;
+    }
+  }
+  &__nav{
+    gap:4.2rem ;
+  }
+
+  &__btn {
+    display: none !important;
+    margin: auto;
+    @include media(medium){
+        display: flex !important;
+        margin: 0;
+    }
+  }
+}

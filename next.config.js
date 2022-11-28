@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports={
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['api.jcvconsult.re'],
+  },
 }
-
-module.exports = nextConfig

@@ -1,0 +1,102 @@
+.products {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    h3{
+        text-align: center;
+        margin-bottom: 3rem;
+      @include media (large){
+        text-align: left;
+      }
+      @include media (largeXl){
+        text-align: center;
+      }
+    }
+  }
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.8rem;
+    @include media (small){
+      flex-direction: column;
+    }
+    @include media (large){
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 8.5rem;
+    }
+    @include media (largeXl){
+      justify-content: center;
+    }
+
+  }
+  &__category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__card{
+    width: 32.3rem;
+    height: 38.5rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 0.4rem;
+    color: var(--bkg-primary-color);
+    text-align: center;
+    @include media (smallXs){
+      width: 31rem;
+      height: 39.5rem;
+    }
+    @include media (small){
+      width: 43.3rem;
+      height: 48.5rem;
+    }
+      @include media (large){
+        width: 35.3rem;
+        height: 33.5rem;
+      }
+    &:hover{
+       animation: zoomImg forwards;
+       animation-duration: 1s;
+    }
+    &-hover{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3.6rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+        &:hover{
+            animation: bkgTrans forwards;
+            animation-duration: 1s;
+
+        }
+    }
+  }
+}
+@keyframes zoomImg {
+    0%{
+        background-size: 383px 385px;
+    }
+    100%{
+        background-size:500px 485px;
+    }
+}
+@keyframes bkgTrans {
+    0%{
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    100%{
+        background-color: rgba(0, 0, 0, 0.0);
+
+    }
+}

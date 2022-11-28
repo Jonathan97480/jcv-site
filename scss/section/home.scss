@@ -1,0 +1,45 @@
+.hero{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../img/hero/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hero__content {
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.7rem;
+  color: var(--bkg-primary-color);
+
+
+
+  h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    @include media(large){
+        font-size: 6.6rem;
+      }
+  }
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--bkg-primary-color);
+    @include media(small){
+        width: 56.6rem;
+        font-size: 2.4rem;
+      }
+    @include media(medium){
+        width: 66.6rem;
+        font-size: 2.4rem;
+      }
+  }
+
+  h1,
+  p {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+}
