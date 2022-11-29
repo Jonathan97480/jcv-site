@@ -20,6 +20,7 @@ export default function Footer() {
     <footer className="footer padding__footer">
       <div className="max-w footer__content">
         <div className="footer__main">
+          <Link href="/">
           <Image
             src={require("../img/logo-jcv.png")}
             alt="logo JCV consult"
@@ -27,6 +28,7 @@ export default function Footer() {
             height={64}
             loading="lazy"
           />
+          </Link>
 
           <div className="footer__navLinks">
             <h4 className="inter inter-semiBold">Navigation</h4>
@@ -123,7 +125,7 @@ export default function Footer() {
             />
           </span>
 
-          <span>Copyright JCV Consulting 2022</span>
+          <span className="inter inter-regular">Copyright JCV Consulting 2022</span>
           <Switch
             on={true}
             onClick={(value: boolean) => {

@@ -1,12 +1,11 @@
 :root {
   --bkg-primary-color: #ffffff;
   --bkg-secondary-color: #f2f7f5;
-
   --txt-primary-color: #475d5b;
   --title-secondary-color: #078080;
-  --title-secondary-color: ;
   --links-primary-color: #fa5246;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 
   a {
     text-decoration: none;

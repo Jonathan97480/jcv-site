@@ -107,7 +107,6 @@ export default function Legal() {
               s’engage à La Réunion
             </p>
             </div>
-            
           </section>
         </div>
       </section>
