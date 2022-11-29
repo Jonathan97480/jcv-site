@@ -30,6 +30,7 @@ export default function Footer() {
             <Link href="/">Accueil</Link>
             <Link href="/">Services</Link>
             <Link href="/">Contact</Link>
+            <Link href="/">Mention légal</Link>
           </div>
 
           <div className="footer__services">
