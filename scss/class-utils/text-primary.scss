@@ -1,0 +1,7 @@
+.text-primary{
+    font-size: 1.8rem;
+    color: var(--txt-primary-color);
+    @include media (medium){
+        font-size: 2rem;
+    }
+}

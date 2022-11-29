@@ -1,40 +1,40 @@
 .header {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-&__content{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--bkg-primary-color);
+
+  &__content {
     text-align: center;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
-  color: var(--txt-primary-color);
-  @include media(medium){
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: 700;
-}
+    color: var(--txt-primary-color);
 
-}
+    @include media(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+  }
 
   a {
     color: var(--txt-primary-color);
-    font-family: "Inter";
-    font-weight: 500;
-    @include media (large){
-      font-size: 2rem;
-    }
   }
 
   &__burger {
     margin-left: auto;
     filter: invert(44%) sepia(46%) saturate(3487%) hue-rotate(334deg)
       brightness(102%) contrast(103%);
-      @include media(medium){
-        display: none;
+    @include media(medium) {
+      display: none;
     }
   }
-
 
   &__nav,
   &__list,
@@ -47,33 +47,83 @@
   }
   &__nav,
   &__list,
-  &Small__list{
+  &Small__list {
     display: none;
   }
 
   &__nav,
   &__list,
   &__btn {
-    @include media(medium){
-        display: flex;
+    @include media(medium) {
+      display: flex;
     }
   }
 
-  &__nav, &__list,{
-    @include media(medium){
-        flex-direction: row;
+  &__nav,
+  &__list {
+    @include media(medium) {
+      flex-direction: row;
     }
   }
-  &__nav{
-    gap:4.2rem ;
+  &__nav {
+    gap: 4.2rem;
+    &-open {
+      display: flex;
+    }
   }
 
   &__btn {
     display: none !important;
     margin: auto;
-    @include media(medium){
-        display: flex !important;
-        margin: 0;
+    @include media(medium) {
+      display: flex !important;
+      margin: 0;
     }
+  }
+  &__list {
+    &-open {
+      display: flex;
+    }
+  }
+  &Small__list {
+    &-open {
+      display: flex;
+      animation: smallListOpen;
+      animation-duration: 0.3s;
+      margin-top: 2.6rem;
+      @include media(medium) {
+        position: absolute;
+        flex-direction: column;
+        background-color: var(--bkg-primary-color);
+        padding: 1.6rem 2.4rem;
+        top: 4rem;
+        left: -4.2rem;
+        margin-top: 0;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        box-shadow: 0px 2px 0px 0px rgb(0 0 0 / 25%);
+        width: 17.1rem;
+        height: 22.4rem;
+        animation: smallListOpen;
+        animation-duration: 0.3s;
+      }
+    }
+  }
+  &__serviceBtn {
+    @include media(medium) {
+      position: relative;
+    }
+  }
+}
+@keyframes smallListOpen {
+  0% {
+    height: 30px;
+    top: 20px;
+    opacity: 0;
+  }
+  100% {
+    height: 22.4rem;
+    top: 4rem;
+    opacity: 1;
   }
 }

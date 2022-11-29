@@ -28,12 +28,12 @@ export default function Card(props: cardProps) {
                     )
                 }
 
-                <h2>{sliceText(product.attributes.nom, 30)}
+                <h2 className="inter inter-semiBold">{sliceText(product.attributes.nom, 30)}
                 </h2>
 
 
-                <p>{sliceText(product.attributes.description, 60)} </p>
-                <Link href={{ pathname: '/product', query: { id: product.id } }}
+                <p className="inter inter-regular">{sliceText(product.attributes.description, 60)} </p>
+                <Link className="inter inter-regular" href={{ pathname: '/product', query: { id: product.id } }}
 
 
                     style={{

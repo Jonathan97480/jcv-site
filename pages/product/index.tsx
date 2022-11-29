@@ -44,36 +44,34 @@ export default function Product() {
             {
                 product !== null ? (
                     <div className="product max-w padding">
-                        <div>
-                            <h1 className="title title-secondary"
+                            <h1 className="title title-secondary inter inter-medium"
                                 style={{
                                     color: product.attributes.category.data.attributes.color,
                                 }}
                             >
                                 {product.attributes.nom}
                             </h1>
-                        </div>
+
 
                         <div className="caroussel">
                             <Carousel
                                 data={fixePictureUrl(product.attributes.images.data)}
                                 time={2000}
                                 width="850px"
-                                height="500px"
+                                height= "initial"
                                 radius="10px"
-                                slideNumber={true}
-                                captionPosition="bottom"
+                                slideNumber={false}
+                                captionPosition="center"
                                 automatic={true}
                                 dots={true}
                                 pauseIconColor="white"
                                 pauseIconSize="40px"
                                 slideBackgroundColor="black-grey"
-                                slideImageFit="contain"
-                                thumbnails={false}
+                                slideImageFit="cover"
+                                thumbnails={true}
                                 style={{
                                     textAlign: "center",
                                     maxWidth: "850px",
-                                    maxHeight: "500px",
                                     margin: "40px auto",
                                 }}
                             />
@@ -81,7 +79,7 @@ export default function Product() {
                         <p>{product.attributes.description}</p>
 
                         <div className="product__info">
-                            <h2 className="title title-secondary">Caractéritiques</h2>
+                            <h2 className="title title-secondary inter inter-semiBold">Caractéritiques</h2>
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit

@@ -48,7 +48,7 @@ export default function Products() {
 
 
                 <section className='productsList max-w padding'>
-                    <h1 className='title'>{nom}</h1>
+                    <h1 className='inter inter-medium'>{nom}</h1>
 
 
                     {

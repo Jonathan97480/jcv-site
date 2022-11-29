@@ -1,20 +1,33 @@
 .legal {
-  h2 {
-    font-size: 2.4rem;
-  }
+h1{
+  margin-bottom: 2rem;
+}
+ 
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+    padding-top: 14.0rem !important;
     @include media(large) {
       gap: 3.8rem;
     }
+    h2 {
+      font-size: 2.4rem;
+    }
   }
   &__partner {
+    background-color: antiquewhite;
+    border-radius: 0.6rem;
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+  align-items: center;
+
+    @include media(medium) {
+  flex-direction: row;
+    }
     &Img {
       display: flex;
       flex-direction: column;

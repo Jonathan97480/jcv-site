@@ -1,8 +1,9 @@
-.products {
+ .products {
   &__content {
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
+    align-items: center;
     h3{
         text-align: center;
         margin-bottom: 3rem;
@@ -14,22 +15,21 @@
       }
     }
   }
+
+
+
   &__gallery {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1 , 1fr);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3.8rem;
-    @include media (small){
-      flex-direction: column;
+    @include media(medium){
+      grid-template-columns: repeat(2 , 40.0rem);
     }
-    @include media (large){
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 8.5rem;
-    }
-    @include media (largeXl){
-      justify-content: center;
+    @include media(large){
+      grid-template-columns: repeat(3 , 40.0rem);
     }
 
   }
@@ -50,12 +50,16 @@
     color: var(--bkg-primary-color);
     text-align: center;
     @include media (smallXs){
-      width: 31rem;
-      height: 39.5rem;
+       width: 29rem;
+    height: 38.5rem;
     }
     @include media (small){
-      width: 43.3rem;
-      height: 48.5rem;
+      width: 37.3rem;
+      height: 38.5rem;
+    }
+    @include media (medium){
+      width: 34.3rem;
+      height: 34.5rem;
     }
       @include media (large){
         width: 35.3rem;
@@ -99,4 +103,4 @@
         background-color: rgba(0, 0, 0, 0.0);
 
     }
-}
+} 
