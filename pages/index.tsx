@@ -32,7 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="home">
-        <section className="hero">
+        <section className="hero" id="home">
           <div className="hero__content max-w padding">
             <h1 className="hero__title title inter inter-bold">JCV CONSULT</h1>
 
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="products">
+        <section className="products" id="services">
           <div className="products__content max-w padding">
             {_loading === true ? (
               <p>Chargement...</p>

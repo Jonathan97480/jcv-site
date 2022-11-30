@@ -1,6 +1,6 @@
 .btn {
     padding: 1.2rem 1.1rem;
-    background: #fa5246;
+    background: var(--links-primary-color);
     border-radius: 7px;
     color: var(--bkg-primary-color) !important;
     display: flex;
@@ -11,4 +11,10 @@
     font-weight: 500;
     min-width: 8.4rem;
     font-size: 2rem;
+    transition: all 0.3s;
+    &:hover{
+      background-color: var(--bkg-primary-color);
+      border: 0.1rem solid var(--links-primary-color);
+      color: var(--links-primary-color) !important;
+    }
   }

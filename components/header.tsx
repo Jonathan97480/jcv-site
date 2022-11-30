@@ -58,7 +58,7 @@ export default function Header() {
             }
           >
             <li>
-              <Link href="/" className="inter inter-medium">
+              <Link href="/#home" className="inter inter-medium">
                 Accueil
               </Link>
             </li>
@@ -67,8 +67,8 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <Link href="/" className="inter inter-medium header__serviceBtn">
-                Service{" "}
+              <Link href="/#services" className="inter inter-medium header__serviceBtn">
+                Services{" "}
                 <Image
                   src={serviceIcon}
                   alt=""
@@ -107,7 +107,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="inter inter-medium">
+              <Link href="/#contact" className="inter inter-medium">
                 contact
               </Link>
             </li>

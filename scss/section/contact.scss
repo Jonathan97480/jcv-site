@@ -1,8 +1,9 @@
 .contact {
     h1 {
+      text-align: center;
+
         width: 100%;
         @include media (small){
-          text-align: center;
       }
       @include media (medium){
         text-align: left;
@@ -16,7 +17,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 4.8rem;
+    gap: 2.4rem;
     justify-content: center;
     @include media(medium) {
         flex-direction: row;
@@ -27,7 +28,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 4.1rem;
+    gap: 2.4rem;
     @include media(medium) {
         width: 45%;
         margin: 0;
@@ -99,7 +100,7 @@
         margin: initial;
         width: initial;
        align-items: flex-start;
-       gap: 3rem;
+       gap: 2.4rem;
       }
     @include media(large) {
        justify-content: flex-start;

@@ -4,11 +4,16 @@
   --txt-primary-color: #475d5b;
   --title-secondary-color: #078080;
   --links-primary-color: #fa5246;
+
   font-size: 62.5%;
   scroll-behavior: smooth;
 
   a {
     text-decoration: none;
+    &:hover{
+      color: var(--links-primary-color);
+      transition: all 0.3s;
+    }
   }
 
   a,

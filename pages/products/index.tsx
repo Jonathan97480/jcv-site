@@ -37,19 +37,21 @@ export default function Products() {
 
     }, [P_redux]);
 
-
+console.log(_products)
 
     return (
         <>
+        { _products.length>0?
+        <div>
             <Head>
                 <title>{nom}</title>
             </Head>
-            <div className='products padding'>
+            <section className='products'>
 
-
-                <section className='productsList max-w padding'>
-                    <h1 className='inter inter-medium'>{nom}</h1>
-
+                <div className='productsList max-w padding' style={{
+                    backgroundColor: _products[0].attributes.category.data.attributes.color
+                }}>
+                    <h1 className='inter inter-semiBold'>{nom}</h1>
 
                     {
                         loading === true ? <p>Chargement...</p> : _products.map((product: apiProduct) => {
@@ -63,10 +65,11 @@ export default function Products() {
                         )
                     }
 
-                </section>
+                </div>
 
+            </section>
             </div>
-
+        :null}
         </>
     );
 

@@ -18,7 +18,7 @@ export default function Contact() {
       </Head>
       <section className="contact">
         <div className="contact__content max-w padding">
-          <h1>Contacter-nous</h1>
+          <h1 className="title inter inter-semiBold">Contacter-nous</h1>
           <div className="contact__form">
             <form action="">
               <div className="contact__formInput">
