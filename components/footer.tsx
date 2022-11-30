@@ -21,13 +21,13 @@ export default function Footer() {
       <div className="max-w footer__content">
         <div className="footer__main">
           <Link href="/">
-          <Image
-            src={require("../img/logo-jcv.png")}
-            alt="logo JCV consult"
-            width={135}
-            height={64}
-            loading="lazy"
-          />
+            <Image
+              src={require("../img/logo-jcv.png")}
+              alt="logo JCV consult"
+              width={135}
+              height={64}
+              loading="lazy"
+            />
           </Link>
 
           <div className="footer__navLinks">
@@ -61,16 +61,14 @@ export default function Footer() {
               ) : (
                 service.map((item: apiCategories) => {
                   return (
-                    <li className="inter inter-regular">
-                      <Link
-                        key={item.id + "footer"}
-                        href={{
-                          pathname: "/products",
-                          query: { id: item.id, nom: item.attributes.nom },
-                        }}
+                    <li className="inter inter-regular" key={item.id}>
+                      <a
+                        key={item.id + "header"}
+                        className="inter inter-medium"
+                        href={`/#${item.attributes.nom}`}
                       >
                         {item.attributes.nom}
-                      </Link>
+                      </a>
                     </li>
                   );
                 })

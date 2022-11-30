@@ -67,7 +67,7 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <Link href="/#services" className="inter inter-medium header__serviceBtn">
+              <div className="inter inter-medium header__serviceBtn">
                 Services{" "}
                 <Image
                   src={serviceIcon}
@@ -89,25 +89,22 @@ export default function Header() {
                     service.map((item: apiCategories) => {
                       return (
                         <li key={item.id}>
-                          <Link
+                          <a
                             key={item.id + "header"}
                             className="inter inter-medium"
-                            href={{
-                              pathname: "/products",
-                              query: { id: item.id, nom: item.attributes.nom },
-                            }}
+                            href={`/#${item.attributes.nom}`}
                           >
                             {item.attributes.nom}
-                          </Link>
+                          </a>
                         </li>
                       );
                     })
                   )}
                 </ul>
-              </Link>
+              </div>
             </li>
             <li>
-              <Link href="/#contact" className="inter inter-medium">
+              <Link href="/contact" className="inter inter-medium">
                 contact
               </Link>
             </li>
@@ -125,10 +122,10 @@ export const DefaultList = () => {
   return (
     <>
       <li>
-        <Link href="/">Chauffe-eau</Link>
+        <a href="#Chauffe-eau">Chauffe-eau</a>
       </li>
       <li>
-        <Link href="/">Photovoltaïque</Link>
+        <a href="#Photovoltaïque">Photovoltaïque</a>
       </li>
     </>
   );

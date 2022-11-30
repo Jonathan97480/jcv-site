@@ -37,39 +37,39 @@ export default function Products() {
 
     }, [P_redux]);
 
-console.log(_products)
 
     return (
         <>
-        { _products.length>0?
-        <div>
-            <Head>
-                <title>{nom}</title>
-            </Head>
-            <section className='products'>
+            {_products.length > 0 ?
+                <div>
+                    <Head>
+                        <title>{nom}</title>
+                    </Head>
+                    <section className='products'>
 
-                <div className='productsList max-w padding' style={{
-                    backgroundColor: _products[0].attributes.category.data.attributes.color
-                }}>
-                    <h1 className='inter inter-semiBold'>{nom}</h1>
+                        <div className='productsList max-w padding' style={{
+                            backgroundColor: _products[0].attributes.category ? _products[0].attributes.category.data.attributes.color : "#fff"
+                        }}>
+                            <h1 className='inter inter-semiBold'>{nom}</h1>
 
-                    {
-                        loading === true ? <p>Chargement...</p> : _products.map((product: apiProduct) => {
-                            return (
-                                <Card
-                                    key={product.id}
-                                    product={product}
-                                />
-                            )
-                        }
-                        )
-                    }
+                            {
+                                loading === true ? <p>Chargement...</p> : _products.map((product: apiProduct) => {
+                                    return (
+                                        <Card
+                                            key={product.id}
+                                            product={product}
 
+                                        />
+                                    )
+                                }
+                                )
+                            }
+
+                        </div>
+
+                    </section>
                 </div>
-
-            </section>
-            </div>
-        :null}
+                : null}
         </>
     );
 

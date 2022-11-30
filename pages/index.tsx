@@ -73,13 +73,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="products" id="services">
+        <section className="products" >
           <div className="products__content max-w padding">
             {_loading === true ? (
               <p>Chargement...</p>
             ) : (categories.map((category: apiCategories) => {
               return (
-                <div key={category.id}>
+                <div key={category.id}
+                  id={`${category.attributes.nom}`}
+                >
+
                   <h3 className="products__title title title-secondary inter inter-semiBold" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
                   <div className="products__gallery">
 
@@ -110,7 +113,7 @@ export default function Home() {
             }))}
           </div>
         </section>
-      </div>
+      </div >
     </>
   );
 }
