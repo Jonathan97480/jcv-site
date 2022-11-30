@@ -39,15 +39,11 @@ export default function Footer() {
               </li>
 
               <li className="inter inter-regular">
-                <Link href="/">Services</Link>
+                <Link href="/contact">Contact</Link>
               </li>
 
               <li className="inter inter-regular">
-                <Link href="/">Contact</Link>
-              </li>
-
-              <li className="inter inter-regular">
-                <Link href="/">Mention légal</Link>
+                <Link href="/legal">Mention légal</Link>
               </li>
             </ul>
           </div>
