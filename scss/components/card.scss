@@ -1,6 +1,6 @@
 .card {
   width: 32.7rem;
-  height: 44.7rem;
+  min-height: 44.7rem;
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: var(--bkg-primary-color);
@@ -53,10 +53,23 @@
     background-color: transparent;
     cursor: pointer;
   }
-  a{
+  a {
     font-size: 2rem;
-    &:hover{
+    &:hover {
       text-decoration: underline;
+    }
+  }
+  &-activityIndicator {
+    position: absolute;
+    min-height: 24.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .activityIndicator {
+      min-height: 100%;
+      &__svg {
+        font-size: 10rem;
+      }
     }
   }
 }
