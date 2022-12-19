@@ -60,7 +60,7 @@ export default function Footer() {
                     <li className="inter inter-regular" key={item.id}>
                       <a
                         key={item.id + "header"}
-                        className="inter inter-medium"
+                        className="inter inter-regular"
                         href={`/#${item.attributes.nom}`}
                       >
                         {item.attributes.nom}
