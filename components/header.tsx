@@ -67,7 +67,7 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <div className="inter inter-medium header__serviceBtn">
+              <div className="inter inter-medium header__serviceBtn header__services">
                 Services{" "}
                 <Image
                   src={serviceIcon}

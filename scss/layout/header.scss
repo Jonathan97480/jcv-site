@@ -58,6 +58,13 @@
       display: flex;
     }
   }
+  &__services{
+    cursor: pointer;
+    &:hover{
+      color: var(--links-primary-color);
+      transition: all 0.3s;
+    }
+  }
 
   &__nav,
   &__list {
