@@ -1,40 +1,39 @@
- .products {
+.products {
   &__content {
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
     align-items: center;
-    h3{
-        text-align: center;
-        margin-bottom: 3rem;
-      @include media (large){
+    h3 {
+      text-align: center;
+      margin-bottom: 3rem;
+      @include media(large) {
         text-align: left;
       }
-      @include media (largeXl){
+      @include media(largeXl) {
         text-align: center;
       }
     }
-    h4{
+    h4 {
       text-transform: capitalize !important;
+      color: white;
+      text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
     }
   }
 
-
-
   &__gallery {
     display: grid;
-    grid-template-columns: repeat(1 , 1fr);
+    grid-template-columns: repeat(1, 1fr);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3.8rem;
-    @include media(medium){
-      grid-template-columns: repeat(2 , 40.0rem);
+    @include media(medium) {
+      grid-template-columns: repeat(2, 40rem);
     }
-    @include media(large){
-      grid-template-columns: repeat(3 , 40.0rem);
+    @include media(large) {
+      grid-template-columns: repeat(3, 40rem);
     }
-
   }
   &__category {
     display: flex;
@@ -42,7 +41,7 @@
     align-items: center;
     flex-direction: column;
   }
-  &__card{
+  &__card {
     width: 32.3rem;
     height: 38.5rem;
     background-position: center;
@@ -52,58 +51,45 @@
     border-radius: 0.4rem;
     color: var(--bkg-primary-color);
     text-align: center;
-    @include media (smallXs){
-       width: 29rem;
-    height: 38.5rem;
+    @include media(smallXs) {
+      width: 29rem;
+      height: 38.5rem;
     }
-    @include media (small){
+    @include media(small) {
       width: 37.3rem;
       height: 38.5rem;
     }
-    @include media (medium){
+    @include media(medium) {
       width: 34.3rem;
       height: 34.5rem;
     }
-      @include media (large){
-        width: 35.3rem;
-        height: 33.5rem;
-      }
-    &:hover{
-       animation: zoomImg forwards;
-       animation-duration: 1s;
+    @include media(large) {
+      width: 35.3rem;
+      height: 33.5rem;
     }
-    &-hover{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3.6rem;
-        background-color: rgba(0, 0, 0, 0.3);
-        transition: 0.3s;
-        &:hover{
-            animation: bkgTrans forwards;
-            animation-duration: 1s;
-
-        }
+    &:hover {
+      animation: zoomImg forwards;
+      animation-duration: 1s;
+    }
+    &-hover {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3.6rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
     }
   }
 }
 @keyframes zoomImg {
-    0%{
-        background-size: 383px 385px;
-    }
-    100%{
-        background-size:500px 485px;
-    }
+  0% {
+    background-size: 383px 385px;
+  }
+  100% {
+    background-size: 500px 485px;
+  }
 }
-@keyframes bkgTrans {
-    0%{
-        background-color: rgba(0, 0, 0, 0.3);
-    }
-    100%{
-        background-color: rgba(0, 0, 0, 0.0);
 
-    }
-} 
