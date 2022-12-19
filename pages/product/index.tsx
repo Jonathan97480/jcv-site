@@ -8,6 +8,7 @@ import { Carousel } from 'react-carousel-minimal-next';
 import { picData } from "../../interface/api";
 import { ApiGetProductById } from "../../util/apiRequest";
 import Head from 'next/head'
+import ActivityIndicator from "../../components/ActivityIndicator";
 
 export default function Product() {
 
@@ -166,7 +167,7 @@ export default function Product() {
                             </table>
                         </div>
                     </div>
-                ) : <h1>declare module </h1>}
+                ) :   <ActivityIndicator />}
 
         </>
     )

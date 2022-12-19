@@ -24,7 +24,11 @@ export default function Card(props: cardProps) {
                         <img src={Api.url + product.attributes.images.data[0].attributes.url} alt="" width={306}
                             height={246} />
                     ) : (
-                        <img src="https://via.placeholder.com/150" alt="" />
+                        <img src="https://via.placeholder.com/150" alt="" loading="lazy" 
+                        onLoad={()=>{
+                            return <h1>Test</h1>
+                        }}
+                        />
                     )
                 }
 

@@ -15,7 +15,7 @@ export default function Legal() {
               Mentions légales
             </h1>
           </div>
-          <section>
+          <div>
             <h2 className=" inter inter-semiBold">
               JCV CONSULTING
             </h2>
@@ -33,8 +33,8 @@ export default function Legal() {
               duis aliquet fermentum diam. Sit rhoncus amet, in adipiscing
               bibendum vitae dis. Est tortor id cras quis.
             </p>
-          </section>
-          <section>
+          </div>
+          <div>
             <h2 className="title title-secondary inter inter-semiBold">
               Décline toute responsabilité
             </h2>
@@ -52,8 +52,8 @@ export default function Legal() {
               duis aliquet fermentum diam. Sit rhoncus amet, in adipiscing
               bibendum vitae dis. Est tortor id cras quis.
             </p>
-          </section>{" "}
-          <section>
+          </div>{" "}
+          <div>
             <h2 className="title title-secondary inter inter-semiBold">
               Politique de contenu du site
             </h2>
@@ -71,8 +71,8 @@ export default function Legal() {
               duis aliquet fermentum diam. Sit rhoncus amet, in adipiscing
               bibendum vitae dis. Est tortor id cras quis.
             </p>
-          </section>{" "}
-          <section>
+          </div>{" "}
+          <div>
             <h2 className="title title-secondary inter inter-semiBold">
               Information l’égale
             </h2>
@@ -90,8 +90,8 @@ export default function Legal() {
               duis aliquet fermentum diam. Sit rhoncus amet, in adipiscing
               bibendum vitae dis. Est tortor id cras quis.
             </p>
-          </section>
-          <section>
+          </div>
+          <div>
             <div className="legal__partner">
               <Image
                 src={require("../img/logo_region.png")}
@@ -107,7 +107,7 @@ export default function Legal() {
               s’engage à La Réunion
             </p>
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </>

@@ -35,7 +35,6 @@ export default function Home() {
         <section className="hero" id="home">
           <div className="hero__content max-w padding">
             <h1 className="hero__title title inter inter-bold">JCV CONSULT</h1>
-
             <p className="hero__text inter inter-regular">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
               dignissim sit tincidunt non. Laoreet at nibh elit, ridiculus

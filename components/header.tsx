@@ -105,7 +105,7 @@ export default function Header() {
             </li>
             <li>
               <Link href="/contact" className="inter inter-medium">
-                contact
+                Contact
               </Link>
             </li>
           </ul>

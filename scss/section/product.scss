@@ -1,4 +1,5 @@
 .products {
+  min-height: calc(100vh - 45.7rem);
   &__content {
     display: flex;
     flex-direction: column;
@@ -92,4 +93,3 @@
     background-size: 500px 485px;
   }
 }
-
