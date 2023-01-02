@@ -1,18 +1,18 @@
 .contact {
-    h1 {
-      text-align: center;
+  h1 {
+    text-align: center;
 
-        width: 100%;
-        @include media (small){
-      }
-      @include media (medium){
-        text-align: left;
+    width: 100%;
+    @include media(small) {
     }
-      @include media (largeXl){
-        margin: auto;
-        width: 83%;
+    @include media(medium) {
+      text-align: left;
     }
-      }
+    @include media(largeXl) {
+      margin: auto;
+      width: 83%;
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -20,27 +20,30 @@
     gap: 2.4rem;
     justify-content: center;
     @include media(medium) {
-        flex-direction: row;
-        justify-content: flex-start;
-      }
+      flex-direction: row;
+      justify-content: flex-start;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+
+
     @include media(medium) {
-        width: 45%;
-        margin: 0;
-      }
+      width: 45%;
+      margin: 0;
+    }
 
     form {
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.436);
       display: flex;
       flex-direction: column;
       gap: 3.4rem;
       justify-content: center;
       align-items: center;
-      background-color: var(--title-secondary-color);
+      color: var(--bkg-primary-color);
       padding: 1.6rem 1.1rem;
       border-radius: 0.6rem;
       @include media(small) {
@@ -61,27 +64,29 @@
     }
 
     &Input {
-        width: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
       font-size: 2rem;
       font-family: "Inter";
       font-weight: 400;
+      label{
+        color: black;
+      }
       input,
       textarea {
+        border: none;
+        border-color: transparent;
+        border-bottom: 2px solid var(--txt-primary-color);
         border-radius: 0.3rem;
         width: 29.4rem;
-        height: 3.5rem;
-        border: none;
+        min-height: 3.5rem;
         padding: 0.6rem 1.1rem;
-          width: 100%;
+        width: 100%;
         ::placeholder {
           font-family: "Inter";
         }
-      }
-      textarea {
-        height: 10.7rem;
       }
     }
   }
@@ -91,21 +96,21 @@
     flex-direction: column;
     gap: 1.4rem;
     color: var(--txt-color);
-    @include media (small){
-        width: 70%;
-       margin: auto;
-       align-items: center;
+    @include media(small) {
+      width: 70%;
+      margin: auto;
+      align-items: center;
     }
     @include media(medium) {
-        margin: initial;
-        width: initial;
-       align-items: flex-start;
-       gap: 2.4rem;
-      }
+      margin: initial;
+      width: initial;
+      align-items: flex-start;
+      gap: 2.4rem;
+    }
     @include media(large) {
-       justify-content: flex-start;
-       align-items: flex-start;
-      }
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
     &Item {
       display: flex;
       flex-direction: row;

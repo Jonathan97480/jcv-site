@@ -1,8 +1,12 @@
 .legal {
-h1{
-  margin-bottom: 2rem;
-}
+
   &__content {
+    h1{
+      text-align: center;
+      @include media(small){
+        text-align: left;
+      }
+    }
     display: flex;
     flex-direction: column;
     gap: 1.8rem;

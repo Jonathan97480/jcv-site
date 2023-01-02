@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Head from "next/head";
 import ActivityIndicator from "../../components/ActivityIndicator";
+import Link from "next/link";
 
 export default function Products() {
   const P_redux = useSelector(selectProducts);
@@ -42,19 +43,21 @@ export default function Products() {
             {loading === true ? (
               <ActivityIndicator />
             ) : (
+
               <div
-                className="productsList max-w padding"
-                style={{
-                  backgroundColor: _products[0].attributes.category
-                    ? _products[0].attributes.category.data.attributes.color
-                    : "#fff",
-                }}
-              >
-                <h1 className="inter inter-semiBold">{nom}</h1>
+                className="productsList max-w padding">
+                <h1 className="inter inter-semiBold" style={{
+                  color: _products[0].attributes.category
+                  ? _products[0].attributes.category.data.attributes.color
+                  : "#000",
+                }}>{nom}</h1>
                 {
                     _products.map((product: apiProduct) => {
                         return (
-                            <Card key={product.id} product={product} />)
+                          <Link className="card-txtColor" href={{ pathname: "/product", query: { id: product.id } }}>
+                             <Card key={product.id} product={product} />
+                          </Link>
+                           )
                         })
                 }
 

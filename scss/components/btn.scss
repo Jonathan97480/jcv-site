@@ -12,6 +12,7 @@
     min-width: 8.4rem;
     font-size: 2rem;
     transition: all 0.3s;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
     &:hover{
       background-color: var(--bkg-primary-color);
       border: 0.1rem solid var(--links-primary-color);
