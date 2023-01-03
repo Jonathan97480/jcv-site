@@ -42,21 +42,13 @@ export default function Card(props: cardProps) {
           />
         )}
         )
-        <h2 className="inter inter-semiBold">
+        <h2 className="title title-medium">
           {sliceText(product.attributes.nom, 30)}
         </h2>
-        <p className="inter inter-regular">
+        <p>
           {sliceText(product.attributes.description, 60)}{" "}
         </p>
-        <Link
-          className="inter inter-regular"
-          href={{ pathname: "/product", query: { id: product.id } }}
-          style={{
-            color: product.attributes.category.data.attributes.color,
-          }}
-        >
-          En savoir plus
-        </Link>
+
       </div>
     </div>
   );

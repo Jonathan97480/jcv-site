@@ -1,6 +1,6 @@
 .table {
   font-size: 1.6rem;
-  font-family: "Inter";
+  font-family: "openSans";
   font-weight: 400;
   width: 100%;
   text-align: center;
@@ -14,6 +14,7 @@
   td,
   th {
     vertical-align: middle;
+    text-align: left;
   }
 
   tr,

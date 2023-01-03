@@ -11,7 +11,7 @@ export default function About() {
             <div className="aboutPage">
 
                 <div className="aboutPage__content padding max-w">
-                    <h1>JCV Consult</h1>
+                    <h1 className="title title-medium">JCV Consult</h1>
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                     <Image
                         src={require("../img/About-pic.png")}
@@ -19,7 +19,6 @@ export default function About() {
                         width={320}
                         height={180}
                         loading="lazy"
-
                     />
 
                     <p>

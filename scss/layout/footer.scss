@@ -1,5 +1,4 @@
 .footer {
-  font-size: 1.7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,46 +21,51 @@
     gap: 1.7rem;
   }
 
-  h4 {
-    font-size: 2.2rem;
-  }
-
-  &__content{
+  &__content {
     justify-content: space-between;
     width: 100%;
   }
-  &__content, &__main{
+  &__content,
+  &__main {
     width: 100%;
-
   }
-&__main{
-    @include media (medium){
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
+  &__main {
+    @include media(medium) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
     }
-    a{
+    a {
       color: var(--txt-color);
+      font-family: "RobotoSlab";
+      font-weight: 400;
+      font-size: 1.7rem;
     }
-}
-&__end, &__partner{
+  }
+  &__end,
+  &__partner {
     flex-direction: column;
-    @include media (medium){
-        flex-direction: row;
+    @include media(medium) {
+      flex-direction: row;
     }
-}
-&__end{
-    @include media (medium){
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin-top: 2rem;
+  }
+  &__end {
+    @include media(medium) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 2rem;
     }
-    justify-content:space-around;
+    justify-content: space-around;
     width: 100%;
-}
-&__list{
-  line-height: 2.5;
-}
+    &:nth-child(2){
+     font-size: 1.5rem;
+     font-family: "RobotoSlab";
+     font-weight: 400;
+    }
+  }
+  &__list {
+    line-height: 2.5;
+  }
 }

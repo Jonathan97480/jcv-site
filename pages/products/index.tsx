@@ -46,7 +46,7 @@ export default function Products() {
 
               <div
                 className="productsList max-w padding">
-                <h1 className="inter inter-semiBold" style={{
+                <h1 className="title title-small" style={{
                   color: _products[0].attributes.category
                   ? _products[0].attributes.category.data.attributes.color
                   : "#000",

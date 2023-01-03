@@ -15,15 +15,7 @@
   gap: 3.7rem;
   color: var(--bkg-primary-color);
 
-  h1 {
-    font-size: 3.6rem;
-    @include media(large) {
-      font-size: 6.6rem;
-    }
-  }
-
   p {
-    font-size: 2rem;
     text-align: center;
     color: var(--bkg-primary-color);
     @include media(small) {

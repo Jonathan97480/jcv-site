@@ -69,7 +69,7 @@
       flex-direction: column;
       gap: 0.6rem;
       font-size: 2rem;
-      font-family: "Inter";
+      font-family: "openSans";
       font-weight: 400;
       label{
         color: black;
@@ -84,8 +84,15 @@
         min-height: 3.5rem;
         padding: 0.6rem 1.1rem;
         width: 100%;
+        transition: all 0.2s;
+
         ::placeholder {
-          font-family: "Inter";
+          font-family: "openSans";
+        }
+        &:focus{
+         outline: none;
+          border-bottom: 2px solid var(--links-primary-color);
+          transition: all 0.2s;
         }
       }
     }
@@ -96,6 +103,9 @@
     flex-direction: column;
     gap: 1.4rem;
     color: var(--txt-color);
+    span{
+      color: var(--txt-primary-color);
+    }
     @include media(small) {
       width: 70%;
       margin: auto;
@@ -114,8 +124,9 @@
     &Item {
       display: flex;
       flex-direction: row;
+      align-items: center;
       gap: 1rem;
-      font-family: "Inter";
+      font-family: "openSans";
     }
   }
 }

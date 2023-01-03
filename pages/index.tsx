@@ -34,7 +34,7 @@ export default function Home() {
       <div className="home">
         <section className="hero" id="home">
           <div className="hero__content max-w padding">
-            <h1 className="hero__title title inter inter-bold">JCV CONSULT</h1>
+            <h1 className="hero__title title title-black ">JCV CONSULT</h1>
             <p className="hero__text inter inter-regular">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
               dignissim sit tincidunt non. Laoreet at nibh elit, ridiculus
@@ -47,8 +47,8 @@ export default function Home() {
           <div className=" about__content max-w  padding">
             <div className="about__contentInfo">
               <div className="about__contentTxt ">
-                <h2 className="title title-secondary inter inter-semiBold">JCV Consult</h2>
-                <p className="inter inter-regular">Lorem ipsum dolor sit amet consectetur.</p>
+                <h2 className="title title-medium">JCV Consult</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
                 <p>
                   Lorem ipsum dolor sit amet consectetur. Faucibus vitae ornare eu
                   mattis pellentesque morbi et duis condimentum. Sollicitudin
@@ -82,7 +82,7 @@ export default function Home() {
                   id={`${category.attributes.nom}`}
                 >
 
-                  <h3 className="products__title title title-secondary inter inter-semiBold" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
+                  <h3 className="products__title title title-medium" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
                   <div className="products__gallery">
 
                     {
@@ -97,7 +97,7 @@ export default function Home() {
                             href={{ pathname: "/products", query: { id: sous_category.id, nom: sous_category.attributes.name } }}
                           >
                             <div className="products__card-hover">
-                              <h4 className="title inter inter-semiBold">{sous_category.attributes.name}</h4>
+                              <h4 className="title title-small">{sous_category.attributes.name}</h4>
                               <button className="btn">En savoir plus</button>
                             </div>
                           </Link>

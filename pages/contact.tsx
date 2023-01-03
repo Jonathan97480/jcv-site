@@ -18,11 +18,11 @@ export default function Contact() {
       </Head>
       <section className="contact">
         <div className="contact__content max-w padding">
-          <h1 className="title inter inter-semiBold">Contacter-nous</h1>
+          <h1 className="title title-medium">Contacter-nous</h1>
           <div className="contact__form">
             <form action="">
               <div className="contact__formInput">
-                <label htmlFor="name">Nom *</label>
+                <label htmlFor="name" className="title">Nom *</label>
                 <input
                   type="text"
                   name="name"
@@ -32,7 +32,7 @@ export default function Contact() {
               </div>
 
               <div className="contact__formInput">
-                <label htmlFor="email">Email *</label>
+                <label htmlFor="email" className="title">Email *</label>
                 <input
                   type="email"
                   name="email"
@@ -42,7 +42,7 @@ export default function Contact() {
               </div>
 
               <div className="contact__formInput">
-                <label htmlFor="phone">Tel (facultatif)</label>
+                <label htmlFor="phone" className="title">Tel (facultatif)</label>
                 <input
                   type="tel"
                   name="phone"
@@ -52,7 +52,7 @@ export default function Contact() {
               </div>
 
               <div className="contact__formInput">
-                <label htmlFor="message">Message *</label>
+                <label htmlFor="message" className="title">Message * </label>
                 <textarea
                   name="message"
                   id="message"
@@ -69,20 +69,20 @@ export default function Contact() {
           <div className="contact__info">
             <div className="contact__infoItem">
               <BsFillGeoAltFill />
-              <span>12 rue Saint-Pierre 97410</span>
+              <span className="title title-small">12 rue Saint-Pierre 97410</span>
             </div>
             <div className="contact__infoItem">
               <BsTelephone />
-              <span>06 92 01 02 03</span>
+              <span className="title title-small">06 92 01 02 03</span>
             </div>
 
             <div className="contact__infoItem">
               <IoMdMailOpen />
-              <span>tim.jennings@example.com</span>
+              <span className="title title-small">tim.jennings@example.com</span>
             </div>
             <div className="contact__infoItem">
               <BsClock />
-              <span>Du lundi au vendredi de 7h30 à 8h30</span>
+              <span className="title title-small">Du lundi au vendredi de 7h30 à 8h30</span>
             </div>
           </div>
         </div>

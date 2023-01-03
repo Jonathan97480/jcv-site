@@ -31,25 +31,25 @@ export default function Footer() {
           </Link>
 
           <div className="footer__navLinks">
-            <h4 className="inter inter-semiBold">Navigation</h4>
+            <h4 className="title title-small">Navigation</h4>
 
             <ul className="footer__list">
-              <li className="inter inter-regular">
+              <li>
                 <Link href="/">Accueil</Link>{" "}
               </li>
 
-              <li className="inter inter-regular">
+              <li>
                 <Link href="/contact">Contact</Link>
               </li>
 
-              <li className="inter inter-regular">
+              <li>
                 <Link href="/legal">Mention légal</Link>
               </li>
             </ul>
           </div>
 
           <div className="footer__services">
-            <h4 className="inter inter-semiBold">Services</h4>
+            <h4 className="title title-small">Services</h4>
 
             <ul className="footer__list">
               {service.length === 0 ? (
@@ -57,10 +57,9 @@ export default function Footer() {
               ) : (
                 service.map((item: apiCategories) => {
                   return (
-                    <li className="inter inter-regular" key={item.id}>
+                    <li key={item.id}>
                       <a
                         key={item.id + "header"}
-                        className="inter inter-regular"
                         href={`/#${item.attributes.nom}`}
                       >
                         {item.attributes.nom}
@@ -73,22 +72,22 @@ export default function Footer() {
           </div>
 
           <div className="footer__info">
-            <h4 className="inter inter-semiBold">Information</h4>
+            <h4 className="title title-small">Information</h4>
             <ul className="footer__list">
-              <li className="inter inter-regular">
+              <li>
                 <a href="#">06 92 01 02 03</a>
               </li>
-              <li className="inter inter-regular">
+              <li>
                 <a href="#">JCV@gmail.com</a>
               </li>
-              <li className="inter inter-regular">
+              <li>
                 <a href="#">La reunion 97410</a>
               </li>
             </ul>
           </div>
 
           <div className="footer__social">
-            <h4 className="inter inter-semiBold">Suivez moi</h4>
+            <h4 className="title title-small">Suivez moi</h4>
             <a href="#">
               <Image
                 src={facebook}
@@ -119,7 +118,7 @@ export default function Footer() {
             />
           </span>
 
-          <span className="inter inter-regular">Copyright JCV Consulting 2022</span>
+          <span>Copyright JCV Consulting 2022</span>
           <Switch
             on={true}
             onClick={(value: boolean) => {

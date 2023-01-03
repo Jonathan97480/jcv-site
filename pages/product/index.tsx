@@ -45,7 +45,7 @@ export default function Product() {
             {
                 product !== null ? (
                     <div className="product max-w padding">
-                            <h1 className="title title-secondary inter inter-medium"
+                            <h1 className="title title-medium"
                                 style={{
                                     color: product.attributes.category.data.attributes.color,
                                 }}
@@ -80,7 +80,7 @@ export default function Product() {
                         <p>{product.attributes.description}</p>
 
                         <div className="product__info">
-                            <h2 className="title title-secondary inter inter-semiBold">Caractéritiques</h2>
+                            <h2 className="title title-small">Caractéritiques</h2>
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit

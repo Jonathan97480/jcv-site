@@ -1,47 +1,5 @@
-.legal {
-
-  &__content {
-    h1{
-      text-align: center;
-      @include media(small){
-        text-align: left;
-      }
-    }
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-    @include media(large) {
-      gap: 2.4rem;
-    }
-    h2 {
-      font-size: 2.4rem;
-    }
-    p{
-      font-size: 1.8rem;
-    }
-  }
-  &__partner {
-    background-color: antiquewhite;
-    border-radius: 0.6rem;
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-  align-items: center;
-
-    @include media(medium) {
-  flex-direction: row;
-    }
-    &Img {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3.6rem;
-      @include media(small) {
-        flex-direction: row;
-        justify-content: flex-start;
-      }
-    }
-  }
+.legal, .legal__block {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }

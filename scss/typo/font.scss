@@ -1,23 +1,31 @@
 /* Roboto slab */
-font-face {
+@font-face {
+  font-family: "RobotoSlab";
+  src: url("../font/Roboto_Slab/static/RobotoSlab-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "RobotoSlab";
   src: url("../font/Roboto_Slab/static/RobotoSlab-Medium.ttf");
   font-weight: 500;
   font-display: swap;
 }
-font-face {
+
+@font-face {
   font-family: "RobotoSlab";
   src: url("../font/Roboto_Slab/static/RobotoSlab-SemiBold.ttf");
   font-weight: 600;
   font-display: swap;
 }
-font-face {
+@font-face {
   font-family: "RobotoSlab";
   src: url("../font/Roboto_Slab/static/RobotoSlab-Bold.ttf");
   font-weight: 700;
   font-display: swap;
 }
-font-face {
+@font-face {
   font-family: "RobotoSlab";
   src: url("../font/Roboto_Slab/static/RobotoSlab-Black.ttf");
   font-weight: 900;
@@ -25,7 +33,7 @@ font-face {
 }
 
 /* Open sans */
-font-face {
+@font-face {
   font-family: "OpenSans";
   src: url("../font/Open_Sans/static/OpenSans/OpenSans-Regular.ttf");
   font-weight: 400;

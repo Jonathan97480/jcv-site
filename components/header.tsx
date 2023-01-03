@@ -58,7 +58,7 @@ export default function Header() {
             }
           >
             <li>
-              <Link href="/#home" className="inter inter-medium">
+              <Link href="/#home" className="title tile-small">
                 Accueil
               </Link>
             </li>
@@ -67,7 +67,7 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <div className="inter inter-medium header__serviceBtn header__services">
+              <div className="title tile-small header__serviceBtn header__services">
                 Services{" "}
                 <Image
                   src={serviceIcon}
@@ -91,7 +91,7 @@ export default function Header() {
                         <li key={item.id}>
                           <a
                             key={item.id + "header"}
-                            className="inter inter-medium"
+                            className="title tile-small"
                             href={`/#${item.attributes.nom}`}
                           >
                             {item.attributes.nom}
@@ -104,7 +104,7 @@ export default function Header() {
               </div>
             </li>
             <li>
-              <Link href="/contact" className="inter inter-medium">
+              <Link href="/contact" className="title tile-small">
                 Contact
               </Link>
             </li>

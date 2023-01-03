@@ -6,6 +6,14 @@
   background-color: var(--bkg-primary-color);
   margin: auto;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.18);
+  transition: all .5s;
+  &:hover{
+    transform: scale(1.05);
+    transition: all .5s;
+  box-shadow: 0px 1px 4px var(--links-primary-color);
+
+
+  }
   @include media(small) {
     width: 37.7rem;
   }
