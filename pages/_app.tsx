@@ -8,8 +8,6 @@ import { wrapper } from '../slice/store'
 
 function App({ Component, pageProps }: AppProps) {
 
-
-
   return (
 
     <Layout >
