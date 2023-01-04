@@ -1,19 +1,10 @@
 :root {
-  --bkg-primary-color: #ffffff;
-  --bkg-secondary-color: #F9F9F9;
-  --txt-primary-color: #454851;
-  --title-secondary-color: #078080;
-  --links-primary-color: #ED593C;
+
+
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 14rem;
- [data-theme="dark"] {
-    body {
-      background-color: #121212 ;
-    --txt-primary-color: red;
 
-    }
-  }
 
   a {
     text-decoration: none;
