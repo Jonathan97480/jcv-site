@@ -41,7 +41,6 @@ export default function Card(props: cardProps) {
             }}
           />
         )}
-        )
         <h2 className="title title-medium">
           {sliceText(product.attributes.nom, 30)}
         </h2>

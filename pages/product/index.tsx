@@ -80,7 +80,7 @@ export default function Product() {
                         <p>{product.attributes.description}</p>
 
                         <div className="product__info">
-                            <h2 className="title title-small">Caractéritiques</h2>
+                            <h2 className="title title-small">Caractéristiques</h2>
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit

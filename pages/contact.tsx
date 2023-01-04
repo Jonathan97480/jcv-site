@@ -18,7 +18,7 @@ export default function Contact() {
       </Head>
       <section className="contact">
         <div className="contact__content max-w padding">
-          <h1 className="title title-medium">Contacter-nous</h1>
+          <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
             <form action="">
               <div className="contact__formInput">
@@ -69,20 +69,20 @@ export default function Contact() {
           <div className="contact__info">
             <div className="contact__infoItem">
               <BsFillGeoAltFill />
-              <span className="title title-small">12 rue Saint-Pierre 97410</span>
+              <span className="title title-small">273 CHE EDWARD SAVIGNY CYTISES N7 97432 SAINT-PIERRE Réunion</span>
             </div>
             <div className="contact__infoItem">
               <BsTelephone />
-              <span className="title title-small">06 92 01 02 03</span>
+              <span className="title title-small">06 93 81 53 03</span>
             </div>
 
             <div className="contact__infoItem">
               <IoMdMailOpen />
-              <span className="title title-small">tim.jennings@example.com</span>
+              <span className="title title-small">jvitry3@gmail.com</span>
             </div>
             <div className="contact__infoItem">
               <BsClock />
-              <span className="title title-small">Du lundi au vendredi de 7h30 à 8h30</span>
+              <span className="title title-small">Du lundi au vendredi de 8h30 à 18h00</span>
             </div>
           </div>
         </div>

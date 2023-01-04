@@ -111,7 +111,7 @@ export default function Header() {
           </ul>
         </nav>
         <Link href={"/devis"} className=" header__btn btn ">
-          Etude personnaliser
+        Étude personnalisée
         </Link>
       </div>
     </header>
