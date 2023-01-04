@@ -8,7 +8,18 @@
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 14rem;
-
+ [data-theme="dark"] {
+    body {
+      background-color: #121212;
+      color: #fff;
+    }
+  }
+   [data-theme="dark"] {
+    body {
+      background-color: var(--bkg-primary-color);
+      color: #fff;
+    }
+  }
   a {
     text-decoration: none;
     &:hover{

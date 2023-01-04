@@ -6,9 +6,13 @@ import Image from "next/image";
 import { apiCategories } from "../interface";
 import { useSelector } from "react-redux";
 import { selectCategory } from "../slice/categorySlice";
+import { useTheme } from 'next-themes'
+
 export default function Footer() {
   const S_redux: apiCategories[] = useSelector(selectCategory);
   const [service, setService] = useState<apiCategories[]>([]);
+
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     if (S_redux.length !== 0) {
@@ -120,9 +124,9 @@ export default function Footer() {
 
           <span>Copyright JCV Consulting 2022</span>
           <Switch
-            on={true}
+            on={theme === 'dark'}
             onClick={(value: boolean) => {
-              return null;
+              setTheme(value ? 'dark' : 'light')
             }}
           />
         </div>
