@@ -4,22 +4,17 @@
   --txt-primary-color: #454851;
   --title-secondary-color: #078080;
   --links-primary-color: #ED593C;
-
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 14rem;
  [data-theme="dark"] {
     body {
-      background-color: #121212;
-      color: #fff;
+      background-color: #121212 ;
+    --txt-primary-color: red;
+
     }
   }
-   [data-theme="dark"] {
-    body {
-      background-color: var(--bkg-primary-color);
-      color: #fff;
-    }
-  }
+
   a {
     text-decoration: none;
     &:hover{
