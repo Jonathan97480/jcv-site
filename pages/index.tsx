@@ -73,8 +73,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="products" >
-          <div className="products__content max-w padding">
+        <section className="productCategory" >
+          <div className="productCategory__content max-w padding">
             {_loading === true ? (
               <p>Chargement...</p>
             ) : (categories.map((category: apiCategories) => {
@@ -83,8 +83,8 @@ export default function Home() {
                   id={`${category.attributes.nom}`}
                 >
 
-                  <h3 className="products__title title title-medium" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
-                  <div className="products__gallery">
+                  <h3 className="productCategorytitle title title-medium" style={{ color: category.attributes.color }} >{category.attributes.nom}</h3>
+                  <div className="productCategory__gallery">
 
                     {
                       category.attributes.sous_categories.data.map((sous_category) => {
@@ -94,10 +94,10 @@ export default function Home() {
                               backgroundImage: `url(${Api.url + sous_category.attributes.image.data.attributes.url})`,
                             }}
                             key={sous_category.id}
-                            className="products__card"
+                            className="productCategory__card"
                             href={{ pathname: "/products", query: { id: sous_category.id, nom: sous_category.attributes.name } }}
                           >
-                            <div className="products__card-hover">
+                            <div className="productCategory__card-hover">
                               <h4 className="title title-small">{sous_category.attributes.name}</h4>
                               <button className="btn">En savoir plus</button>
                             </div>

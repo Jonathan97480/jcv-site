@@ -1,5 +1,10 @@
-.legal, .legal__block {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+
+.legal{
+  background-color: var(--bkg-primary-color);
+  
+  .legal, .legal__block {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
 }

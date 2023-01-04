@@ -1,4 +1,5 @@
 .contact {
+  background-color: var(--bkg-primary-color);
   h1 {
     text-align: center;
 
@@ -72,10 +73,11 @@
       font-family: "openSans";
       font-weight: 400;
       label{
-        color: black;
+        color: var(--txt-primary-color);
       }
       input,
       textarea {
+        background: none;
         border: none;
         border-color: transparent;
         border-bottom: 2px solid var(--txt-primary-color);

@@ -18,7 +18,7 @@ function App({ Component, pageProps }: AppProps) {
       <Layout >
         <Component {...pageProps} />
 
-      </Layout>)
+      </Layout>
 
 
     </ThemeProvider>)
@@ -37,17 +37,21 @@ export const globalStyles = css`
        --bkg-primary-color: #ffffff;
       --bkg-secondary-color: #F9F9F9;
       --txt-primary-color: #454851;
+      --txt-secondary-color:#ffffff;
       --title-secondary-color: #078080;
       --links-primary-color: #ED593C;
+      --links-txt-primary-color:#ffffff;
+      --table-border-color: #454851;
     }
   }
   [data-theme="dark"] {
     body {
-      --bkg-primary-color: red;
-      --bkg-secondary-color: #F9F9F9;
-      --txt-primary-color: #454851;
+      --bkg-primary-color: #1F1F35;
+      --bkg-secondary-color: #24243b;
+      --txt-secondary-color:#ffffff;
+      --txt-primary-color:#ffffff;
       --title-secondary-color: #078080;
-      --links-primary-color: blue;
+      --table-border-color: #ffffff
     }
   }
 `;
