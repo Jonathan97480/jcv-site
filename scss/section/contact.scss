@@ -127,8 +127,19 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
       font-family: "openSans";
+      a{
+        span{
+          &:hover{
+            color: #5081B8;
+          }
+        }
+      }
+      svg{
+        font-size: 2rem;
+        color: var(--txt-primary-color);
+      }
     }
   }
 }

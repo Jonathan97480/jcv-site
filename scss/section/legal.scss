@@ -1,12 +1,14 @@
 .legal {
   background-color: var(--bkg-primary-color);
-  .legal,
+  display: flex;
+    flex-direction: column;
+    gap: 3rem;
   .legal__block {
     display: flex;
     flex-direction: column;
     gap: 3rem;
   }
-  .legal__block:nth-child(9) {
+  .legal__block:nth-child(10) {
     margin-top: 3rem;
     gap: 0;
   }

@@ -14,10 +14,11 @@ export default function Legal() {
 
           <div className="legal__block">
             <h2 className="title title-small">Les développeurs</h2>
-            <p>Développeur back-end : Jonathan Gauvin</p>
-            <p>Intégrateur front-end / designer: Teddy Equerre</p>
+            <p>Développeur Back-end : Jonathan Gauvin</p>
+            <p>Intégrateur Front-end et designer : Teddy Equerre</p>
+            <p>Cordinateur : Frédéric Morel</p>
           </div>
-
+          <h2 className="title title-small">Les site</h2>
           <p>
             Le site JVC Consult a pour objet de fournir des informations sur le
             produit proposé par la société JVC Consult, qui propose le
