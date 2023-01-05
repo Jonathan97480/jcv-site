@@ -110,7 +110,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <Link href={"/devis"} className=" header__btn btn ">
+        <Link href={"/etudePersonaliser"} className=" header__btn btn ">
           Etude personnaliser
         </Link>
       </div>

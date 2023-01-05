@@ -18,7 +18,7 @@ function App({ Component, pageProps }: AppProps) {
       <Layout >
         <Component {...pageProps} />
 
-      </Layout>)
+      </Layout>
 
 
     </ThemeProvider>)
