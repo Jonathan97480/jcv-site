@@ -13,11 +13,12 @@ export default function Legal() {
           <h1 className="title title-medium">Mentions légales</h1>
 
           <div className="legal__block">
-            <h2 className="title title-small">Les développeur</h2>
-            <p>Développeur back-end : Jonathan Gauvin</p>
-            <p>Intégrateur front-end / designer: Teddy Equerre</p>
+            <h2 className="title title-small">Les développeurs</h2>
+            <p>Développeur Back-end : Jonathan Gauvin</p>
+            <p>Intégrateur Front-end et designer : Teddy Equerre</p>
+            <p>Cordinateur : Frédéric Morel</p>
           </div>
-
+          <h2 className="title title-small">Les site</h2>
           <p>
             Le site JVC Consult a pour objet de fournir des informations sur le
             produit proposé par la société JVC Consult, qui propose le
@@ -141,7 +142,31 @@ export default function Legal() {
             <p>2 rue Kellermann – 59100 Roubaix – +33 (0)8 203 203 63</p>
             <p>http://www.ovh.fr/</p>
           </div>
+          <div className="legal__region">
+          <span className="legal__regionImg">
+            <Image
+              src={require("../img/logo_region.png")}
+              alt=""
+              width={87}
+              height={41}
+              loading="lazy"
+            />
+            <Image
+              src={require("../img/europe.png")}
+              alt=""
+              width={67}
+              height={51}
+              loading="lazy"
+            />
+          </span>
+          <p>
+            Ce site a été financé à l’aide du FEDER dans le cadre de la réponse
+            de l’Union européenne à la pandémie COVID-19. L’Europe s’engage à La
+            Réunion
+          </p>
         </div>
+        </div>
+        
       </section>
     </>
   );

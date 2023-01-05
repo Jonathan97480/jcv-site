@@ -13,11 +13,11 @@
   justify-content: center;
   align-items: center;
   gap: 3.7rem;
-  color: var(--bkg-primary-color);
+  color: var(--txt-secondary-color);
 
   p {
     text-align: center;
-    color: var(--bkg-primary-color);
+    color: var(--txt-secondary-color);
     @include media(small) {
       width: 56.6rem;
       font-size: 2.4rem;

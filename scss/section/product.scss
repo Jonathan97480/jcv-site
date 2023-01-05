@@ -1,5 +1,6 @@
-.products {
+.product {
   min-height: calc(100vh - 45.7rem);
+  background-color: var(--bkg-primary-color);
   &__content {
     display: flex;
     flex-direction: column;

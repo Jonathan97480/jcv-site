@@ -38,7 +38,7 @@
         display: block;
         width: calc(94px / 2);
         height: 60px;
-        background-color: #B17A0F;
+        background-color: #d3910d;
         transition: 0.5s ease-in-out all;
     }
 
@@ -46,10 +46,9 @@
         /*  left: 0; */
         transform: translateX(-30%);
     }
-
     &__right {
         /*   right: 0; */
         transform: translateX(80%);
-        background-color: rgb(48, 41, 41);
+        background-color: #fff;
     }
 }

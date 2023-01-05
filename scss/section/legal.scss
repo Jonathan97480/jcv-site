@@ -1,5 +1,36 @@
-.legal, .legal__block {
+.legal {
+  background-color: var(--bkg-primary-color);
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+    flex-direction: column;
+    gap: 3rem;
+  .legal__block {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .legal__block:nth-child(10) {
+    margin-top: 3rem;
+    gap: 0;
+  }
+  &__region {
+    display: flex;
+    background-color: var(--bkg-secondary-color);
+    flex-direction: column;
+    gap: 3.6rem;
+    align-items: center;
+    padding: 2.5rem;
+    border-radius: .5rem;
+    @include media(large) {
+      flex-direction: row;
+    }
+    &Img {
+      display: flex;
+      flex-direction: column;
+      gap: 3.6rem;
+      align-items: center;
+      @include media(large) {
+        flex-direction: row;
+      }
+    }
+  }
 }

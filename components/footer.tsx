@@ -7,6 +7,7 @@ import { apiCategories } from "../interface";
 import { useSelector } from "react-redux";
 import { selectCategory } from "../slice/categorySlice";
 import { useTheme } from 'next-themes'
+import { BsFacebook } from "react-icons/bs";
 
 export default function Footer() {
   const S_redux: apiCategories[] = useSelector(selectCategory);
@@ -35,7 +36,7 @@ export default function Footer() {
           </Link>
 
           <div className="footer__navLinks">
-            <h4 className="title title-small">Navigation</h4>
+            <h4 className="title title-small">Navigations</h4>
 
             <ul className="footer__list">
               <li>
@@ -47,7 +48,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/legal">Mention légal</Link>
+                <Link href="/legal">Mentions légales</Link>
               </li>
             </ul>
           </div>
@@ -76,30 +77,21 @@ export default function Footer() {
           </div>
 
           <div className="footer__info">
-            <h4 className="title title-small">Information</h4>
+            <h4 className="title title-small">Informations</h4>
             <ul className="footer__list">
               <li>
-                <a href="#">06 92 01 02 03</a>
+                <a href="tel:0693815303">06 93 81 53 03</a>
               </li>
               <li>
-                <a href="#">JCV@gmail.com</a>
-              </li>
-              <li>
-                <a href="#">La reunion 97410</a>
+                <a href="mailto:jvitry3@gmail.com">jvitry3@gmail.com</a>
               </li>
             </ul>
           </div>
 
           <div className="footer__social">
-            <h4 className="title title-small">Suivez moi</h4>
-            <a href="#">
-              <Image
-                src={facebook}
-                alt="Icon facebook"
-                width={30}
-                height={29}
-                loading="lazy"
-              />
+            <h4 className="title title-small">Suivez-moi</h4>
+            <a href="https://www.facebook.com/profile.php?id=100008184432842">
+              <BsFacebook size={30}/>
             </a>
           </div>
         </div>
@@ -122,7 +114,7 @@ export default function Footer() {
             />
           </span>
 
-          <span>Copyright JCV Consulting 2022</span>
+          <span>Copyright JCV Consult 2023</span>
           <Switch
             on={theme === 'dark'}
             onClick={(value: boolean) => {

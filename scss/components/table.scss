@@ -20,7 +20,8 @@
   tr,
   td {
     border-collapse: collapse;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--table-border-color);
+    border-radius: 5rem;
   }
   th,
   td {

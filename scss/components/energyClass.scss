@@ -1,0 +1,31 @@
+.energyClass{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    font-family: "RobotoSlab";
+    font-size: 2rem;
+    font-weight: 700;
+    display: inline-block;
+    color: #fff;
+    &-a{
+        background-color:#3ca358;
+    }
+    &-b{
+        background-color: #7db654;
+    }
+    &-c{
+        background-color: #c5d349;
+    }
+    &-d{
+        background-color: #ffef35;
+    }
+    &-e{
+        background-color: #edb437;
+    }
+    &-f{
+        background-color: #d56b2f;
+    }
+    &-g{
+        background-color: #ca152c;
+    }
+}

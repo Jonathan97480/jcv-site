@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { BsClock, BsFillGeoAltFill, BsTelephone } from "react-icons/bs";
-import { IoMdMailOpen } from "react-icons/io";
+import { BsTelephoneFill, BsFillClockFill  } from "react-icons/bs";
+import { FaMailBulk,FaMapMarkerAlt  } from "react-icons/fa";
+
 import Head from 'next/head'
 
 
@@ -18,7 +19,7 @@ export default function Contact() {
       </Head>
       <section className="contact">
         <div className="contact__content max-w padding">
-          <h1 className="title title-medium">Contacter-nous</h1>
+          <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
             <form action="">
               <div className="contact__formInput">
@@ -67,22 +68,30 @@ export default function Contact() {
           </div>
 
           <div className="contact__info">
+          <h2 className="title title-small">Informations</h2>
+
             <div className="contact__infoItem">
-              <BsFillGeoAltFill />
-              <span className="title title-small">12 rue Saint-Pierre 97410</span>
+              <FaMapMarkerAlt />
+              <span className="title">273 CHE EDWARD SAVIGNY CYTISES N7 97432 SAINT-PIERRE Réunion</span>
             </div>
             <div className="contact__infoItem">
-              <BsTelephone />
-              <span className="title title-small">06 92 01 02 03</span>
+              <BsTelephoneFill />
+              <a href="tel:06 93 81 53 03">
+              <span className="title">06 93 81 53 03</span>
+
+              </a>
             </div>
 
             <div className="contact__infoItem">
-              <IoMdMailOpen />
-              <span className="title title-small">tim.jennings@example.com</span>
+              <FaMailBulk />
+              <a href="mailto:jvitry3@gmail.com">
+              <span className="title "> jvitry3@gmail.com</span>
+              </a>
+
             </div>
             <div className="contact__infoItem">
-              <BsClock />
-              <span className="title title-small">Du lundi au vendredi de 7h30 à 8h30</span>
+              <BsFillClockFill />
+              <span className="title">Du lundi au vendredi de 8h30 à 18h00</span>
             </div>
           </div>
         </div>
