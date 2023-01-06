@@ -140,3 +140,48 @@ export async function GetAllFormulaire(): Promise<any> {
 
 }
 
+
+export interface apiPartenaire {
+    id: number;
+    nom: string;
+    logo: string;
+    lien?: string;
+}
+
+export async function GetAllPartenaire(): Promise<apiPartenaire[]> {
+
+
+
+    const option = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+
+        }
+    }
+
+    const res = await fetch(Api.url + '/api/partenaires?populate=*', option)
+
+    const response: any = await res.json();
+    const data: apiPartenaire[] = response.data;
+    const partenaires: apiPartenaire[] = [];
+
+    data.forEach((partenaire: any) => {
+        partenaires.push({
+            id: partenaire.id,
+            nom: partenaire.attributes.nom,
+            logo: Api.url + partenaire.attributes.logo.data.attributes.url,
+            lien: partenaire.attributes.url
+        })
+
+    })
+
+
+
+    return partenaires;
+
+}
+
+
+

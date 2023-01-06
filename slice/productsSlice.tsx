@@ -1,7 +1,6 @@
 
 
 import { createSlice } from "@reduxjs/toolkit";
-import { HYDRATE } from 'next-redux-wrapper';
 import { apiProduct } from "../interface";
 
 export interface productsState {
@@ -24,10 +23,10 @@ export const productsSlice = createSlice({
     reducers: {
         setProducts: (state, action) => {
             state.products = action.payload;
+            state.loading = true;
+            state.error = null;
         },
-        setLoading: (state, action) => {
-            state.loading = action.payload;
-        },
+
         setError: (state, action) => {
             state.error = action.payload;
 
@@ -39,8 +38,9 @@ export const productsSlice = createSlice({
 
 
 
-export const { setProducts, setLoading, setError } = productsSlice.actions;
+export const { setProducts, setError } = productsSlice.actions;
 
 export const selectProducts = (state: any) => state.products.products;
+export const selectProductsLoading = (state: any) => state.products.loading;
 
 export default productsSlice.reducer;

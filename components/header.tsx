@@ -6,25 +6,41 @@ import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { apiCategories } from "../interface";
 import { setCategory, selectCategory } from "../slice/categorySlice";
-import { ApiGetAllCategories } from "../util/apiRequest";
+import { setPartenaires } from "../slice/partenairesSlice";
+import { ApiGetAllCategories, apiPartenaire, GetAllPartenaire } from "../util/apiRequest";
+import Api from "../util/conf";
 
 export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
-  const S_redux: apiCategories[] = useSelector(selectCategory);
+  const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const [isOpen, setIsOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (S_redux.length === 0) {
-      ApiGetAllCategories().then((data: apiCategories[]) => {
-        dispatch(setCategory(data));
-        setService(data);
+
+    if (categoryRedux.length === 0) {
+
+      getCategories().then((_cat) => {
+
+        getPartenaires().then((_part) => {
+
+          dispatch(setCategory(_cat));
+
+          dispatch(setPartenaires(_part));
+
+          setService(_cat);
+
+        });
+
       });
     } else {
-      setService(S_redux);
+      setService(categoryRedux);
     }
-  }, [S_redux]);
+
+
+
+  }, [categoryRedux]);
 
   return (
     <header className="header padding__header">
@@ -130,3 +146,14 @@ export const DefaultList = () => {
     </>
   );
 };
+
+async function getCategories() {
+  const res: apiCategories[] = await ApiGetAllCategories();
+  return res;
+}
+
+async function getPartenaires() {
+  const res: apiPartenaire[] = await GetAllPartenaire();
+  return res;
+
+}

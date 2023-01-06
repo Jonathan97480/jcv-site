@@ -1,33 +1,32 @@
 
 
 import { createSlice } from "@reduxjs/toolkit";
-import { HYDRATE } from 'next-redux-wrapper';
-import { apiCategories, apiProduct } from "../interface";
+import { apiCategories } from "../interface";
 
 export interface categoryState {
-    products: apiCategories[];
+    category: apiCategories[];
     loading: boolean;
     error: string | null;
 
 }
 
 const initialState: categoryState = {
-    products: [],
-    loading: true,
+    category: [],
+    loading: false,
     error: null,
 
 }
 
 export const categorySlice = createSlice({
-    name: 'products',
+    name: 'category',
     initialState,
     reducers: {
         setCategory: (state, action) => {
-            state.products = action.payload;
+            state.category = action.payload;
+            state.loading = true;
+            state.error = null;
         },
-        setLoading: (state, action) => {
-            state.loading = action.payload;
-        },
+
         setError: (state, action) => {
             state.error = action.payload;
 
@@ -39,8 +38,9 @@ export const categorySlice = createSlice({
 
 
 
-export const { setCategory, setLoading, setError } = categorySlice.actions;
+export const { setCategory, setError } = categorySlice.actions;
 
-export const selectCategory = (state: any) => state.products.products;
+export const selectCategory = (state: any) => state.category.category;
+export const selectCategoryLoading = (state: any) => state.category.loading;
 
 export default categorySlice.reducer;
