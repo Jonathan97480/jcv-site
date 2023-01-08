@@ -1,0 +1,59 @@
+.etude {
+  p {
+    color: var(--txt-primary-color);
+    font-size: 1.7rem;
+  }
+  a {
+    color: var(--links-primary-color);
+    text-decoration: underline;
+  }
+  &__content {
+    @include media (small){
+        width: 60.8rem;
+        margin: auto;
+    }
+    @include media (medium){
+        width: 60.8rem;
+
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  &__select {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  &-formSelect {
+    line-height: 3rem;
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 0.5rem;
+    animation-name: showForm;
+    animation-duration: 2s;
+    min-height: 25.5rem;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6.6rem;
+    margin-top: 3.6rem;
+    @include media (small){
+        flex-direction: row;
+    }
+  }
+  @keyframes showForm {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+  }
+}

@@ -37,33 +37,6 @@
       margin: 0;
     }
 
-    form {
-      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.436);
-      display: flex;
-      flex-direction: column;
-      gap: 3.4rem;
-      justify-content: center;
-      align-items: center;
-      color: var(--bkg-primary-color);
-      padding: 1.6rem 1.1rem;
-      border-radius: 0.6rem;
-      @include media(small) {
-        width: 70%;
-        margin: auto;
-      }
-      @include media(medium) {
-        width: 100%;
-      }
-      @include media(largeXl) {
-        width: 49.1rem;
-      }
-      button {
-        width: 15.7rem;
-        height: 4.5rem;
-        flex: 1;
-      }
-    }
-
     &Input {
       width: 100%;
       display: flex;
@@ -74,28 +47,6 @@
       font-weight: 400;
       label{
         color: var(--txt-primary-color);
-      }
-      input,
-      textarea {
-        background: none;
-        border: none;
-        border-color: transparent;
-        border-bottom: 2px solid var(--txt-primary-color);
-        border-radius: 0.3rem;
-        width: 29.4rem;
-        min-height: 3.5rem;
-        padding: 0.6rem 1.1rem;
-        width: 100%;
-        transition: all 0.2s;
-
-        ::placeholder {
-          font-family: "openSans";
-        }
-        &:focus{
-         outline: none;
-          border-bottom: 2px solid var(--links-primary-color);
-          transition: all 0.2s;
-        }
       }
     }
   }
