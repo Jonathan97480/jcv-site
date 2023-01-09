@@ -37,7 +37,10 @@ export default function Products() {
       {_products.length > 0 ? (
         <div>
           <Head>
-            <title>{nom}</title>
+            <title>Nos produits</title>
+          <meta name="description" content="Page de présentation des produits" />
+          <meta name="og:title" content="Nos produits" />
+          <meta property="og:description" content="Page de présentation des produits" />
           </Head>
           <section className="products">
             {loading === true ? (

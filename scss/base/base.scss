@@ -5,6 +5,7 @@
   --links-off-color: rgba(250, 82, 70, 0.5);
 
 
+
   a {
     text-decoration: none;
     &:hover{
@@ -28,7 +29,9 @@
     }
   }
 }
-
+main{
+  min-height: 55vh;
+}
 .max-w {
   max-width: 1920px;
   margin: auto;

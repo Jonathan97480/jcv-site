@@ -7,6 +7,12 @@ export default function Legal() {
     <>
       <Head>
         <title>Mentions légales</title>
+        <meta name="description" content="Page de mentions légales" />
+        <meta name="og:title" content="Mentions légales" />
+        <meta
+          property="og:description"
+          content="Page pour la prise de contact avec l'entreprise"
+        />
       </Head>
       <section>
         <div className=" legal padding max-w">
@@ -143,30 +149,29 @@ export default function Legal() {
             <p>http://www.ovh.fr/</p>
           </div>
           <div className="legal__region">
-          <span className="legal__regionImg">
-            <Image
-              src={require("../img/logo_region.png")}
-              alt=""
-              width={87}
-              height={41}
-              loading="lazy"
-            />
-            <Image
-              src={require("../img/europe.png")}
-              alt=""
-              width={67}
-              height={51}
-              loading="lazy"
-            />
-          </span>
-          <p>
-            Ce site a été financé à l’aide du FEDER dans le cadre de la réponse
-            de l’Union européenne à la pandémie COVID-19. L’Europe s’engage à La
-            Réunion
-          </p>
+            <span className="legal__regionImg">
+              <Image
+                src={require("../img/logo_region.png")}
+                alt=""
+                width={87}
+                height={41}
+                loading="lazy"
+              />
+              <Image
+                src={require("../img/europe.png")}
+                alt=""
+                width={67}
+                height={51}
+                loading="lazy"
+              />
+            </span>
+            <p>
+              Ce site a été financé à l’aide du FEDER dans le cadre de la
+              réponse de l’Union européenne à la pandémie COVID-19. L’Europe
+              s’engage à La Réunion
+            </p>
+          </div>
         </div>
-        </div>
-        
       </section>
     </>
   );
