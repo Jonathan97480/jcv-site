@@ -37,11 +37,11 @@ export default function Products() {
       {_products.length > 0 ? (
         <div>
           <Head>
-          <html lang="fr" />
+            <html lang="fr" />
             <title>Nos produits</title>
-          <meta name="description" content="Page de présentation des produits" />
-          <meta name="og:title" content="Nos produits" />
-          <meta property="og:description" content="Page de présentation des produits" />
+            <meta name="description" content="Page de présentation des produits" />
+            <meta name="og:title" content="Nos produits" />
+            <meta property="og:description" content="Page de présentation des produits" />
           </Head>
           <section className="products">
             {loading === true ? (
@@ -52,20 +52,20 @@ export default function Products() {
                 className="productsList max-w padding">
                 <h1 className="title title-small" style={{
                   color: _products[0].attributes.category
-                  ? _products[0].attributes.category.data.attributes.color
-                  : "#000",
+                    ? _products[0].attributes.category.data.attributes.color
+                    : "#000",
                 }}>{nom}</h1>
                 {
-                    _products.map((product: apiProduct) => {
-                        return (
-                          <Link className="card-txtColor" href={{ pathname: "/product", query: { id: product.id } }}
-                          title={`
+                  _products.map((product: apiProduct) => {
+                    return (
+                      <Link className="card-txtColor" href={{ pathname: "/product", query: { id: product.id } }}
+                        title={`
                           Redirige vers la fiche produit de ${product.attributes.nom}
                           `}>
-                             <Card key={product.id} product={product} />
-                          </Link>
-                           )
-                        })
+                        <Card key={product.id} product={product} />
+                      </Link>
+                    )
+                  })
                 }
 
               </div>

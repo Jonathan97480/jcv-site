@@ -12,7 +12,7 @@ import {
   apiPartenaire,
   GetAllPartenaire,
 } from "../util/apiRequest";
-import Api from "../util/conf";
+
 
 export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
@@ -36,6 +36,11 @@ export default function Header() {
       setService(categoryRedux);
     }
   }, [categoryRedux]);
+
+
+
+
+
 
   return (
     <header className="header padding__header">
@@ -81,43 +86,45 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <li className="title tile-small header__serviceBtn header__services">
-                Services{" "}
-                <Image
-                  src={serviceIcon}
-                  alt=""
-                  width={18}
-                  height={9}
-                  loading="lazy"
-                />
-                <ul
-                  className={
-                    serviceOpen
-                      ? "headerSmall__list headerSmall__list-open "
-                      : "headerSmall__list"
-                  }
-                >
-                  {service === undefined ? (
-                    <DefaultList />
-                  ) : (
-                    service.map((item: apiCategories) => {
-                      return (
-                        <li key={item.id}>
-                          <a
-                            key={item.id + "header"}
-                            className="title tile-small"
-                            href={`/#${item.attributes.nom}`}
-                            title={`
+              <ul>
+                <li className="title tile-small header__serviceBtn header__services">
+                  Services{" "}
+                  <Image
+                    src={serviceIcon}
+                    alt=""
+                    width={18}
+                    height={9}
+                    loading="lazy"
+                  />
+                  <ul
+                    className={
+                      serviceOpen
+                        ? "headerSmall__list headerSmall__list-open "
+                        : "headerSmall__list"
+                    }
+                  >
+                    {service === undefined ? (
+                      <DefaultList />
+                    ) : (
+                      service.map((item: apiCategories) => {
+                        return (
+                          <li key={item.id}>
+                            <a
+                              key={item.id + "header"}
+                              className="title tile-small"
+                              href={`/#${item.attributes.nom}`}
+                              title={`
                             Lien qui redirige vers la page ${item.attributes.nom}`}
-                          >
-                            {item.attributes.nom}
-                          </a>
-                        </li>
-                      );
-                    })
-                  )}
-                </ul>
-              </li>
+                            >
+                              {item.attributes.nom}
+                            </a>
+                          </li>
+                        );
+                      })
+                    )}
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li>
               <Link href="/contact" className="title tile-small" title="Lien qui envoie vers la page de contact">

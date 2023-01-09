@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <Head>
-      <html lang="fr"/>
+        <html lang="fr" />
         <title>JCV-Consult</title>
         <meta
           name="description"
@@ -39,7 +39,7 @@ export default function Home() {
           property="og:description"
           content="Des conseils pour choisir et obtenir, un chauffe-eau solaire de qualité, des solutions pour la sécurité incendie et la surveillance vidéo."
         />
-        <meta property='og:image' content="../img/logo-jcv.png"/>
+        <meta property='og:image' content="../img/logo-jcv.png" />
       </Head>
 
       <div className="home">
@@ -103,11 +103,10 @@ export default function Home() {
                           return (
                             <Link
                               style={{
-                                backgroundImage: `url(${
-                                  Api.url +
+                                backgroundImage: `url(${Api.url +
                                   sous_category.attributes.image.data.attributes
                                     .url
-                                })`,
+                                  })`,
                               }}
                               key={sous_category.id}
                               className="productCategory__card"
@@ -148,7 +147,7 @@ export default function Home() {
                   href={partenaire.lien ? partenaire.lien : "#"}
                   target="_blank"
                   key={partenaire.id + "-partenaire"}
-                  title ={`
+                  title={`
                   Redirige vers le site de notre partenaire ${partenaire.nom}
                   `}
                 >

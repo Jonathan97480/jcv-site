@@ -6,6 +6,7 @@ export default function About() {
   return (
     <>
       <Head>
+        <html lang="fr" />
         <title>En savoir plus</title>
         <meta
           name="description"

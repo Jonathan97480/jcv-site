@@ -15,13 +15,12 @@ function App({ Component, pageProps }: AppProps) {
       <GlobalStyles
         styles={globalStyles}
       />
+
       <Layout >
         <Component {...pageProps} />
 
       </Layout>
-
-
-    </ThemeProvider>)
+    </ThemeProvider >)
 
 }
 

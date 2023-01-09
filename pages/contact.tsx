@@ -13,8 +13,8 @@ export default function Contact() {
   return (
     <>
       <Head>
-          <html lang="fr" />
 
+        <html lang="fr" />
         <title>Contact</title>
         <meta
           name="description"
