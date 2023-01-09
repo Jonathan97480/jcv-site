@@ -77,7 +77,7 @@ export default function Etude({ navigation }: EtudeProps) {
                 </p>
                 <p>
                   Vous vouliez juste nous envoyer un message{" "}
-                  <a href="#">contactez nous ici</a>.
+                  <a href="#" title="Buttton qui renvoie vers la page contact">contactez nous ici</a>.
                 </p>
               </div>
             )}

@@ -13,6 +13,8 @@ export default function Contact() {
   return (
     <>
       <Head>
+          <html lang="fr" />
+
         <title>Contact</title>
         <meta
           name="description"
@@ -81,7 +83,6 @@ export default function Contact() {
                   placeholder="Votre message"
                 />
               </div>
-
               <button className="btn">Envoyer</button>
             </form>
           </div>
@@ -97,14 +98,14 @@ export default function Contact() {
             </div>
             <div className="contact__infoItem">
               <BsTelephoneFill />
-              <a href="tel:06 93 81 53 03">
+              <a href="tel:06 93 81 53 03" title="Le numéro de téléphone de l'entreprise">
                 <span className="title">06 93 81 53 03</span>
               </a>
             </div>
 
             <div className="contact__infoItem">
               <FaMailBulk />
-              <a href="mailto:jvitry3@gmail.com">
+              <a href="mailto:jvitry3@gmail.com" title="l'adresse mail de l'entreprise">
                 <span className="title "> jvitry3@gmail.com</span>
               </a>
             </div>

@@ -55,7 +55,7 @@ export default function Header() {
         <nav
           className={isOpen ? "header__nav header__nav-open" : "header__nav"}
         >
-          <Link href="/">
+          <Link href="/" title="Lien qui redirige vers la page d'accueil">
             <Image
               className="header__logo"
               src={require("../img/logo-jcv.png")}
@@ -72,7 +72,7 @@ export default function Header() {
             }
           >
             <li>
-              <Link href="/#home" className="title tile-small">
+              <Link href="/#home" className="title tile-small" title="Lien qui vous regirigera vers la page d'accueil">
                 Accueil
               </Link>
             </li>
@@ -81,7 +81,7 @@ export default function Header() {
                 setServiceOpen(!serviceOpen);
               }}
             >
-              <div className="title tile-small header__serviceBtn header__services">
+              <li className="title tile-small header__serviceBtn header__services">
                 Services{" "}
                 <Image
                   src={serviceIcon}
@@ -107,6 +107,8 @@ export default function Header() {
                             key={item.id + "header"}
                             className="title tile-small"
                             href={`/#${item.attributes.nom}`}
+                            title={`
+                            Lien qui redirige vers la page ${item.attributes.nom}`}
                           >
                             {item.attributes.nom}
                           </a>
@@ -115,16 +117,16 @@ export default function Header() {
                     })
                   )}
                 </ul>
-              </div>
+              </li>
             </li>
             <li>
-              <Link href="/contact" className="title tile-small">
+              <Link href="/contact" className="title tile-small" title="Lien qui envoie vers la page de contact">
                 Contact
               </Link>
             </li>
           </ul>
         </nav>
-        <Link href={"/etudePersonaliser"} className=" header__btn btn ">
+        <Link href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
           Etude personalisée
         </Link>
       </div>

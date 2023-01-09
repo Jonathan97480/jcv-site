@@ -25,7 +25,7 @@ export default function Footer() {
     <footer className="footer padding__footer">
       <div className="max-w footer__content">
         <div className="footer__main">
-          <Link href="/">
+          <Link href="/" title="Logo qui redirige vers la page d'accueil">
             <Image
               src={require("../img/logo-jcv.png")}
               alt="logo JCV consult"
@@ -40,15 +40,15 @@ export default function Footer() {
 
             <ul className="footer__list">
               <li>
-                <Link href="/">Accueil</Link>{" "}
+                <Link href="/" title="Lien qui redirige vers la page d'accueil">Accueil</Link>{" "}
               </li>
 
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact" title="Lien qui redirige vers la page de contact">Contact</Link>
               </li>
 
               <li>
-                <Link href="/legal">Mentions légales</Link>
+                <Link href="/legal" title="Lien qui redirige vers la page des mentions légales">Mentions légales</Link>
               </li>
             </ul>
           </div>
@@ -66,6 +66,9 @@ export default function Footer() {
                       <a
                         key={item.id + "header"}
                         href={`/#${item.attributes.nom}`}
+                        title={`
+                        Lien vers ${item.attributes.nom}
+                        `}
                       >
                         {item.attributes.nom}
                       </a>
@@ -80,25 +83,25 @@ export default function Footer() {
             <h4 className="title title-small">Informations</h4>
             <ul className="footer__list">
               <li>
-                <a href="tel:0693815303">06 93 81 53 03</a>
+                <a href="tel:0693815303" title="Numéro de l'entreprise">06 93 81 53 03</a>
               </li>
               <li>
-                <a href="mailto:jvitry3@gmail.com">jvitry3@gmail.com</a>
+                <a href="mailto:jvitry3@gmail.com" title="Adresse mail de l'entreprise">jvitry3@gmail.com</a>
               </li>
             </ul>
           </div>
 
           <div className="footer__social">
             <h4 className="title title-small">Suivez-moi</h4>
-            <a href="https://www.facebook.com/profile.php?id=100008184432842">
-              <BsFacebook size={30}/>
+            <a href="https://www.facebook.com/profile.php?id=100008184432842" title="Redirection vers la page Facebook de l'entreprise">
+              <BsFacebook/>
             </a>
           </div>
         </div>
 
         <div className="footer__end">
           <span className="footer__partner">
-          
+
           </span>
 
           <span>Copyright JCV Consult 2023</span>
