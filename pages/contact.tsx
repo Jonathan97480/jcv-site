@@ -14,7 +14,7 @@ export default function Contact() {
     <>
       <Head>
 
-        <html lang="fr" />
+
         <title>Contact</title>
         <meta
           name="description"

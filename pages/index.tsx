@@ -27,8 +27,9 @@ export default function Home() {
 
   return (
     <>
+
       <Head>
-        <html lang="fr" />
+
         <title>JCV-Consult</title>
         <meta
           name="description"

@@ -27,7 +27,7 @@ export default function Product() {
   return (
     <>
       <Head>
-        <html lang="fr" />
+
         {product !== null ? (
           <title>{product.attributes.nom}</title>
         ) : (

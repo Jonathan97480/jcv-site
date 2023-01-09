@@ -28,7 +28,7 @@ export default function Etude({ navigation }: EtudeProps) {
     <>
 
       <Head>
-        <html lang="fr" />
+
         <title>Etude personnalisée</title>
         <meta name="description" content="Page de demande de devis personnalisée" />
         <meta property="og:title" content="Etude personnalisée" />

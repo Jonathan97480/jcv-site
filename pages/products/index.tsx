@@ -37,7 +37,7 @@ export default function Products() {
       {_products.length > 0 ? (
         <div>
           <Head>
-            <html lang="fr" />
+
             <title>Nos produits</title>
             <meta name="description" content="Page de présentation des produits" />
             <meta name="og:title" content="Nos produits" />

@@ -6,7 +6,7 @@ export default function Legal() {
   return (
     <>
       <Head>
-        <html lang="fr" />
+
         <title>Mentions légales</title>
         <meta name="description" content="Page de mentions légales" />
         <meta name="og:title" content="Mentions légales" />
