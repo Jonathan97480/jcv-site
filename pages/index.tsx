@@ -38,6 +38,7 @@ export default function Home() {
           property="og:description"
           content="Des conseils pour choisir et obtenir, un chauffe-eau solaire de qualité, des solutions pour la sécurité incendie et la surveillance vidéo."
         />
+        <meta property='og:image' content="../img/logo-jcv.png"/>
       </Head>
 
       <div className="home">
@@ -135,8 +136,8 @@ export default function Home() {
           </div>
         </section>
         <section className="partners">
-          <h3>Nos partenaires</h3>
-          <div className="partners__content">
+          <h3 className="title title-medium">Nos partenaires</h3>
+          <div className="partners__content max-w padding">
             {partenairesRedux.map((partenaire: apiPartenaire) => {
               return (
                 <a
@@ -148,8 +149,9 @@ export default function Home() {
                     <Image
                       src={partenaire.logo}
                       alt={partenaire.nom}
-                      width={200}
-                      height={200}
+                      width={150}
+                      height={150}
+                      loading='lazy'
                     />
                   </div>
                 </a>

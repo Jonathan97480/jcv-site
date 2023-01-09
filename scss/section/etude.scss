@@ -1,4 +1,5 @@
 .etude {
+  background-color: var(--bkg-primary-color);
   .form__input{
     width: initial;
     @include media(medium){

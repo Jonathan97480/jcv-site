@@ -7,7 +7,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { apiCategories } from "../interface";
 import { setCategory, selectCategory } from "../slice/categorySlice";
 import { setPartenaires } from "../slice/partenairesSlice";
-import { ApiGetAllCategories, apiPartenaire, GetAllPartenaire } from "../util/apiRequest";
+import {
+  ApiGetAllCategories,
+  apiPartenaire,
+  GetAllPartenaire,
+} from "../util/apiRequest";
 import Api from "../util/conf";
 
 export default function Header() {
@@ -18,28 +22,19 @@ export default function Header() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     if (categoryRedux.length === 0) {
-
       getCategories().then((_cat) => {
-
         getPartenaires().then((_part) => {
-
           dispatch(setCategory(_cat));
 
           dispatch(setPartenaires(_part));
 
           setService(_cat);
-
         });
-
       });
     } else {
       setService(categoryRedux);
     }
-
-
-
   }, [categoryRedux]);
 
   return (
@@ -65,6 +60,9 @@ export default function Header() {
               className="header__logo"
               src={require("../img/logo-jcv.png")}
               alt="Logo entreprise"
+              width={50}
+              height={50}
+              loading="lazy"
             />
           </Link>
 
@@ -127,7 +125,7 @@ export default function Header() {
           </ul>
         </nav>
         <Link href={"/etudePersonaliser"} className=" header__btn btn ">
-          Etude personnaliser
+          Etude personalisée
         </Link>
       </div>
     </header>
@@ -155,5 +153,4 @@ async function getCategories() {
 async function getPartenaires() {
   const res: apiPartenaire[] = await GetAllPartenaire();
   return res;
-
 }
