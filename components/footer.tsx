@@ -29,8 +29,8 @@ export default function Footer() {
             <Image
               src={require("../img/logo-jcv.png")}
               alt="logo JCV consult"
-              width={135}
-              height={64}
+              width={80}
+              height={80}
               loading="lazy"
             />
           </Link>
@@ -98,20 +98,7 @@ export default function Footer() {
 
         <div className="footer__end">
           <span className="footer__partner">
-            <Image
-              src={require("../img/logo_region.png")}
-              alt=""
-              width={87}
-              height={41}
-              loading="lazy"
-            />
-            <Image
-              src={require("../img/europe.png")}
-              alt=""
-              width={67}
-              height={51}
-              loading="lazy"
-            />
+          
           </span>
 
           <span>Copyright JCV Consult 2023</span>

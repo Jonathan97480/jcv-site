@@ -22,7 +22,7 @@ export default function Legal() {
             <h2 className="title title-small">Les développeurs</h2>
             <p>Développeur Back-end : Jonathan Gauvin</p>
             <p>Intégrateur Front-end et designer : Teddy Equerre</p>
-            <p>Cordinateur : Frédéric Morel</p>
+            <p>Coordinateur : Frédéric Morel</p>
           </div>
           <h2 className="title title-small">Les site</h2>
           <p>
