@@ -37,6 +37,7 @@ export default function Products() {
       {_products.length > 0 ? (
         <div>
           <Head>
+          <html lang="fr" />
             <title>Nos produits</title>
           <meta name="description" content="Page de présentation des produits" />
           <meta name="og:title" content="Nos produits" />
@@ -57,7 +58,10 @@ export default function Products() {
                 {
                     _products.map((product: apiProduct) => {
                         return (
-                          <Link className="card-txtColor" href={{ pathname: "/product", query: { id: product.id } }}>
+                          <Link className="card-txtColor" href={{ pathname: "/product", query: { id: product.id } }}
+                          title={`
+                          Redirige vers la fiche produit de ${product.attributes.nom}
+                          `}>
                              <Card key={product.id} product={product} />
                           </Link>
                            )

@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <>
       <Head>
+      <html lang="fr"/>
         <title>JCV-Consult</title>
         <meta
           name="description"
@@ -66,14 +67,14 @@ export default function Home() {
                   faucibus tempor vulputate eu. Ac sed interdum cursus proin.
                 </p>
 
-                <Link className="btn about__btn" href={"/about"}>
+                <Link className="btn about__btn" href={"/about"} title="Button qui vous redirigera vers la page de déscription de l'entreprise">
                   En savoir plus
                 </Link>
               </div>
 
               <Image
                 src={require("../img/hero/home.jpg")}
-                alt="A propos image de représentation"
+                alt="Image de représentation de"
                 width={328}
                 height={207}
                 loading="lazy"
@@ -117,6 +118,9 @@ export default function Home() {
                                   nom: sous_category.attributes.name,
                                 },
                               }}
+                              title={`
+                              Vous Redirigera vers ${sous_category.attributes.name}
+                              `}
                             >
                               <div className="productCategory__card-hover">
                                 <h4 className="title title-small">
@@ -144,6 +148,9 @@ export default function Home() {
                   href={partenaire.lien ? partenaire.lien : "#"}
                   target="_blank"
                   key={partenaire.id + "-partenaire"}
+                  title ={`
+                  Redirige vers le site de notre partenaire ${partenaire.nom}
+                  `}
                 >
                   <div className="partners__card">
                     <Image
