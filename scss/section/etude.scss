@@ -1,4 +1,10 @@
 .etude {
+  .form__input{
+    width: initial;
+    @include media(medium){
+      width: 100%;
+    }
+  }
   p {
     color: var(--txt-primary-color);
     font-size: 1.7rem;

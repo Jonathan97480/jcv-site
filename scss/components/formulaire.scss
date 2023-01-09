@@ -40,7 +40,8 @@
       color: var(--txt-primary-color);
       font-size: 1.5rem;
     }
-    &:focus, &:focus-visible {
+    &:focus,
+    &:focus-visible {
       outline: none;
       border-bottom: 2px solid var(--links-primary-color);
     }
@@ -49,4 +50,11 @@
     color: var(--txt-primary-color);
     font-size: 2rem;
   }
+  &__select {
+    option {
+      font-size: 1.5rem;
+      font-family: "OpenSans";
+      color: #454851;
+  }
+}
 }

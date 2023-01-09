@@ -14,6 +14,15 @@ export default function Contact() {
     <>
       <Head>
         <title>Contact</title>
+        <meta
+          name="description"
+          content="Page pour la prise de contact avec l'entreprise"
+        />
+        <meta name="og:title" content="Contact" />
+        <meta
+          property="og:description"
+          content="Page pour la prise de contact avec l'entreprise"
+        />
       </Head>
       <section className="contact">
         <div className="contact__content max-w padding">
@@ -21,7 +30,7 @@ export default function Contact() {
           <div className="contact__form">
             <form action="" className="form">
               <div className="contact__formInput">
-                <label htmlFor="name" className="title form__label" >
+                <label htmlFor="name" className="title form__label">
                   Nom *
                 </label>
                 <input
