@@ -10,9 +10,7 @@ export default function Legal() {
         <meta name="description" content="Page de mentions légales" />
         <meta name="og:title" content="Mentions légales" />
         <meta
-          property="og:description"
-          content="Page pour la prise de contact avec l'entreprise"
-        />
+          property="og:description" content="Page pour la prise de contact avec l'entreprise" />
       </Head>
       <section>
         <div className=" legal padding max-w">

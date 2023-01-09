@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import Head from "next/head";
 import React, { useEffect } from "react";
 import { apiFormulaire, GetAllFormulaire } from "../../util/apiRequest";
 
@@ -25,12 +26,13 @@ export default function Etude({ navigation }: EtudeProps) {
 
   return (
     <>
-      <head>
-        <title>Etude personalisée</title>
-        <meta name="description" content="Page de demande de devis personalisée" />
-        <meta property="og:title" content="Etude personalisée" />
-        <meta property="og:description" content="Page de demande de devis personalisée" />
-      </head>
+
+      <Head>
+        <title>Etude personnalisée</title>
+        <meta name="description" content="Page de demande de devis personnalisée" />
+        <meta property="og:title" content="Etude personnalisée" />
+        <meta property="og:description" content="Page de demande de devis personnalisée" />
+      </Head>
       <main className="etude">
         <div className="max-w padding">
           <div className="etude__content">
@@ -154,13 +156,13 @@ export default function Etude({ navigation }: EtudeProps) {
                                 style={
                                   formNumber.curentForm === 0
                                     ? {
-                                        backgroundColor:
-                                          "var(--links-off-color)",
-                                      }
+                                      backgroundColor:
+                                        "var(--links-off-color)",
+                                    }
                                     : {
-                                        backgroundColor:
-                                          "var(--links-primary-color)",
-                                      }
+                                      backgroundColor:
+                                        "var(--links-primary-color)",
+                                    }
                                 }
                                 onClick={() => {
                                   if (formNumber.curentForm > 0) {
@@ -177,15 +179,15 @@ export default function Etude({ navigation }: EtudeProps) {
                                 className="btn"
                                 style={
                                   formNumber.curentForm ===
-                                  formNumber.numberForm - 1
+                                    formNumber.numberForm - 1
                                     ? {
-                                        backgroundColor:
-                                          "var(--links-off-color)",
-                                      }
+                                      backgroundColor:
+                                        "var(--links-off-color)",
+                                    }
                                     : {
-                                        backgroundColor:
-                                          "var(--links-primary-color)",
-                                      }
+                                      backgroundColor:
+                                        "var(--links-primary-color)",
+                                    }
                                 }
                                 onClick={() => {
                                   if (
