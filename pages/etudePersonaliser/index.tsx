@@ -18,11 +18,16 @@ export default function Etude({ navigation }: EtudeProps) {
     curentForm: number;
   }>({ numberForm: 0, curentForm: 0 });
 
+  const [curentForm, setCurentForm] = React.useState<any>({});
+
+
+
   useEffect(() => {
     GetAllFormulaire().then((_data: apiFormulaire[]) => {
       setFormulaire(_data);
     });
   }, []);
+
 
   return (
     <>
@@ -85,137 +90,237 @@ export default function Etude({ navigation }: EtudeProps) {
               </div>
             )}
             {formIsSelector.isSelect && (
-              <div>
-                <p className="title">{formulaire[formIsSelector.id].titre}</p>
-                {formulaire[formIsSelector.id].form.map(
-                  (form: any, index: number) => {
-                    if (formNumber.numberForm === 0) {
-                      setFormNumber({
-                        numberForm: formulaire[formIsSelector.id].form.length,
-                        curentForm: index - 1,
-                      });
-                    }
-                    return (
-                      <>
-                        {formNumber.curentForm === index && (
+              <form className="etude-form" onSubmit={(e) => {
+                submit(e)
+              }} action="https://formspree.io/f/mbjejwdo" method="POST">
+                <div>
+                  <p className="title">{formulaire[formIsSelector.id].titre}</p>
+                  {formulaire[formIsSelector.id].form.map(
+                    (form: any, index: number) => {
+                      if (formNumber.numberForm === 0) {
+                        setFormNumber({
+                          numberForm: formulaire[formIsSelector.id].form.length,
+                          curentForm: index - 1,
+                        });
+                      }
+                      return (
+                        <div key={index + "-Etude"}>
+
                           <div key={index + "-form"} className="form-opacity">
-                            <form className="etude-form">
-                              {form.inputs.map((input: any, index: number) => {
-                                return (
-                                  <div key={index + "-input"}>
-                                    <label
-                                      className="form__label title"
-                                      htmlFor={input.label}
+
+                            {form.inputs.map((input: any, _index: number) => {
+                              return (
+                                <div key={_index + "-input"}>
+                                  <label
+                                    hidden={formNumber.curentForm !== index}
+
+                                    className="form__label title"
+                                    htmlFor={_index + "-" + input.nom}
+                                  >
+                                    {input.label}
+                                  </label>
+                                  {input.type === "text" && (
+                                    <input
+                                      className="form__input"
+                                      hidden={formNumber.curentForm !== index}
+                                      type="text"
+                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : ""}
+                                      onChange={(e) => {
+                                        const value = e.target.value;
+                                        const nexForm = { ...curentForm };
+                                        nexForm[input.nom] = value;
+                                        setCurentForm(nexForm);
+                                      }}
+                                      name={input.nom}
+                                      id={_index + "-" + input.nom}
+                                      placeholder={input.placeholder}
+                                    />
+                                  )}
+                                  {input.type === "textarea" && (
+                                    <textarea
+                                      className="form__input"
+                                      hidden={formNumber.curentForm !== index}
+
+                                      name={input.nom}
+                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : ""}
+                                      onChange={(e) => {
+                                        setCurentForm({
+                                          ...curentForm,
+                                          [input.nom]: e.target.value,
+                                        })
+                                      }}
+                                      id={_index + "-" + input.nom}
+                                      placeholder={input.placeholder}
+                                    />
+                                  )}
+                                  {input.type === "select" && (
+                                    <select
+                                      hidden={formNumber.curentForm !== index}
+
+                                      name={input.nom}
+                                      id={_index + "-" + input.nom}
+                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : 0}
+                                      onChange={(e) => {
+                                        setCurentForm({
+                                          ...curentForm,
+                                          [input.nom]: e.target.value,
+                                        })
+                                      }}
+                                      className="form__input form__select"
                                     >
-                                      {input.label}
-                                    </label>
-                                    {input.type === "text" && (
-                                      <input
-                                        className="form__input"
-                                        type="text"
-                                        name={input.label}
-                                        id={input.label}
-                                        placeholder={input.placeholder}
-                                      />
-                                    )}
-                                    {input.type === "textarea" && (
-                                      <textarea
-                                        className="form__input"
-                                        name={input.label}
-                                        id={input.label}
-                                        placeholder={input.placeholder}
-                                      />
-                                    )}
-                                    {input.type === "select" && (
-                                      <select
-                                        name={input.label}
-                                        id={input.label}
-                                        className="form__input form__select"
-                                      >
-                                        {input.options?.map(
-                                          (option: any, index: number) => {
-                                            return (
-                                              <option
-                                                className="form__input"
-                                                value={option.value}
-                                                key={index + "-option"}
-                                              >
-                                                {option.text}
-                                              </option>
-                                            );
-                                          }
-                                        )}
-                                      </select>
-                                    )}
-                                  </div>
-                                );
-                              })}
-                            </form>
-                            <div className="etude__btn">
-                              <button
-                                className="btn"
-                                style={
-                                  formNumber.curentForm === 0
-                                    ? {
-                                      backgroundColor:
-                                        "var(--links-off-color)",
-                                    }
-                                    : {
-                                      backgroundColor:
-                                        "var(--links-primary-color)",
-                                    }
-                                }
-                                onClick={() => {
-                                  if (formNumber.curentForm > 0) {
-                                    setFormNumber({
-                                      numberForm: formNumber.numberForm,
-                                      curentForm: formNumber.curentForm - 1,
-                                    });
-                                  }
-                                }}
-                              >
-                                Retour en arrière
-                              </button>
-                              <button
-                                className="btn"
-                                style={
-                                  formNumber.curentForm ===
-                                    formNumber.numberForm - 1
-                                    ? {
-                                      backgroundColor:
-                                        "var(--links-off-color)",
-                                    }
-                                    : {
-                                      backgroundColor:
-                                        "var(--links-primary-color)",
-                                    }
-                                }
-                                onClick={() => {
-                                  if (
-                                    formNumber.curentForm <
-                                    formNumber.numberForm - 1
-                                  ) {
-                                    setFormNumber({
-                                      numberForm: formNumber.numberForm,
-                                      curentForm: formNumber.curentForm + 1,
-                                    });
-                                  }
-                                }}
-                              >
-                                Suivant
-                              </button>
-                            </div>
+                                      <option value={0} className="inputSelect">
+                                        Veuillez choisir une option
+                                      </option>
+                                      {input.options?.map(
+                                        (option: any, index: number) => {
+                                          return (
+                                            <option
+                                              className="form__input"
+                                              value={input.label + "/" + option.value}
+                                              key={index + "-option"}
+                                            >
+                                              {option.text}
+                                            </option>
+                                          );
+                                        }
+                                      )}
+                                    </select>
+                                  )}
+                                </div>
+                              );
+                            })}
+
+
                           </div>
-                        )}
-                      </>
-                    );
+
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+                <div className="etude__btn">
+                  <button
+                    type="button"
+                    className="btn"
+                    style={
+                      formNumber.curentForm === 0
+                        ? {
+                          backgroundColor:
+                            "var(--links-off-color)",
+                        }
+                        : {
+                          backgroundColor:
+                            "var(--links-primary-color)",
+                        }
+                    }
+                    onClick={() => {
+                      if (formNumber.curentForm > 0) {
+                        setFormNumber({
+                          numberForm: formNumber.numberForm,
+                          curentForm: formNumber.curentForm - 1,
+                        });
+                      }
+                    }}
+                  >
+                    Retour en arrière
+                  </button>
+                  <button
+                    type="button"
+                    className="btn"
+                    style={
+                      formNumber.curentForm ===
+                        formNumber.numberForm - 1
+                        ? {
+                          backgroundColor:
+                            "var(--links-off-color)",
+                        }
+                        : {
+                          backgroundColor:
+                            "var(--links-primary-color)",
+                        }
+                    }
+                    onClick={() => {
+                      if (
+                        formNumber.curentForm <
+                        formNumber.numberForm - 1
+                      ) {
+                        setFormNumber({
+                          numberForm: formNumber.numberForm,
+                          curentForm: formNumber.curentForm + 1,
+                        });
+                      }
+                    }}
+                  >
+                    Suivant
+                  </button>
+                  {
+                    formNumber.curentForm === formNumber.numberForm - 1 && (
+                      <button className="btn" type="submit">
+                        Envoyer
+                      </button>
+                    )
                   }
-                )}
-              </div>
+                </div>
+              </form>
             )}
           </div>
         </div>
       </main>
     </>
   );
+}
+
+function submit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const inputs = event.currentTarget.querySelectorAll("input");
+  const textarea = event.currentTarget.querySelectorAll("textarea");
+  const selects = event.currentTarget.querySelectorAll("select");
+
+  let headerMessage: string = ""
+
+  inputs.forEach((input) => {
+
+    headerMessage += `${input.placeholder} : ${input.value} \n`;
+  });
+
+  let email = ""
+  inputs.forEach((input) => {
+    if (input.type === "email") {
+      email = input.value
+    }
+  })
+
+  selects.forEach((select) => {
+    let options = select.value.split("/");
+    headerMessage += `${options[0]} : ${options[1]} \n`;
+  })
+
+  textarea.forEach((_textarea) => {
+    headerMessage += `${_textarea.placeholder} : ${_textarea.value} \n`;
+  });
+
+
+
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("message", headerMessage);
+
+  fetch("https://formspree.io/f/mbjejwdo", {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+
+  }).then((response) => {
+
+    if (response.status === 200) {
+      alert("Votre message a bien été envoyé");
+    }
+  }).catch((error) => {
+
+    alert("Une erreur est survenue lors de l'envoi du message");
+  });
+
+
 }

@@ -95,6 +95,7 @@ export interface apiFormulaire {
         inputs: {
             type: string;
             label: string;
+            nom: string;
             placeholder: string;
             options?: {
                 text: string;

@@ -1,14 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BsTelephoneFill, BsFillClockFill } from "react-icons/bs";
 import { FaMailBulk, FaMapMarkerAlt } from "react-icons/fa";
-
 import Head from "next/head";
+import { validateEmail, validateMessage, validateName, validatePhone } from "../util/function";
+
+
+interface ContactForm {
+  name: string;
+  errorName: string;
+  email: string;
+  errorEmail: string;
+  phone: string;
+  errorPhone: string;
+  message: string;
+  errorMessage: string;
+}
 
 export default function Contact() {
+
+  const [form, setForm] = React.useState<ContactForm>(resetForm());
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Contact";
   }, []);
+
+
 
   return (
     <>
@@ -30,7 +48,13 @@ export default function Contact() {
         <div className="contact__content max-w padding">
           <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
-            <form action="" className="form">
+            <form action="" className="form" onSubmit={
+              (e) => {
+                const newForm = submitForm(form, e);
+                console.log(newForm);
+                setForm(newForm);
+              }
+            }>
               <div className="contact__formInput">
                 <label htmlFor="name" className="title form__label">
                   Nom *
@@ -39,9 +63,20 @@ export default function Contact() {
                   className="form__input"
                   type="text"
                   name="name"
+                  value={form.name}
+
+                  onChange={(e) => {
+
+                    setForm({
+                      ...form,
+                      name: e.target.value,
+                      errorName: validateName(e.target.value)
+                    })
+                  }}
                   id="name"
                   placeholder="Votre nom"
                 />
+                <FormError errorMessage={form.errorName} />
               </div>
 
               <div className="contact__formInput">
@@ -50,11 +85,21 @@ export default function Contact() {
                 </label>
                 <input
                   className="form__input"
+                  value={form.email}
+                  onChange={(e) => {
+                    setForm({
+                      ...form,
+                      email: e.target.value,
+                      errorEmail: validateEmail(e.target.value)
+                    })
+                  }}
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Votre email"
                 />
+                <FormError errorMessage={form.errorEmail} />
+
               </div>
 
               <div className="contact__formInput">
@@ -63,11 +108,20 @@ export default function Contact() {
                 </label>
                 <input
                   className="form__input"
+                  value={form.phone}
+                  onChange={(e) => {
+                    setForm({
+                      ...form,
+                      phone: e.target.value,
+                      errorPhone: validatePhone(e.target.value)
+                    })
+                  }}
                   type="tel"
                   name="phone"
                   id="phone"
                   placeholder="Votre numéro de téléphone"
                 />
+                <FormError errorMessage={form.errorPhone} />
               </div>
 
               <div className="contact__formInput">
@@ -76,12 +130,21 @@ export default function Contact() {
                 </label>
                 <textarea
                   className="form__input"
+                  value={form.message}
+                  onChange={(e) => {
+                    setForm({
+                      ...form,
+                      message: e.target.value,
+                      errorMessage: validateMessage(e.target.value)
+                    })
+                  }}
                   name="message"
                   id="message"
                   cols={30}
                   rows={10}
                   placeholder="Votre message"
                 />
+                <FormError errorMessage={form.errorMessage} />
               </div>
               <button className="btn">Envoyer</button>
             </form>
@@ -121,3 +184,92 @@ export default function Contact() {
     </>
   );
 }
+
+
+export const FormError = ({ errorMessage }: { errorMessage: string }) => {
+
+  const [error, setError] = useState(errorMessage);
+  useEffect(() => {
+    setError(errorMessage);
+  }, [errorMessage])
+  return (
+    <div className="formulaire__error">
+      {error !== "" && <p>{error}</p>}
+    </div>
+  )
+}
+
+function resetForm(): ContactForm {
+  return {
+    name: "",
+    errorName: "",
+    email: "",
+    errorEmail: "",
+    phone: "",
+    errorPhone: "",
+    message: "",
+    errorMessage: "",
+  }
+}
+
+
+function submitForm(_form: ContactForm, event: React.FormEvent<HTMLFormElement>) {
+
+  event.preventDefault();
+
+  if (_form.name === "") {
+    _form.errorName = "Le nom est obligatoire";
+
+    return _form;
+
+  }
+
+  if (_form.email === "") {
+    _form.errorEmail = "L'email est obligatoire";
+
+    return _form;
+  }
+
+  if (_form.message === "") {
+    _form.errorMessage = "Le message est obligatoire";
+    return _form;
+  }
+
+  if (_form.phone === "") {
+    _form.errorPhone = "Le numéro de téléphone est obligatoire";
+    return _form;
+  }
+
+
+
+
+  /* TODO: Add submit form logic */
+  const newFormData = { ..._form, errorName: "", errorEmail: "", errorPhone: "", errorMessage: "" };
+
+  const formData = new FormData();
+  formData.append("email", newFormData.email);
+  formData.append("message", `message venant du formulaire de contact de ${newFormData.name} 
+  qui a pour numéro de téléphone ${newFormData.phone} 
+  et qui a pour message : ${newFormData.message}`);
+
+  fetch("https://formspree.io/f/mbjejwdo", {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+
+  }).then((response) => {
+
+    if (response.status === 200) {
+      alert("Votre message a bien été envoyé");
+    }
+  }).catch((error) => {
+
+    alert("Une erreur est survenue lors de l'envoi du message");
+  });
+
+  return resetForm();
+
+}
+
