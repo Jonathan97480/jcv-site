@@ -32,17 +32,23 @@
     flex-direction: column;
     gap: 3rem;
   }
+ 
   &-formSelect {
     line-height: 3rem;
   }
   &-form {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     margin-top: 0.5rem;
     animation-name: showForm;
     animation-duration: 2s;
     min-height: 25.5rem;
+    &Info{
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
   }
   &__btn {
     display: flex;
@@ -50,7 +56,6 @@
     justify-content: center;
     flex-direction: column;
     gap: 6.6rem;
-    margin-top: 3.6rem;
     @include media (small){
         flex-direction: row;
     }

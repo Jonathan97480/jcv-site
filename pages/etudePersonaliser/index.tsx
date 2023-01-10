@@ -93,7 +93,7 @@ export default function Etude({ navigation }: EtudeProps) {
               <form className="etude-form" onSubmit={(e) => {
                 submit(e)
               }} action="https://formspree.io/f/mbjejwdo" method="POST">
-                <div>
+                <div className="etude-form">
                   <p className="title">{formulaire[formIsSelector.id].titre}</p>
                   {formulaire[formIsSelector.id].form.map(
                     (form: any, index: number) => {
@@ -104,9 +104,9 @@ export default function Etude({ navigation }: EtudeProps) {
                         });
                       }
                       return (
-                        <div key={index + "-Etude"}>
+                        <div key={index + "-Etude"} >
 
-                          <div key={index + "-form"} className="form-opacity">
+                          <div key={index + "-form"} className="form-opacity etude-formInfo">
 
                             {form.inputs.map((input: any, _index: number) => {
                               return (
