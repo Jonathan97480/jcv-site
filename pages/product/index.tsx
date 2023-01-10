@@ -81,18 +81,12 @@ export default function Product() {
               }}
             />
           </div>
+          <h2 className="title title-small">Détails du produit</h2>
+
           <p>{product.attributes.description}</p>
 
           <div className="product__info">
-            <h2 className="title title-small">Caractéristiques</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit
-              pellentesque in tristique commodo mattis in. Pellentesque odio
-              ultricies dictumst sed adipiscing viverra integer augue elementum.
-              Ut amet, feugiat feugiat sit. Nunc porttitor adipiscing viverra
-              porttitor nascetur aliquam.
-            </p>
+            <h2 className="title title-small">Les Caractéristiques produit</h2>
             <table className="table">
               <tbody>
                 {product.attributes.garantie !== null ? (

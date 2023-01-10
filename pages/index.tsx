@@ -11,6 +11,7 @@ import {
   selectPartenaires,
   selectPartenairesLoading,
 } from "../slice/partenairesSlice";
+import { sliceText } from "../util/function";
 
 export default function Home() {
   const [_loading, set_Loading] = useState<boolean>(true);
@@ -60,14 +61,11 @@ export default function Home() {
             <div className="about__contentInfo">
               <div className="about__contentTxt ">
                 <h2 className="title title-medium">JCV Consult</h2>
-                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur. Faucibus vitae ornare
-                  eu mattis pellentesque morbi et duis condimentum. Sollicitudin
-                  risus enim felis nunc vitae. Hac molestie feugiat ipsum
-                  faucibus tempor vulputate eu. Ac sed interdum cursus proin.
+                <p className="about__paragraph">
+                {sliceText(` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa nesciunt, praesentium corporis libero porro reprehenderit atque molestias labore earum unde numquam illo voluptatem debitis rem quaerat obcaecati ipsa magni nulla.
+                At doloribus eius cumque magnam enim itaque voluptatibus incidunt, quas unde ducimus nulla. Non totam odio explicabo. Necessitatibus mollitia veritatis ut accusamus nemo eius nihil. Repudiandae minima accusantium facilis fugiat!
+                Natus maiores architecto aut sunt, illum sed hic nihil dolorum distinctio cum, nemo nesciunt debitis soluta incidunt ipsum minus suscipit similique obcaecati modi expedita aspernatur laudantium at labore iste. Minima! `, 250)}
                 </p>
-
                 <Link className="btn about__btn" href={"/about"} title="Button qui vous redirigera vers la page de déscription de l'entreprise">
                   En savoir plus
                 </Link>
@@ -170,3 +168,4 @@ export default function Home() {
     </>
   );
 }
+

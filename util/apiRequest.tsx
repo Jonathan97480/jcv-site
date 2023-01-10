@@ -177,8 +177,6 @@ export async function GetAllPartenaire(): Promise<apiPartenaire[]> {
 
     })
 
-
-
     return partenaires;
 
 }

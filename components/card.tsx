@@ -4,6 +4,7 @@ import Api from "../util/conf";
 import { apiProduct } from "../interface";
 import Image from "next/image";
 import ActivityIndicator from "./ActivityIndicator";
+import { sliceText } from "../util/function";
 
 interface cardProps {
   product: apiProduct;
@@ -52,6 +53,3 @@ export default function Card(props: cardProps) {
     </div>
   );
 }
-const sliceText = (title: string, size: number) => {
-  return title.length > size ? title.slice(0, size) + "..." : title;
-};

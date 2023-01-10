@@ -23,7 +23,7 @@ export default function Legal() {
             <p>Intégrateur Front-end et designer : Teddy Equerre</p>
             <p>Coordinateur : Frédéric Morel</p>
           </div>
-          <h2 className="title title-small">Les site</h2>
+          <h2 className="title title-small">Le site</h2>
           <p>
             Le site JVC Consult a pour objet de fournir des informations sur le
             produit proposé par la société JVC Consult, qui propose le

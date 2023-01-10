@@ -7,11 +7,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { apiCategories } from "../interface";
 import { setCategory, selectCategory } from "../slice/categorySlice";
 import { setPartenaires } from "../slice/partenairesSlice";
+
 import {
   ApiGetAllCategories,
   apiPartenaire,
   GetAllPartenaire,
 } from "../util/apiRequest";
+import { FaChevronDown } from "react-icons/fa";
+
 
 
 export default function Header() {
@@ -89,13 +92,8 @@ export default function Header() {
               <ul>
                 <li className="title tile-small header__serviceBtn header__services">
                   Services{" "}
-                  <Image
-                    src={serviceIcon}
-                    alt=""
-                    width={18}
-                    height={9}
-                    loading="lazy"
-                  />
+              <FaChevronDown size={18}/>
+
                   <ul
                     className={
                       serviceOpen

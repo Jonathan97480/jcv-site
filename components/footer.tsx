@@ -93,7 +93,7 @@ export default function Footer() {
 
           <div className="footer__social">
             <h4 className="title title-small">Suivez-moi</h4>
-            <a href="https://www.facebook.com/profile.php?id=100008184432842" title="Redirection vers la page Facebook de l'entreprise">
+            <a href="https://www.facebook.com/profile.php?id=100008184432842" target="_blank" title="Redirection vers la page Facebook de l'entreprise">
               <BsFacebook/>
             </a>
           </div>

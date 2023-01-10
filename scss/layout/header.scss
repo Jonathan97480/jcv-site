@@ -61,9 +61,18 @@
   }
   &__services {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+
+
     &:hover {
       color: #5081B8;
       transition: all 0.3s;
+    }
+    img{
+     filter: var(--list-icon-color);
     }
   }
 
@@ -122,6 +131,7 @@
       animation: smallListOpen;
       animation-duration: 0.3s;
       margin-top: 2.6rem;
+      gap: 2.1rem;
       @include media(medium) {
         position: absolute;
         flex-direction: column;
