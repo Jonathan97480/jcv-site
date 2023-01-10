@@ -1,6 +1,8 @@
 import { Button } from "@mui/material";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { FormResponse } from "../../components";
+import ActivityIndicator from "../../components/ActivityIndicator";
 import { apiFormulaire, GetAllFormulaire } from "../../util/apiRequest";
 
 interface EtudeProps {
@@ -19,7 +21,11 @@ export default function Etude({ navigation }: EtudeProps) {
   }>({ numberForm: 0, curentForm: 0 });
 
   const [curentForm, setCurentForm] = React.useState<any>({});
+const [formIsSubmit, setFormIsSubmit]= useState<boolean>(false);
 
+  const [formStatus, setFormStatus] = useState<"sucess" | "error" | "noSubmit">(
+    "noSubmit"
+  );
 
 
   useEffect(() => {
@@ -89,9 +95,12 @@ export default function Etude({ navigation }: EtudeProps) {
                 </p>
               </div>
             )}
-            {formIsSelector.isSelect && (
+            {formIsSelector.isSelect? (
+
+            <FormResponse status={formStatus}>
+
               <form className="etude-form" onSubmit={(e) => {
-                submit(e)
+                submit(e, setFormStatus, setFormIsSubmit)
               }} action="https://formspree.io/f/mbjejwdo" method="POST">
                 <div className="etude-form">
                   <p className="title">{formulaire[formIsSelector.id].titre}</p>
@@ -262,7 +271,8 @@ export default function Etude({ navigation }: EtudeProps) {
                   }
                 </div>
               </form>
-            )}
+              </FormResponse>
+            ):<ActivityIndicator visible={formIsSubmit}/>}
           </div>
         </div>
       </main>
@@ -270,8 +280,14 @@ export default function Etude({ navigation }: EtudeProps) {
   );
 }
 
-function submit(event: React.FormEvent<HTMLFormElement>) {
+function submit(event: React.FormEvent<HTMLFormElement>,
+setStatus: (status:"sucess" | "error" | "noSubmit")=> void,
+setFormIsSubmit:(value: boolean)=>void
+)
+
+ {
   event.preventDefault();
+  setFormIsSubmit(true)
   const inputs = event.currentTarget.querySelectorAll("input");
   const textarea = event.currentTarget.querySelectorAll("textarea");
   const selects = event.currentTarget.querySelectorAll("select");
@@ -315,11 +331,13 @@ function submit(event: React.FormEvent<HTMLFormElement>) {
   }).then((response) => {
 
     if (response.status === 200) {
-      alert("Votre message a bien été envoyé");
+      setStatus("sucess")
+      setFormIsSubmit(false)
+
     }
   }).catch((error) => {
-
-    alert("Une erreur est survenue lors de l'envoi du message");
+    setStatus("error")
+    setFormIsSubmit(false)
   });
 
 

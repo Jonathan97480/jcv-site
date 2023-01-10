@@ -57,4 +57,12 @@
       color: #454851;
   }
 }
+&__error{
+  p{
+    color: #C1454D; 
+    font-family: "openSans";
+    font-size: 1.3rem;
+    font-weight: 600 !important;
+  }
+}
 }

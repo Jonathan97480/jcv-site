@@ -9,6 +9,7 @@ import {
   validatePhone,
 } from "../util/function";
 import { FormResponse } from "../components";
+import ActivityIndicator from "../components/ActivityIndicator";
 
 interface ContactForm {
   name: string;
@@ -23,6 +24,10 @@ interface ContactForm {
 
 export default function Contact() {
   const [form, setForm] = React.useState<ContactForm>(resetForm());
+const [formIsSubmit, setFormIsSubmit]= useState<boolean>(false);
+  const [formStatus, setFormStatus] = useState<"sucess" | "error" | "noSubmit">(
+    "noSubmit"
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,12 +52,12 @@ export default function Contact() {
         <div className="contact__content max-w padding">
           <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
-            <FormResponse status= "noSubmit">
+            { !formIsSubmit? <FormResponse status={formStatus}>
               <form
                 action=""
                 className="form"
                 onSubmit={(e) => {
-                  const newForm = submitForm(form, e);
+                  const newForm = submitForm(form, e, setFormStatus, setFormIsSubmit);
                   console.log(newForm);
                   setForm(newForm);
                 }}
@@ -147,7 +152,7 @@ export default function Contact() {
                 </div>
                 <button className="btn">Envoyer</button>
               </form>
-            </FormResponse>
+            </FormResponse>:<ActivityIndicator/>}
           </div>
 
           <div className="contact__info">
@@ -197,7 +202,7 @@ export const FormError = ({ errorMessage }: { errorMessage: string }) => {
     setError(errorMessage);
   }, [errorMessage]);
   return (
-    <div className="formulaire__error">{error !== "" && <p>{error}</p>}</div>
+    <div className="form__error">{error !== "" && <p>{error}</p>}</div>
   );
 };
 
@@ -216,9 +221,14 @@ function resetForm(): ContactForm {
 
 function submitForm(
   _form: ContactForm,
-  event: React.FormEvent<HTMLFormElement>
+  event: React.FormEvent<HTMLFormElement>,
+  setStatus: (status:"sucess" | "error" | "noSubmit")=> void,
+  setFormIsSubmit:(value: boolean)=>void
+
 ) {
   event.preventDefault();
+setFormIsSubmit(true)
+
 
   if (_form.name === "") {
     _form.errorName = "Le nom est obligatoire";
@@ -255,8 +265,8 @@ function submitForm(
   formData.append("email", newFormData.email);
   formData.append(
     "message",
-    `message venant du formulaire de contact de ${newFormData.name} 
-  qui a pour numéro de téléphone ${newFormData.phone} 
+    `message venant du formulaire de contact de ${newFormData.name}
+  qui a pour numéro de téléphone ${newFormData.phone}
   et qui a pour message : ${newFormData.message}`
   );
 
@@ -269,11 +279,13 @@ function submitForm(
   })
     .then((response) => {
       if (response.status === 200) {
-        alert("Votre message a bien été envoyé");
+       setStatus("sucess")
+       setFormIsSubmit(false)
       }
     })
     .catch((error) => {
-      alert("Une erreur est survenue lors de l'envoi du message");
+      setStatus("error")
+      setFormIsSubmit(false)
     });
 
   return resetForm();

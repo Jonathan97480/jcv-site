@@ -1,14 +1,20 @@
 import React from "react"
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+interface props {
+  visible?: boolean
 
-export default function ActivityIndicator() {
+}
+export default function ActivityIndicator({visible=true}:props) {
 
   return (
-    <div className="activityIndicator">
+
+    <>
+ { visible&&  <div className="activityIndicator">
 
       <AiOutlineLoading3Quarters className="activityIndicator__svg" />
 
-    </div>
+    </div>}
+    </>
 
   );
 }
