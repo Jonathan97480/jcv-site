@@ -3,14 +3,14 @@ import React from "react";
 
 interface props {
   children: React.ReactNode
-  status: "sucess" | "error" | "noSubmit";
+  status: "success" | "error" | "noSubmit";
 }
 
 export default function FormResponse({ status = "noSubmit", children }: props) {
   return (
     <>
-      { status !== "noSubmit"? <div className="notification" style={{backgroundColor: status=== "sucess"? '#6BBB8B': '#C1454D'}}>
-        {status === "sucess" ? (
+      {status !== "noSubmit" ? <div className="notification" style={{ backgroundColor: status === "success" ? '#6BBB8B' : '#C1454D' }}>
+        {status === "success" ? (
           <p>
             Merci votre message a bien étais envoyé, Nous vous répondrons dans
             les plus bref délais.
@@ -22,7 +22,7 @@ export default function FormResponse({ status = "noSubmit", children }: props) {
           </p>
         )}
         <Link href={"/"}>Retourner à la page d'accueil</Link>
-      </div>:{children}}
+      </div> : <>{children}</>}
     </>
   );
 }

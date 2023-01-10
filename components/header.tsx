@@ -42,7 +42,9 @@ export default function Header() {
 
 
 
-
+  interface props {
+    setStatus: (status: "success" | "error" | "noSubmit") => void;
+  }
 
 
   return (
@@ -92,7 +94,7 @@ export default function Header() {
               <ul>
                 <li className="title tile-small header__serviceBtn header__services">
                   Services{" "}
-              <FaChevronDown size={18}/>
+                  <FaChevronDown size={18} />
 
                   <ul
                     className={

@@ -47,7 +47,7 @@ export default function Contact() {
         <div className="contact__content max-w padding">
           <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
-            <FormResponse status= "noSubmit">
+            <FormResponse status="noSubmit">
               <form
                 action=""
                 className="form"
