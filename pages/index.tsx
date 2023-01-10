@@ -28,9 +28,7 @@ export default function Home() {
 
   return (
     <>
-
       <Head>
-
         <title>JCV-Consult</title>
         <meta
           name="description"
@@ -41,7 +39,7 @@ export default function Home() {
           property="og:description"
           content="Des conseils pour choisir et obtenir, un chauffe-eau solaire de qualité, des solutions pour la sécurité incendie et la surveillance vidéo."
         />
-        <meta property='og:image' content="../img/logo-jcv.png" />
+        <meta property="og:image" content="../img/logo-jcv.png" />
       </Head>
 
       <div className="home">
@@ -49,9 +47,7 @@ export default function Home() {
           <div className="hero__content max-w padding">
             <h1 className="hero__title title title-black ">JCV CONSULT</h1>
             <p className="hero__text inter inter-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-              dignissim sit tincidunt non. Laoreet at nibh elit, ridiculus
-              ultrices pellentesque tincidunt ut nunc.
+            Réduisez fortement votre facture d’électricité grâce à notre sélection de chauffe-eau solaire de qualité supérieure.
             </p>
           </div>
         </section>
@@ -62,11 +58,21 @@ export default function Home() {
               <div className="about__contentTxt ">
                 <h2 className="title title-medium">JCV Consult</h2>
                 <p className="about__paragraph">
-                {sliceText(` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa nesciunt, praesentium corporis libero porro reprehenderit atque molestias labore earum unde numquam illo voluptatem debitis rem quaerat obcaecati ipsa magni nulla.
-                At doloribus eius cumque magnam enim itaque voluptatibus incidunt, quas unde ducimus nulla. Non totam odio explicabo. Necessitatibus mollitia veritatis ut accusamus nemo eius nihil. Repudiandae minima accusantium facilis fugiat!
-                Natus maiores architecto aut sunt, illum sed hic nihil dolorum distinctio cum, nemo nesciunt debitis soluta incidunt ipsum minus suscipit similique obcaecati modi expedita aspernatur laudantium at labore iste. Minima! `, 250)}
+                  {sliceText(
+                    ` Notre entreprise est spécialisée dans la vente de chauffe-eau solaires de qualité supérieure. Nous sommes passionnés par l'énergie solaire et croyons fermement en ses nombreux avantages pour l'environnement et pour les consommateurs.
+                    Notre équipe de professionnels est entièrement dédiée à la satisfaction de nos clients. Nous offrons une large gamme de chauffe-eau solaires adaptés à tous les besoins et budgets, ainsi que des conseils experts pour vous aider à choisir le modèle le plus adapté à votre maison ou à votre entreprise.
+                    De plus notre gamme de chauffe-eau solaires est conçue pour durer dans le temps, avec des matériaux de qualité et une technologie de pointe. Nos chauffe-eaux solaires sont une solution durable pour chauffer votre eau, en utilisant l'énergie gratuite et renouvelable du soleil.
+                    En optant pour un chauffe-eau solaire, vous contribuez à la protection de l'environnement en réduisant votre empreinte carbone.
+                    Les chauffe-eau solaires sont une solution à long terme pour votre consommation d'eau chaude, avec des coûts d'exploitation très faibles sur le long terme.
+                    Nous sommes fiers de proposer des produits écologiques et économiques qui vous permettront de réduire votre empreinte carbone et votre facture d'électricité tout en profitant d'une eau chaude abondante. Nous espérons avoir le plaisir de vous compter parmi nos nombreux clients satisfaits. `,
+                    250
+                  )}
                 </p>
-                <Link className="btn about__btn" href={"/about"} title="Button qui vous redirigera vers la page de déscription de l'entreprise">
+                <Link
+                  className="btn about__btn"
+                  href={"/about"}
+                  title="Button qui vous redirigera vers la page de déscription de l'entreprise"
+                >
                   En savoir plus
                 </Link>
               </div>
@@ -102,10 +108,11 @@ export default function Home() {
                           return (
                             <Link
                               style={{
-                                backgroundImage: `url(${Api.url +
+                                backgroundImage: `url(${
+                                  Api.url +
                                   sous_category.attributes.image.data.attributes
                                     .url
-                                  })`,
+                                })`,
                               }}
                               key={sous_category.id}
                               className="productCategory__card"
@@ -156,7 +163,7 @@ export default function Home() {
                       alt={partenaire.nom}
                       width={150}
                       height={150}
-                      loading='lazy'
+                      loading="lazy"
                     />
                   </div>
                 </a>
@@ -168,4 +175,3 @@ export default function Home() {
     </>
   );
 }
-

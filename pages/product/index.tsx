@@ -86,7 +86,6 @@ export default function Product() {
           <p>{product.attributes.description}</p>
 
           <div className="product__info">
-            <h2 className="title title-small">Les Caractéristiques produit</h2>
             <table className="table">
               <tbody>
                 {product.attributes.garantie !== null ? (
