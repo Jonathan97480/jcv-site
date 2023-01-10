@@ -27,6 +27,16 @@ export function validateName(name: string): string {
   return "";
 }
 
+export function validateTextInput(text: string): string {
+
+  const re = /^[a-zA-Z0-9 ]{2,30}$/;
+  if (!re.test(text)) {
+    return "Veuillez compléter tous les champs";
+  }
+  return "";
+
+}
+
 export function validateMessage(message: string): string {
   const re = /^[a-zA-Z ]{2,30}$/;
   if (!re.test(message)) {

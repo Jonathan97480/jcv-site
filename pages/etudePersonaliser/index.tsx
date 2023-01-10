@@ -1,9 +1,11 @@
 import { Button } from "@mui/material";
 import Head from "next/head";
+import { off } from "process";
 import React, { useEffect, useState } from "react";
-import { FormResponse } from "../../components";
+import { FormEtudeNavigation, FormResponse, FormSelector, InputFormGenerator } from "../../components";
 import ActivityIndicator from "../../components/ActivityIndicator";
-import { apiFormulaire, GetAllFormulaire } from "../../util/apiRequest";
+import { apiFormulaire, GetAllFormulaire, inputFormulaireApi } from "../../util/apiRequest";
+import { validateEmail, validateName, validateTextInput } from "../../util/function";
 
 interface EtudeProps {
   navigation: any;
@@ -21,7 +23,8 @@ export default function Etude({ navigation }: EtudeProps) {
   }>({ numberForm: 0, curentForm: 0 });
 
   const [curentForm, setCurentForm] = React.useState<any>({});
-const [formIsSubmit, setFormIsSubmit]= useState<boolean>(false);
+  const [formIsSubmit, setFormIsSubmit] = useState<boolean>(false);
+  const [errorMessages, setErrorMessages] = useState<string>("")
 
   const [formStatus, setFormStatus] = useState<"sucess" | "error" | "noSubmit">(
     "noSubmit"
@@ -45,234 +48,63 @@ const [formIsSubmit, setFormIsSubmit]= useState<boolean>(false);
         <meta property="og:title" content="Etude personnalisée" />
         <meta property="og:description" content="Page de demande de devis personnalisée" />
       </Head>
+
       <main className="etude">
         <div className="max-w padding">
           <div className="etude__content">
             <h1 className="title title-medium">Demande de devis</h1>
 
             {!formIsSelector.isSelect && (
-              <div className="etude__select">
-                <p>
-                  Veuillez choisir votre catégorie afin d’accédé au formulaire
-                </p>
-
-                <div className="etude-formSelect">
-                  <label className="form__label title" htmlFor="form_selector">
-                    Catégorie de produit
-                  </label>
-                  <select
-                    className="form__input form__select"
-                    name="form_selector"
-                    id="form_selector"
-                    onChange={(value) => {
-                      console.log(value.target.value);
-                      setFormIsSelector({
-                        isSelect: true,
-                        id: parseInt(value.target.value),
-                      });
-                    }}
-                  >
-                    <option value={0} className="inputSelect">
-                      Veuillez choisir votre catégorie
-                    </option>
-
-                    {formulaire.map((form: apiFormulaire, index: number) => {
-                      return (
-                        <option value={index} key={form.id + "-form-selector"}>
-                          {form.titre}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-                <p>
-                  Répondre au formulaire servira à augmenter la rapidité de la
-                  prise de rendez-vous et de la création du devis.
-                </p>
-                <p>
-                  Vous vouliez juste nous envoyer un message{" "}
-                  <a href="#" title="Buttton qui renvoie vers la page contact">contactez nous ici</a>.
-                </p>
-              </div>
+              <FormSelector
+                setFormIsSelector={setFormIsSelector}
+                formulaire={formulaire}
+              />
             )}
-            {formIsSelector.isSelect? (
+            {formIsSelector.isSelect && !formIsSubmit ? (
 
-            <FormResponse status={formStatus}>
+              <FormResponse status={formStatus}>
+                <h2 style={{
+                  color: "red",
+                  fontSize: "1.5rem",
+                }}>{errorMessages}</h2>
+                <form className="etude-form" onSubmit={(e) => { submit(e, setFormStatus, setFormIsSubmit, setErrorMessages) }}>
+                  <div className="etude-form">
+                    <p className="title">{formulaire[formIsSelector.id].titre}</p>
+                    {formulaire[formIsSelector.id].form.map((inputList: { inputs: inputFormulaireApi[] }, indexCurentForm: number) => {
 
-              <form className="etude-form" onSubmit={(e) => {
-                submit(e, setFormStatus, setFormIsSubmit)
-              }} action="https://formspree.io/f/mbjejwdo" method="POST">
-                <div className="etude-form">
-                  <p className="title">{formulaire[formIsSelector.id].titre}</p>
-                  {formulaire[formIsSelector.id].form.map(
-                    (form: any, index: number) => {
                       if (formNumber.numberForm === 0) {
                         setFormNumber({
                           numberForm: formulaire[formIsSelector.id].form.length,
-                          curentForm: index - 1,
+                          curentForm: indexCurentForm - 1,
                         });
                       }
                       return (
-                        <div key={index + "-Etude"} >
+                        <div key={indexCurentForm + "-Etude"} >
 
-                          <div key={index + "-form"} className="form-opacity etude-formInfo">
+                          <div key={indexCurentForm + "-form"} className="form-opacity etude-formInfo">
 
-                            {form.inputs.map((input: any, _index: number) => {
-                              return (
-                                <div key={_index + "-input"}>
-                                  <label
-                                    hidden={formNumber.curentForm !== index}
-
-                                    className="form__label title"
-                                    htmlFor={_index + "-" + input.nom}
-                                  >
-                                    {input.label}
-                                  </label>
-                                  {input.type === "text" && (
-                                    <input
-                                      className="form__input"
-                                      hidden={formNumber.curentForm !== index}
-                                      type="text"
-                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : ""}
-                                      onChange={(e) => {
-                                        const value = e.target.value;
-                                        const nexForm = { ...curentForm };
-                                        nexForm[input.nom] = value;
-                                        setCurentForm(nexForm);
-                                      }}
-                                      name={input.nom}
-                                      id={_index + "-" + input.nom}
-                                      placeholder={input.placeholder}
-                                    />
-                                  )}
-                                  {input.type === "textarea" && (
-                                    <textarea
-                                      className="form__input"
-                                      hidden={formNumber.curentForm !== index}
-
-                                      name={input.nom}
-                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : ""}
-                                      onChange={(e) => {
-                                        setCurentForm({
-                                          ...curentForm,
-                                          [input.nom]: e.target.value,
-                                        })
-                                      }}
-                                      id={_index + "-" + input.nom}
-                                      placeholder={input.placeholder}
-                                    />
-                                  )}
-                                  {input.type === "select" && (
-                                    <select
-                                      hidden={formNumber.curentForm !== index}
-
-                                      name={input.nom}
-                                      id={_index + "-" + input.nom}
-                                      value={curentForm[input.nom] !== null && curentForm[input.nom] !== undefined ? curentForm[input.nom] : 0}
-                                      onChange={(e) => {
-                                        setCurentForm({
-                                          ...curentForm,
-                                          [input.nom]: e.target.value,
-                                        })
-                                      }}
-                                      className="form__input form__select"
-                                    >
-                                      <option value={0} className="inputSelect">
-                                        Veuillez choisir une option
-                                      </option>
-                                      {input.options?.map(
-                                        (option: any, index: number) => {
-                                          return (
-                                            <option
-                                              className="form__input"
-                                              value={input.label + "/" + option.value}
-                                              key={index + "-option"}
-                                            >
-                                              {option.text}
-                                            </option>
-                                          );
-                                        }
-                                      )}
-                                    </select>
-                                  )}
-                                </div>
-                              );
-                            })}
-
+                            <InputFormGenerator
+                              inputList={inputList}
+                              formNumber={formNumber}
+                              indexCurentForm={indexCurentForm}
+                              curentForm={curentForm}
+                              setCurentForm={setCurentForm}
+                            />
 
                           </div>
 
                         </div>
                       );
                     }
-                  )}
-                </div>
-                <div className="etude__btn">
-                  <button
-                    type="button"
-                    className="btn"
-                    style={
-                      formNumber.curentForm === 0
-                        ? {
-                          backgroundColor:
-                            "var(--links-off-color)",
-                        }
-                        : {
-                          backgroundColor:
-                            "var(--links-primary-color)",
-                        }
-                    }
-                    onClick={() => {
-                      if (formNumber.curentForm > 0) {
-                        setFormNumber({
-                          numberForm: formNumber.numberForm,
-                          curentForm: formNumber.curentForm - 1,
-                        });
-                      }
-                    }}
-                  >
-                    Retour en arrière
-                  </button>
-                  <button
-                    type="button"
-                    className="btn"
-                    style={
-                      formNumber.curentForm ===
-                        formNumber.numberForm - 1
-                        ? {
-                          backgroundColor:
-                            "var(--links-off-color)",
-                        }
-                        : {
-                          backgroundColor:
-                            "var(--links-primary-color)",
-                        }
-                    }
-                    onClick={() => {
-                      if (
-                        formNumber.curentForm <
-                        formNumber.numberForm - 1
-                      ) {
-                        setFormNumber({
-                          numberForm: formNumber.numberForm,
-                          curentForm: formNumber.curentForm + 1,
-                        });
-                      }
-                    }}
-                  >
-                    Suivant
-                  </button>
-                  {
-                    formNumber.curentForm === formNumber.numberForm - 1 && (
-                      <button className="btn" type="submit">
-                        Envoyer
-                      </button>
-                    )
-                  }
-                </div>
-              </form>
+                    )}
+                  </div>
+                  <FormEtudeNavigation
+                    formNumber={formNumber}
+                    setFormNumber={setFormNumber}
+                  />
+                </form>
               </FormResponse>
-            ):<ActivityIndicator visible={formIsSubmit}/>}
+            ) : <ActivityIndicator visible={formIsSubmit} />}
           </div>
         </div>
       </main>
@@ -281,22 +113,49 @@ const [formIsSubmit, setFormIsSubmit]= useState<boolean>(false);
 }
 
 function submit(event: React.FormEvent<HTMLFormElement>,
-setStatus: (status:"sucess" | "error" | "noSubmit")=> void,
-setFormIsSubmit:(value: boolean)=>void
-)
 
- {
+  setStatus: (status: "sucess" | "error" | "noSubmit") => void,
+  setFormIsSubmit: (value: boolean) => void,
+  setErrorMessages: (value: string) => void,
+
+) {
   event.preventDefault();
+
   setFormIsSubmit(true)
   const inputs = event.currentTarget.querySelectorAll("input");
   const textarea = event.currentTarget.querySelectorAll("textarea");
   const selects = event.currentTarget.querySelectorAll("select");
 
   let headerMessage: string = ""
+  let ValidationFormError: string = ""
+
+  console.log("FORM SUBMIT");
 
   inputs.forEach((input) => {
 
     headerMessage += `${input.placeholder} : ${input.value} \n`;
+
+    if (input.type === "email") {
+      const r = validateEmail(input.value)
+      if (r !== "") {
+        ValidationFormError = r
+
+      }
+    }
+
+
+
+    if (input.type === "text") {
+      const r = validateTextInput(input.value)
+      if (r !== "") {
+        console.log(input);
+        ValidationFormError = r
+
+      }
+    }
+
+
+
   });
 
   let email = ""
@@ -309,13 +168,20 @@ setFormIsSubmit:(value: boolean)=>void
   selects.forEach((select) => {
     let options = select.value.split("/");
     headerMessage += `${options[0]} : ${options[1]} \n`;
+
+
+
   })
 
   textarea.forEach((_textarea) => {
     headerMessage += `${_textarea.placeholder} : ${_textarea.value} \n`;
   });
 
-
+  if (ValidationFormError !== "") {
+    setErrorMessages(ValidationFormError)
+    setFormIsSubmit(false)
+    return
+  }
 
   const formData = new FormData();
   formData.append("email", email);

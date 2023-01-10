@@ -88,20 +88,23 @@ export async function ApiGetProductById(id: number): Promise<apiProduct> {
 }
 
 
+
+export interface inputFormulaireApi {
+    type: string;
+    label: string;
+    nom: string;
+    placeholder: string;
+    options?: {
+        text: string;
+        value: string;
+    }[] | undefined;
+}
+
 export interface apiFormulaire {
     id: number;
     titre: string;
     form: {
-        inputs: {
-            type: string;
-            label: string;
-            nom: string;
-            placeholder: string;
-            options?: {
-                text: string;
-                value: string;
-            }[]
-        }[]
+        inputs: inputFormulaireApi[]
     }[];
 }
 
