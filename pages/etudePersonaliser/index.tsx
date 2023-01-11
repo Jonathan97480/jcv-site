@@ -62,10 +62,7 @@ export default function Etude({ navigation }: EtudeProps) {
             {formIsSelector.isSelect && !formIsSubmit ? (
 
               <FormResponse status={formStatus}>
-                <h2 style={{
-                  color: "red",
-                  fontSize: "1.5rem",
-                }}>{errorMessages}</h2>
+                <h2 className="etude__alertError">{errorMessages}</h2>
                 <form className="etude-form" onSubmit={(e) => { submit(e, setFormStatus, setFormIsSubmit, setErrorMessages) }}>
                   <div className="etude-form">
                     <p className="title">{formulaire[formIsSelector.id].titre}</p>
