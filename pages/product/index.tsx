@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { apiProduct } from "../../interface";
 import Api from "../../util/conf";
-
+import { closeHeader } from "../../slice/headerStatu.Slice";
+import { useSelector, useDispatch } from "react-redux";
 import { Carousel } from "react-carousel-minimal-next";
 import { picData } from "../../interface/api";
 import { ApiGetProductById } from "../../util/apiRequest";
@@ -13,7 +14,8 @@ import ActivityIndicator from "../../components/ActivityIndicator";
 export default function Product() {
   const router = useRouter();
   const id = router.query.id as string;
-
+  const HeaderRedux = useSelector((state: any) => state.Header);
+  const dispatch = useDispatch();
   const [product, setProduct] = React.useState<apiProduct | null>(null);
 
   useEffect(() => {
@@ -48,7 +50,14 @@ export default function Product() {
       </Head>
 
       {product !== null ? (
-        <div className="product max-w padding">
+        <div className="product max-w padding" onClick={
+          () => {
+
+            if (HeaderRedux.isOPen) {
+              dispatch(closeHeader(false))
+            }
+          }
+        }>
           <h1
             className="title title-medium"
             style={{

@@ -5,13 +5,14 @@ import { apiProduct } from "../../interface";
 import { ApiGetAllProductsByCategory } from "../../util/apiRequest";
 import { setProducts, selectProducts } from "../../slice/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import { closeHeader } from "../../slice/headerStatu.Slice";
 import Head from "next/head";
 import ActivityIndicator from "../../components/ActivityIndicator";
 import Link from "next/link";
 
 export default function Products() {
   const P_redux = useSelector(selectProducts);
+  const HeaderRedux = useSelector((state: any) => state.Header);
 
   const [_products, set_Products] = useState<apiProduct[]>(P_redux);
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,14 @@ export default function Products() {
             <meta name="og:title" content="Nos produits" />
             <meta property="og:description" content="Page de présentation des produits" />
           </Head>
-          <section className="products">
+          <section className="products" onClick={
+            () => {
+
+              if (HeaderRedux.isOPen) {
+                dispatch(closeHeader(false))
+              }
+            }
+          }>
             {loading === true ? (
               <ActivityIndicator />
             ) : (
