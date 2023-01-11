@@ -6,7 +6,50 @@
   right: 0;
   z-index: 100;
   background-color: var(--bkg-primary-color);
+ 
 
+  &-open{
+    animation: open 0.5s forwards;
+    
+   
+  }
+  &-close{
+    animation: close 0.5s forwards;
+  }
+
+  @keyframes open {
+    0%{
+      height: 8rem;
+    overflow: hidden;
+    }
+    90%{
+      height: 49.3rem;
+    }
+    95%{
+       height: auto;
+    }
+    100%{
+      height: auto;
+        overflow: visible;
+     
+    }
+  }
+
+  @keyframes close {
+    0%{
+        height: 49.3rem;
+        overflow: hidden;
+    }
+
+    90%{
+      height: 8rem;
+    }
+  
+    100%{
+      height: 8rem;
+      overflow: hidden;
+    }
+  }
   &__content {
     transition: all 2s;
     text-align: center;
@@ -46,7 +89,7 @@
     align-items: center;
     gap: 3.6rem;
   }
-  &__nav,
+
   &__list,
   &Small__list {
     display: none;

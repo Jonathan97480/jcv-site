@@ -52,7 +52,7 @@ export default function Header() {
 
 
   return (
-    <header className="header padding__header">
+    <header className={isOpen ? "header padding__header header-open" : "header padding__header  header-close"}>
       <div className="header__content max-w">
         <Image
           className="header__burger"
@@ -68,7 +68,7 @@ export default function Header() {
         />
 
         <nav
-          className={isOpen ? "header__nav header__nav-open" : " header__nav-animation header__nav"}
+          className={"header__nav header__nav-open"}
         >
           <Link href="/" title="Lien qui redirige vers la page d'accueil">
             <Image
@@ -83,7 +83,7 @@ export default function Header() {
 
           <ul
             className={
-              isOpen ? "header__list header__list-open" : "header__list"
+              "header__list header__list-open"
             }
           >
             <li>
