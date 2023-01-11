@@ -3,6 +3,7 @@ import { productsSlice } from "./productsSlice";
 import { categorySlice } from "./categorySlice";
 import { partenairesSlice } from "./partenairesSlice";
 import { createWrapper } from "next-redux-wrapper";
+import { HeaderStatuSlice } from "./headerStatu.Slice";
 
 
 export const store = () => configureStore({
@@ -10,6 +11,7 @@ export const store = () => configureStore({
         [productsSlice.name]: productsSlice.reducer,
         [categorySlice.name]: categorySlice.reducer,
         [partenairesSlice.name]: partenairesSlice.reducer,
+        [HeaderStatuSlice.name]: HeaderStatuSlice.reducer,
 
 
     },

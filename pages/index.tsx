@@ -4,7 +4,7 @@ import Api from "../util/conf";
 import { apiCategories } from "../interface";
 import Image from "next/image";
 import Head from "next/head";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCategory, selectCategoryLoading } from "../slice/categorySlice";
 import { apiPartenaire } from "../util/apiRequest";
 import {
@@ -12,6 +12,7 @@ import {
   selectPartenairesLoading,
 } from "../slice/partenairesSlice";
 import { sliceText } from "../util/function";
+import { closeHeader } from "../slice/headerStatu.Slice";
 
 export default function Home() {
   const [_loading, set_Loading] = useState<boolean>(true);
@@ -19,7 +20,8 @@ export default function Home() {
   const partenairesRedux: apiPartenaire[] = useSelector(selectPartenaires);
   const partenairesLoading: boolean = useSelector(selectPartenairesLoading);
   const categoryLoading: boolean = useSelector(selectCategoryLoading);
-
+  const HeaderRedux = useSelector((state: any) => state.Header);
+  const dispatch = useDispatch();
   useEffect(() => {
     if (partenairesLoading && categoryLoading) set_Loading(false);
   }, [partenairesLoading, categoryLoading]);
@@ -40,7 +42,14 @@ export default function Home() {
         <meta property="og:image" content="../img/logo-jcv.png" />
       </Head>
 
-      <div className="home">
+      <div className="home" onClick={
+        () => {
+
+          if (HeaderRedux.isOPen) {
+            dispatch(closeHeader(false))
+          }
+        }
+      }>
         <section className="hero" id="home">
           <div className="hero__content max-w padding">
             <h1 className="hero__title title title-black ">JCV CONSULT</h1>

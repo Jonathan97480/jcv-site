@@ -5,6 +5,8 @@ import { FormEtudeNavigation, FormResponse, FormSelector, InputFormGenerator } f
 import ActivityIndicator from "../../components/ActivityIndicator";
 import { apiFormulaire, GetAllFormulaire, inputFormulaireApi } from "../../util/apiRequest";
 import { validateEmail, validateTextInput } from "../../util/function";
+import { closeHeader } from "../../slice/headerStatu.Slice";
+import { useSelector, useDispatch } from "react-redux";
 
 interface EtudeProps {
   navigation: any;
@@ -24,7 +26,8 @@ export default function Etude({ navigation }: EtudeProps) {
   const [curentForm, setCurentForm] = React.useState<any>({});
   const [formIsSubmit, setFormIsSubmit] = useState<boolean>(false);
   const [errorMessages, setErrorMessages] = useState<string>("")
-
+  const HeaderRedux = useSelector((state: any) => state.Header);
+  const dispatch = useDispatch();
   const [formStatus, setFormStatus] = useState<"sucess" | "error" | "noSubmit">(
     "noSubmit"
   );
@@ -48,7 +51,14 @@ export default function Etude({ navigation }: EtudeProps) {
         <meta property="og:description" content="Page de demande de devis personnalisée" />
       </Head>
 
-      <main className="etude">
+      <main className="etude" onClick={
+        () => {
+
+          if (HeaderRedux.isOPen) {
+            dispatch(closeHeader(false))
+          }
+        }
+      }>
         <div className="max-w padding">
           <div className="etude__content">
             <h1 className="title title-medium">Demande de devis</h1>

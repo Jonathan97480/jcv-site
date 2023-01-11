@@ -13,14 +13,19 @@ import {
   GetAllPartenaire,
 } from "../util/apiRequest";
 import { FaChevronDown } from "react-icons/fa";
+import { openHeader } from "../slice/headerStatu.Slice";
 
+interface props {
+  closeMenu: boolean,
+}
 
-
-export default function Header() {
+export default function Header({ closeMenu }: props) {
   const [service, setService] = useState<apiCategories[]>([]);
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const [isOpen, setIsOpen] = useState(false);
+  /*   const [serviceOpen, setServiceOpen] = useState(false); */
   const dispatch = useDispatch();
+  const HeaderRedux = useSelector((state: any) => state.Header);
 
   useEffect(() => {
     if (categoryRedux.length === 0) {
@@ -38,6 +43,9 @@ export default function Header() {
     }
   }, [categoryRedux]);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [HeaderRedux]);
 
 
   interface props {
@@ -57,6 +65,7 @@ export default function Header() {
           loading={"lazy"}
           onClick={() => {
             setIsOpen(!isOpen);
+            dispatch(openHeader(true));
           }}
         />
 
@@ -80,20 +89,23 @@ export default function Header() {
             }
           >
             <li>
-              <Link href="/#home" className="title tile-small" title="Lien qui vous regirigera vers la page d'accueil">
+              <Link onClick={() => {
+                setIsOpen(false);
+              }}
+                href="/#home" className="title tile-small" title="Lien qui vous regirigera vers la page d'accueil">
                 Accueil
               </Link>
             </li>
-            <li className="test">
-              <ul>
+            <li
+
+            >
+              <ul className="serviceBlock">
                 <li className="title tile-small header__serviceBtn header__services">
                   Services{" "}
                   <FaChevronDown size={18} />
 
                   <ul
-                    className={
-                       "headerSmall__list"
-                    }
+                    className={"headerSmall__list headerSmall__list-open "}
                   >
                     {service === undefined ? (
                       <DefaultList />
@@ -102,6 +114,9 @@ export default function Header() {
                         return (
                           <li key={item.id}>
                             <a
+                              onClick={() => {
+                                setIsOpen(false);
+                              }}
                               key={item.id + "header"}
                               className="title tile-small"
                               href={`/#${item.attributes.nom}`}
@@ -119,18 +134,24 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <Link href="/contact" className="title tile-small" title="Lien qui envoie vers la page de contact">
+              <Link onClick={() => {
+                setIsOpen(false);
+              }} href="/contact" className="title tile-small" title="Lien qui envoie vers la page de contact">
                 Contact
               </Link>
             </li>
             <li>
-            <Link href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
-          Etude personalisée
-        </Link>
+              <Link onClick={() => {
+                setIsOpen(false);
+              }} href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
+                Etude personalisée
+              </Link>
             </li>
           </ul>
         </nav>
-        <Link href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
+        <Link onClick={() => {
+          setIsOpen(false);
+        }} href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
           Etude personalisée
         </Link>
       </div>

@@ -1,8 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { closeHeader } from "../slice/headerStatu.Slice";
 
 export default function Legal() {
+  const dispatch = useDispatch();
+  const HeaderRedux = useSelector((state: any) => state.Header);
+
   return (
     <>
       <Head>
@@ -13,7 +18,14 @@ export default function Legal() {
         <meta
           property="og:description" content="Page pour la prise de contact avec l'entreprise" />
       </Head>
-      <section>
+      <section onClick={
+        () => {
+
+          if (HeaderRedux.isOPen) {
+            dispatch(closeHeader(false))
+          }
+        }
+      }>
         <div className=" legal padding max-w">
           <h1 className="title title-medium">Mentions légales</h1>
 

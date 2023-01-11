@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BsTelephoneFill, BsFillClockFill } from "react-icons/bs";
 import { FaMailBulk, FaMapMarkerAlt } from "react-icons/fa";
 import Head from "next/head";
+import { closeHeader } from "../slice/headerStatu.Slice";
+import { useSelector, useDispatch } from "react-redux";
 import {
   validateEmail,
   validateMessage,
@@ -28,6 +30,8 @@ export default function Contact() {
   const [formStatus, setFormStatus] = useState<"sucess" | "error" | "noSubmit">(
     "noSubmit"
   );
+  const HeaderRedux = useSelector((state: any) => state.Header);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,7 +52,14 @@ export default function Contact() {
           content="Page pour la prise de contact avec l'entreprise"
         />
       </Head>
-      <section className="contact">
+      <section className="contact" onClick={
+        () => {
+
+          if (HeaderRedux.isOPen) {
+            dispatch(closeHeader(false))
+          }
+        }
+      }>
         <div className="contact__content max-w padding">
           <h1 className="title title-medium">Contactez-nous</h1>
           <div className="contact__form">
