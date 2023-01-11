@@ -43,7 +43,7 @@ export default function Header() {
   }, [categoryRedux]);
 
   useEffect(() => {
-    setIsOpen(false);
+    setIsOpen(HeaderRedux.isOPen);
   }, [HeaderRedux]);
 
 
