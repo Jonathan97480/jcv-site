@@ -178,18 +178,16 @@
   }
 }
 .serviceBlock{
-   overflow: hidden; 
+   overflow: hidden;
 
   .headerSmall__list{
     display: none;
-  } 
- 
+  }
+
   &:hover{
    overflow: visible;
-
-
    .headerSmall__list{
      display: flex;
-  } 
+  }
   }
 }
