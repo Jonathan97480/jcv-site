@@ -1,11 +1,10 @@
-import { Button } from "@mui/material";
+
 import Head from "next/head";
-import { off } from "process";
 import React, { useEffect, useState } from "react";
 import { FormEtudeNavigation, FormResponse, FormSelector, InputFormGenerator } from "../../components";
 import ActivityIndicator from "../../components/ActivityIndicator";
 import { apiFormulaire, GetAllFormulaire, inputFormulaireApi } from "../../util/apiRequest";
-import { validateEmail, validateName, validateTextInput } from "../../util/function";
+import { validateEmail, validateTextInput } from "../../util/function";
 
 interface EtudeProps {
   navigation: any;

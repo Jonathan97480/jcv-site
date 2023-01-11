@@ -15,8 +15,6 @@ import { sliceText } from "../util/function";
 
 export default function Home() {
   const [_loading, set_Loading] = useState<boolean>(true);
-  /*   const [categories, setCategories] = useState<apiCategories[]>([]); */
-
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const partenairesRedux: apiPartenaire[] = useSelector(selectPartenaires);
   const partenairesLoading: boolean = useSelector(selectPartenairesLoading);
