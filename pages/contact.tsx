@@ -57,17 +57,18 @@ export default function Contact() {
                 action=""
                 className="form"
                 onSubmit={(e) => {
-                  const newForm = submitForm(form, e, setFormStatus, setFormIsSubmit);
+                  const newForm = submitForm(form, setForm, e, setFormStatus, setFormIsSubmit);
                   console.log(newForm);
                   setForm(newForm);
                 }}
               >
                 <div className="contact__formInput">
                   <label htmlFor="name" className="title form__label">
-                    Nom *
+                    Nom
                   </label>
                   <input
                     className="form__input"
+                    required
                     type="text"
                     name="name"
                     value={form.name}
@@ -86,10 +87,11 @@ export default function Contact() {
 
                 <div className="contact__formInput">
                   <label htmlFor="email" className="title form__label">
-                    Email *
+                    Email
                   </label>
                   <input
                     className="form__input"
+                    required
                     value={form.email}
                     onChange={(e) => {
                       setForm({
@@ -108,11 +110,12 @@ export default function Contact() {
 
                 <div className="contact__formInput">
                   <label htmlFor="phone" className="title form__label">
-                    Tel (facultatif)
+                    Tel
                   </label>
                   <input
                     className="form__input"
                     value={form.phone}
+                    required
                     onChange={(e) => {
                       setForm({
                         ...form,
@@ -130,11 +133,12 @@ export default function Contact() {
 
                 <div className="contact__formInput">
                   <label htmlFor="message" className="title form__label">
-                    Message *{" "}
+                    Message
                   </label>
                   <textarea
                     className="form__input"
                     value={form.message}
+                    required
                     onChange={(e) => {
                       setForm({
                         ...form,
@@ -221,6 +225,7 @@ function resetForm(): ContactForm {
 
 function submitForm(
   _form: ContactForm,
+  set_form: (form: ContactForm) => void,
   event: React.FormEvent<HTMLFormElement>,
   setStatus: (status: "sucess" | "error" | "noSubmit") => void,
   setFormIsSubmit: (value: boolean) => void
@@ -228,29 +233,6 @@ function submitForm(
 ) {
   event.preventDefault();
   setFormIsSubmit(true)
-
-
-  if (_form.name === "") {
-    _form.errorName = "Le nom est obligatoire";
-
-    return _form;
-  }
-
-  if (_form.email === "") {
-    _form.errorEmail = "L'email est obligatoire";
-
-    return _form;
-  }
-
-  if (_form.message === "") {
-    _form.errorMessage = "Le message est obligatoire";
-    return _form;
-  }
-
-  if (_form.phone === "") {
-    _form.errorPhone = "Le numéro de téléphone est obligatoire";
-    return _form;
-  }
 
   /* TODO: Add submit form logic */
   const newFormData = {
