@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "../img/menu.svg";
-import serviceIcon from "../img/list-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,7 +20,6 @@ export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const [isOpen, setIsOpen] = useState(false);
-  const [serviceOpen, setServiceOpen] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -86,11 +84,7 @@ export default function Header() {
                 Accueil
               </Link>
             </li>
-            <li
-              onClick={() => {
-                setServiceOpen(!serviceOpen);
-              }}
-            >
+            <li className="test">
               <ul>
                 <li className="title tile-small header__serviceBtn header__services">
                   Services{" "}
@@ -98,9 +92,7 @@ export default function Header() {
 
                   <ul
                     className={
-                      serviceOpen
-                        ? "headerSmall__list headerSmall__list-open "
-                        : "headerSmall__list"
+                       "headerSmall__list"
                     }
                   >
                     {service === undefined ? (
