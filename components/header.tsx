@@ -16,11 +16,9 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 import { openHeader } from "../slice/headerStatu.Slice";
 
-interface props {
-  closeMenu: boolean,
-}
 
-export default function Header({ closeMenu }: props) {
+
+export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const [isOpen, setIsOpen] = useState(false);
