@@ -47,7 +47,7 @@ export default function Home() {
           <div className="hero__content max-w padding">
             <h1 className="hero__title title title-black ">JCV CONSULT</h1>
             <p className="hero__text inter inter-regular">
-            Réduisez fortement votre facture d’électricité grâce à notre sélection de chauffe-eau solaire de qualité supérieure.
+              Réduisez fortement votre facture d’électricité grâce à notre sélection de chauffe-eau solaire de qualité supérieure.
             </p>
           </div>
         </section>
@@ -71,7 +71,7 @@ export default function Home() {
                 <Link
                   className="btn about__btn"
                   href={"/about"}
-                  title="Button qui vous redirigera vers la page de déscription de l'entreprise"
+                  title="Button qui vous redirigera vers la page de description de l'entreprise"
                 >
                   En savoir plus
                 </Link>
@@ -108,11 +108,10 @@ export default function Home() {
                           return (
                             <Link
                               style={{
-                                backgroundImage: `url(${
-                                  Api.url +
+                                backgroundImage: `url(${Api.url +
                                   sous_category.attributes.image.data.attributes
                                     .url
-                                })`,
+                                  })`,
                               }}
                               key={sous_category.id}
                               className="productCategory__card"

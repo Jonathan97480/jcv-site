@@ -3,29 +3,33 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/layout'
 import { wrapper } from '../slice/store'
 import { ThemeProvider } from 'next-themes'
+import { Provider } from "react-redux";
 import { css, GlobalStyles } from "@mui/material";
 
 
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
   return (
+    <Provider store={store}>
+      <ThemeProvider storageKey='theme' defaultTheme='system' enableSystem={true}>
 
-    <ThemeProvider storageKey='theme' defaultTheme='system' enableSystem={true}>
+        <GlobalStyles
+          styles={globalStyles}
+        />
 
-      <GlobalStyles
-        styles={globalStyles}
-      />
+        <Layout >
+          <Component {...pageProps} />
 
-      <Layout >
-        <Component {...pageProps} />
-
-      </Layout>
-    </ThemeProvider >)
+        </Layout>
+      </ThemeProvider >
+    </Provider>
+  )
 
 }
 
 
-export default wrapper.withRedux(App)
+export default App
 
 
 

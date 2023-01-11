@@ -69,6 +69,7 @@ export default function Product() {
               captionPosition="center"
               automatic={true}
               dots={true}
+
               pauseIconColor="white"
               pauseIconSize="40px"
               slideBackgroundColor="black-grey"
@@ -175,6 +176,7 @@ function fixePictureUrl(pic: picData[]) {
   return pic.map((p) => {
     return {
       image: Api.url + p.attributes.url,
+
       caption: "",
     };
   });
