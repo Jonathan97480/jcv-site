@@ -68,7 +68,7 @@ export default function Header() {
         />
 
         <nav
-          className={isOpen ? "header__nav header__nav-open" : "header__nav"}
+          className={isOpen ? "header__nav header__nav-open" : " header__nav-animation header__nav"}
         >
           <Link href="/" title="Lien qui redirige vers la page d'accueil">
             <Image
