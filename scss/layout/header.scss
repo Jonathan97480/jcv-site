@@ -65,6 +65,10 @@
     align-items: center;
     justify-content: center;
     gap: 0.2rem;
+    flex-direction: column;
+    @include media (medium){
+      flex-direction: row;
+    }
 
 
     &:hover {
@@ -123,6 +127,12 @@
   &__list {
     &-open {
       display: flex;
+    }
+    .header__btn{
+      display: flex !important;
+      @include media (medium){
+        display: none !important;
+      }
     }
   }
   &Small__list {

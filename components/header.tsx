@@ -131,6 +131,11 @@ export default function Header() {
                 Contact
               </Link>
             </li>
+            <li>
+            <Link href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
+          Etude personalisée
+        </Link>
+            </li>
           </ul>
         </nav>
         <Link href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">

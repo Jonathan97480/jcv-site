@@ -69,7 +69,6 @@ export default function Product() {
               captionPosition="center"
               automatic={true}
               dots={true}
-
               pauseIconColor="white"
               pauseIconSize="40px"
               slideBackgroundColor="black-grey"
