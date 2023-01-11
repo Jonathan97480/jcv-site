@@ -49,7 +49,14 @@
       height: 8rem;
       overflow: hidden;
     }
+
+
   }
+      @include media(medium) {
+      overflow: visible!important;
+
+      height: auto!important;
+    }
   &__content {
     text-align: center;
     font-size: 2rem;
@@ -116,6 +123,7 @@
     &:hover {
       color: #5081B8;
       transition: all 0.3s;
+     
     }
     img{
      filter: var(--list-icon-color);
