@@ -6,24 +6,26 @@ import { ThemeProvider } from 'next-themes'
 import { Provider } from "react-redux";
 import { css, GlobalStyles } from "@mui/material";
 
+/* console.log = () => { } */
 
 
 function App({ Component, pageProps, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <Provider store={store}>
-      <ThemeProvider storageKey='theme' defaultTheme='system' enableSystem={true}>
 
-        <GlobalStyles
-          styles={globalStyles}
-        />
+    <ThemeProvider storageKey='theme' defaultTheme='system' enableSystem={true}>
 
+      <GlobalStyles
+        styles={globalStyles}
+      />
+      <Provider store={store}>
         <Layout >
           <Component {...pageProps} />
 
         </Layout>
-      </ThemeProvider >
-    </Provider>
+      </Provider>
+    </ThemeProvider >
+
   )
 
 }

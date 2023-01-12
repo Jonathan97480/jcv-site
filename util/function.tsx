@@ -45,3 +45,13 @@ export function validateMessage(message: string): string {
   }
   return "";
 }
+
+
+export function removeAccentsAndSpaces(text: string): string {
+  const newText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return newText.replace(/\s/g, "");
+
+
+}
+
+
