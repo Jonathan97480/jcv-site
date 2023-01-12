@@ -41,7 +41,7 @@ export default function FormEtudeNavigation({ formNumber, setFormNumber }: Props
                         }
                     }}
                 >
-                    Retour en arrière
+                    Précédent
                 </button>
                 <button
                     type="button"

@@ -16,7 +16,7 @@ export default function InputFormGenerator({ inputList, formNumber, indexCurentF
         <>
             {inputList.inputs.map((input: any, _index: number) => {
                 return (
-                    <div key={_index + "-input"} style={{ display: formNumber.curentForm !== indexCurentForm ? "none" : "inline-block" }} >
+                    <div key={_index + "-input"} style={{ display: formNumber.curentForm !== indexCurentForm ? "none" : "inline-flex" }} className="etude-formInfo" >
                         <label
                             hidden={formNumber.curentForm !== indexCurentForm}
 

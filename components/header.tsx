@@ -18,7 +18,6 @@ import { openHeader } from "../slice/headerStatu.Slice";
 import { removeAccentsAndSpaces } from "../util/function";
 
 
-
 export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
   const categoryRedux: apiCategories[] = useSelector(selectCategory);

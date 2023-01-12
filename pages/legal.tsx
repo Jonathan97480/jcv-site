@@ -145,7 +145,7 @@ export default function Legal() {
           <h2 className="title title-small">Les développeurs</h2>
           <p>Développeur Back-end : <a href="http://www.portfolio.jon-dev.fr/" title="Redirige ver le site du développeur Back-end">Jonathan Gauvin</a></p>
           <p>Intégrateur Front-end et designer : <a href="https://tydevelopper.fr/" title="Redirige ver le site du développeur Front-end">Teddy Equerre</a></p>
-          <p>Coordinateur : <a href="#">Frédéric Morel</a></p>
+          <p>Coordinateur : <a href="https://www.portfolio.runmyweb.re/">Frédéric Morel</a></p>
         </div>
         <div className="legal__region">
           <span className="legal__regionImg">

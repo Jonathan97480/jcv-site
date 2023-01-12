@@ -31,21 +31,21 @@
     }
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+
   }
   &__select {
     display: flex;
     flex-direction: column;
     gap: 3rem;
   }
- 
+
   &-formSelect {
     line-height: 3rem;
   }
   &-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 0.5rem;
     animation-name: showForm;
     animation-duration: 2s;
@@ -53,15 +53,17 @@
     &Info{
       display: flex;
       flex-direction: column;
-      gap: 3.5rem;
+      gap: 1rem;
     }
   }
   &__btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     gap: 6.6rem;
+    button{
+     width: 150px;
+    }
     @include media (small){
         flex-direction: row;
     }
