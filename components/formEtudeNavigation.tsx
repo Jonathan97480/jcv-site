@@ -18,7 +18,7 @@ export default function FormEtudeNavigation({ formNumber, setFormNumber }: Props
     return (
         <>
             <div className="etude__btn">
-                <button
+                {formNumber.curentForm !== 0 ? <button
                     type="button"
                     className="btn"
                     style={
@@ -42,36 +42,37 @@ export default function FormEtudeNavigation({ formNumber, setFormNumber }: Props
                     }}
                 >
                     Précédent
-                </button>
-                <button
-                    type="button"
-                    className="btn"
-                    style={
-                        formNumber.curentForm ===
-                            formNumber.numberForm - 1
-                            ? {
-                                backgroundColor:
-                                    "var(--links-off-color)",
-                            }
-                            : {
-                                backgroundColor:
-                                    "var(--links-primary-color)",
-                            }
-                    }
-                    onClick={() => {
-                        if (
-                            formNumber.curentForm <
-                            formNumber.numberForm - 1
-                        ) {
-                            setFormNumber({
-                                numberForm: formNumber.numberForm,
-                                curentForm: formNumber.curentForm + 1,
-                            });
+                </button> : null}
+                {formNumber.curentForm !==
+                    formNumber.numberForm - 1 ? <button
+                        type="button"
+                        className="btn"
+                        style={
+                            formNumber.curentForm ===
+                                formNumber.numberForm - 1
+                                ? {
+                                    backgroundColor:
+                                        "var(--links-off-color)",
+                                }
+                                : {
+                                    backgroundColor:
+                                        "var(--links-primary-color)",
+                                }
                         }
-                    }}
-                >
+                        onClick={() => {
+                            if (
+                                formNumber.curentForm <
+                                formNumber.numberForm - 1
+                            ) {
+                                setFormNumber({
+                                    numberForm: formNumber.numberForm,
+                                    curentForm: formNumber.curentForm + 1,
+                                });
+                            }
+                        }}
+                    >
                     Suivant
-                </button>
+                </button> : null}
                 {
                     formNumber.curentForm === formNumber.numberForm - 1 && (
                         <button className="btn" type="submit">

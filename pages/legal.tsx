@@ -143,9 +143,9 @@ export default function Legal() {
 
         <div className="legal__block">
           <h2 className="title title-small">Les développeurs</h2>
-          <p>Développeur Back-end : <a href="http://www.portfolio.jon-dev.fr/" title="Redirige ver le site du développeur Back-end">Jonathan Gauvin</a></p>
-          <p>Intégrateur Front-end et designer : <a href="https://tydevelopper.fr/" title="Redirige ver le site du développeur Front-end">Teddy Equerre</a></p>
-          <p>Coordinateur : <a href="https://www.portfolio.runmyweb.re/">Frédéric Morel</a></p>
+          <p>Développeur Back-end : <a href="http://www.portfolio.jon-dev.fr/" title="Redirige ver le site du développeur Back-end" target={"_blank"} >Jonathan Gauvin</a></p>
+          <p>Intégrateur Front-end et designer : <a href="https://tydevelopper.fr/" title="Redirige ver le site du développeur Front-end" target={"_blank"}>Teddy Equerre</a></p>
+          <p>Coordinateur : <a href="https://www.portfolio.runmyweb.re/" title="Redirige ver le site du Coordinateur" target={"_blank"}>Frédéric Morel</a></p>
         </div>
         <div className="legal__region">
           <span className="legal__regionImg">
