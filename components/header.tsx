@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "../img/menu.svg";
-
+import { useRouter } from 'next/router'
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,6 +15,7 @@ import {
 } from "../util/apiRequest";
 import { FaChevronDown } from "react-icons/fa";
 import { openHeader } from "../slice/headerStatu.Slice";
+import { removeAccentsAndSpaces } from "../util/function";
 
 
 
@@ -22,7 +23,7 @@ export default function Header() {
   const [service, setService] = useState<apiCategories[]>([]);
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
   const [isOpen, setIsOpen] = useState(false);
-  /*   const [serviceOpen, setServiceOpen] = useState(false); */
+  const router = useRouter()
   const dispatch = useDispatch();
   const HeaderRedux = useSelector((state: any) => state.Header);
 
@@ -46,6 +47,8 @@ export default function Header() {
     setIsOpen(HeaderRedux.isOPen);
   }, [HeaderRedux]);
 
+
+  console.log()
 
   interface props {
     setStatus: (status: "success" | "error" | "noSubmit") => void;
@@ -118,7 +121,7 @@ export default function Header() {
                               }}
                               key={item.id + "header"}
                               className="title tile-small"
-                              href={`/#${item.attributes.nom}`}
+                              href={`/#${removeAccentsAndSpaces(item.attributes.nom)}`}
                               title={`
                             Lien qui redirige vers la page ${item.attributes.nom}`}
                             >
@@ -140,22 +143,34 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link onClick={() => {
-                setIsOpen(false);
-              }} href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
-                Etude personalisée
-              </Link>
+              <BtnEtudePersonnalisee setIsOpen={setIsOpen} />
             </li>
           </ul>
         </nav>
-        <Link onClick={() => {
-          setIsOpen(false);
-        }} href={"/etudePersonaliser"} className=" header__btn btn" title="Lien qui envoie vers la page de demande de devis">
-          Etude personalisée
-        </Link>
+        <BtnEtudePersonnalisee setIsOpen={setIsOpen} />
       </div>
-    </header>
+    </header >
   );
+}
+
+
+export const BtnEtudePersonnalisee = ({ setIsOpen }: { setIsOpen: (value: boolean) => void }) => {
+  const router = useRouter()
+  return (
+    <Link
+
+      onClick={() => {
+        setIsOpen(false);
+      }}
+      href={"/etudePersonnalisee"}
+      className="btn header__btn btn"
+      style={
+        router.pathname === "/etudePersonnalisee" ? { backgroundColor: "var(--links-off-color)" } : { backgroundColor: "var(--links-primary-color)", }
+      }
+      title="Lien qui envoie vers la page de demande de devis">
+      Etude personnalisée
+    </Link>
+  )
 }
 
 export const DefaultList = () => {

@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
-
 import { useRouter } from "next/router";
-import { apiProduct } from "../../interface";
-import Api from "../../util/conf";
-import { closeHeader } from "../../slice/headerStatu.Slice";
-import { useSelector, useDispatch } from "react-redux";
+import { apiProduct } from "../interface";
+import Api from "../util/conf";
 import { Carousel } from "react-carousel-minimal-next";
-import { picData } from "../../interface/api";
-import { ApiGetProductById } from "../../util/apiRequest";
-import Head from "next/head";
-import ActivityIndicator from "../../components/ActivityIndicator";
+import { picData } from "../interface/api";
+import { ApiGetProductById } from "../util/apiRequest";
+import ActivityIndicator from "../components/ActivityIndicator";
+import { MyMain } from "../components";
 
 export default function Product() {
   const router = useRouter();
   const id = router.query.id as string;
-  const HeaderRedux = useSelector((state: any) => state.Header);
-  const dispatch = useDispatch();
   const [product, setProduct] = React.useState<apiProduct | null>(null);
 
   useEffect(() => {
@@ -26,38 +21,38 @@ export default function Product() {
     }
   }, [id]);
 
+  function getClassEnergetique(classe_energetique: string): string {
+
+    switch (classe_energetique) {
+
+      case "A":
+        return " classe-energetique classe-energetique-A";
+      case "B":
+        return "lasse-energetique classe-energetique-B";
+      case "C":
+        return "lasse-energetique classe-energetique-C";
+      case "D":
+        return "lasse-energetique classe-energetique-D";
+      case "E":
+        return "lasse-energetique classe-energetique-E";
+      case "F":
+        return "lasse-energetique classe-energetique-F";
+      case "G":
+        return "lasse-energetique classe-energetique-G";
+      default:
+        return "";
+
+    }
+
+  }
+
   return (
-    <>
-      <Head>
-
-        {product !== null ? (
-          <title>{product.attributes.nom}</title>
-        ) : (
-          <title>Chargement...</title>
-        )}
-        <meta
-          name="description"
-          content="Page de description du produit en détails"
-        />
-        <meta
-          property="og:title"
-          content={product !== null ? product.attributes.nom : "Chargement..."}
-        />
-        <meta
-          property="og:description"
-          content="Page de description du produit en détails"
-        />
-      </Head>
-
+    <MyMain
+      pageTitle={product !== null ? product.attributes.nom : "Chargement..."}
+      pageDescription="Page de description du produit en détails"
+    >
       {product !== null ? (
-        <div className="product max-w padding" onClick={
-          () => {
-
-            if (HeaderRedux.isOPen) {
-              dispatch(closeHeader(false))
-            }
-          }
-        }>
+        <div className="product max-w padding">
           <h1
             className="title title-medium"
             style={{
@@ -110,7 +105,7 @@ export default function Product() {
                   <tr>
                     <th>Classe énergétique </th>
                     <td>
-                      <span> {product.attributes.classe_energetique}</span>
+                      <span className={getClassEnergetique(product.attributes.classe_energetique)}> {product.attributes.classe_energetique}</span>
                     </td>
                   </tr>
                 ) : null}
@@ -176,7 +171,7 @@ export default function Product() {
       ) : (
         <ActivityIndicator />
       )}
-    </>
+    </MyMain>
   );
 }
 

@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { selectCategory } from "../slice/categorySlice";
 import { useTheme } from 'next-themes'
 import { BsFacebook } from "react-icons/bs";
+import { removeAccentsAndSpaces } from "../util/function";
 
 export default function Footer() {
   const S_redux: apiCategories[] = useSelector(selectCategory);
@@ -65,7 +66,7 @@ export default function Footer() {
                     <li key={item.id}>
                       <a
                         key={item.id + "header"}
-                        href={`/#${item.attributes.nom}`}
+                        href={`/#${removeAccentsAndSpaces(item.attributes.nom)}`}
                         title={`
                         Lien vers ${item.attributes.nom}
                         `}
@@ -94,7 +95,7 @@ export default function Footer() {
           <div className="footer__social">
             <h4 className="title title-small">Suivez-moi</h4>
             <a href="https://www.facebook.com/profile.php?id=100008184432842" target="_blank" title="Redirection vers la page Facebook de l'entreprise">
-              <BsFacebook/>
+              <BsFacebook />
             </a>
           </div>
         </div>
@@ -106,7 +107,7 @@ export default function Footer() {
 
           <span>Copyright JCV Consult 2023</span>
           <Switch
-            on={theme === 'dark'}
+            on={theme === 'dark' ? true : false}
             onClick={(value: boolean) => {
               setTheme(value ? 'dark' : 'light')
             }}
