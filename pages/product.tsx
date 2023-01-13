@@ -49,7 +49,7 @@ export default function Product() {
   return (
     <MyMain
       pageTitle={product !== null ? product.attributes.nom : "Chargement..."}
-      pageDescription="Page de description du produit en détails"
+      pageDescription="La page qui donne des détails sur le produit affiché à l’écran."
     >
       {product !== null ? (
         <div className="product max-w padding">

@@ -10,7 +10,7 @@ export default function Legal() {
 
     <MyMain
       pageTitle="Mentions légales"
-      pageDescription="Page de mentions légales"
+      pageDescription="La page qui contient les mentions légales de JCV Consult."
     >
       <div className=" legal padding max-w">
         <h1 className="title title-medium">Mentions légales</h1>

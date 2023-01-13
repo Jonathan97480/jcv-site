@@ -39,7 +39,7 @@ export default function Contact() {
     <MyMain
       className="contact"
       pageTitle="Contact"
-      pageDescription="Page pour la prise de contact avec l'entreprise"
+      pageDescription="Cette page est un formulaire qui permet à l’utilisateur de prendre contact et d’envoyer un message à JCV Consult."
     >
       <div className="contact__content max-w padding">
         <h1 className="title title-medium">Contactez-nous</h1>

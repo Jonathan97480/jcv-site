@@ -30,7 +30,7 @@ export default function Home() {
     <MyMain
       className="home"
       pageTitle="JCV-Consult"
-      pageDescription="Des conseils pour choisir et obtenir, un chauffe-eau solaire de qualité, des solutions pour la sécurité incendie et la surveillance vidéo."
+      pageDescription="Les conseils d’un spécialiste à la Réunion pour choisir et obtenir, un chauffe-eau solaire robuste et de qualité."
     >
       <section className="hero" id="home">
         <div className="hero__content max-w padding">

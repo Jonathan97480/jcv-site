@@ -45,8 +45,9 @@ export default function Etude({ navigation }: EtudeProps) {
   return (
     <MyMain
       className="etude"
-      pageDescription="Page de demande de devis"
+      pageDescription="La page où le client peut entrer ses coordonnées et répondre à un questionnaire afin d’obtenir une étude personnalisée."
       pageTitle="Demande de devis"
+
     >
       <div className="max-w padding">
         <div className="etude__content">
