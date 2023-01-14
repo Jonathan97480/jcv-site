@@ -20,7 +20,9 @@ export default function Home() {
   const partenairesLoading: boolean = useSelector(selectPartenairesLoading);
   const categoryLoading: boolean = useSelector(selectCategoryLoading);
   useEffect(() => {
+
     if (partenairesLoading && categoryLoading) set_Loading(false);
+
   }, [partenairesLoading, categoryLoading]);
 
   return (

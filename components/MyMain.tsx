@@ -45,6 +45,10 @@ export default function MyMain({ children, className, pageTitle, pageDescription
             }
         });
 
+        return () => {
+            window.removeEventListener("load", () => { });
+        }
+
     }, [])
 
     return (

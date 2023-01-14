@@ -19,37 +19,55 @@ import { removeAccentsAndSpaces } from "../util/function";
 
 
 export default function Header() {
-  const [service, setService] = useState<apiCategories[]>([]);
+
   const categoryRedux: apiCategories[] = useSelector(selectCategory);
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter()
-  const dispatch = useDispatch();
   const HeaderRedux = useSelector((state: any) => state.Header);
 
-  useEffect(() => {
-    if (categoryRedux.length === 0) {
-      getCategories().then((_cat) => {
-        getPartenaires().then((_part) => {
-          dispatch(setCategory(_cat));
+  const [service, setService] = useState<apiCategories[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    if (categoryRedux.length === 0) {
+
+      getCategories().then((_cat) => {
+
+        getPartenaires().then((_part) => {
+
+          dispatch(setCategory(_cat));
           dispatch(setPartenaires(_part));
 
           setService(_cat);
+
+        }).catch((err) => {
+
+          console.log("Une erreur est survenue lors de la récupération des Partenaires : ", err)
         });
+
+      }).catch((err) => {
+
+        console.log("Une erreur est survenue lors de la récupération des Catégories : ", err)
       });
+
     } else {
+
       setService(categoryRedux);
     }
   }, [categoryRedux]);
 
   useEffect(() => {
+
     setIsOpen(HeaderRedux.isOPen);
+
   }, [HeaderRedux]);
 
 
-  console.log()
+
 
   interface props {
+
     setStatus: (status: "success" | "error" | "noSubmit") => void;
   }
 
@@ -154,7 +172,9 @@ export default function Header() {
 
 
 export const BtnEtudePersonnalisee = ({ setIsOpen }: { setIsOpen: (value: boolean) => void }) => {
+
   const router = useRouter()
+
   return (
     <Link
 
