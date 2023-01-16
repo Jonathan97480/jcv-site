@@ -127,7 +127,10 @@ export default function Legal() {
             identifier.
           </p>
         </div>
-
+        <div className="legal__block">
+          <h2 className="title title-small">Images Crédit</h2>
+          <p><a href="https://fr.freepik.com/vecteurs-libre/erreur-404-illustration-concept-personne-fatiguee_20602777.htm#query=oups&position=6&from_view=search&track=sph">Image de storyset</a> sur Freepik</p>
+        </div>
         <div className="legal__block">
           <h2 className="title title-small">Informations légales</h2>
           <p>JVC Consult </p>
