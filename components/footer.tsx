@@ -145,7 +145,13 @@ export default function Footer() {
         </div>
       </footer>
 
-      <Rgpd />
+      <Rgpd setCookies={
+        CustomSetCookies
+      }
+        getCookies={
+          CustomGetCookies
+        }
+      />
     </>
   );
 }
@@ -167,13 +173,8 @@ export const DefaultList = () => {
 
 function CustomSetCookies(response: boolean,) {
 
-  const value = getCookie('rgpd')
   const dateValid = new Date()
   dateValid.setFullYear(dateValid.getFullYear() + 1)
-
-  if (value === 'true') {
-    return
-  }
 
   setCookie('rgpd', response, {
     expires: dateValid,
@@ -181,9 +182,10 @@ function CustomSetCookies(response: boolean,) {
 }
 
 function CustomGetCookies() {
+
+  if (!hasCookie('rgpd')) return false
+
   const value = getCookie('rgpd')
-  if (value === 'true') {
-    return true
-  }
-  return false
+
+  return value
 }
