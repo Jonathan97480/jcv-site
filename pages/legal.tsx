@@ -21,7 +21,7 @@ export default function Legal() {
 
         <p>
           Le présent site internet est la propriété de la société JVC Consult,
-          n° de tva FR37904797255
+          n° de tva FR52888299500
         </p>
         <p>
           JVC Consult ne garantit en aucune façon l’exactitude, la précision ou
