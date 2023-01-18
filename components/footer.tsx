@@ -9,6 +9,7 @@ import { selectCategory } from "../slice/categorySlice";
 import { useTheme } from 'next-themes'
 import { BsFacebook } from "react-icons/bs";
 import { removeAccentsAndSpaces } from "../util/function";
+import { setCookie, getCookie, hasCookie } from "cookies-next";
 
 export default function Footer() {
   const S_redux: apiCategories[] = useSelector(selectCategory);
@@ -130,3 +131,28 @@ export const DefaultList = () => {
     </>
   );
 };
+
+/* cookies function */
+
+function CustomSetCookies(response: boolean,) {
+
+  const value = getCookie('rgpd')
+  const dateValid = new Date()
+  dateValid.setFullYear(dateValid.getFullYear() + 1)
+
+  if (value === 'true') {
+    return
+  }
+
+  setCookie('rgpd', response, {
+    expires: dateValid,
+  },)
+}
+
+function CustomGetCookies() {
+  const value = getCookie('rgpd')
+  if (value === 'true') {
+    return true
+  }
+  return false
+}
