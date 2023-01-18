@@ -187,5 +187,7 @@ function CustomGetCookies() {
 
   const value = getCookie('rgpd')
 
-  return value
+  if (value === true) return true
+
+  return false
 }
