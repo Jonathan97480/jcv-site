@@ -23,8 +23,7 @@ export default function Rgpd({ setCookies, getCookies }: Props) {
           <div className="rgpdContent max-w">
 
             <p className="rgpdContent__txt">
-              Ce site utilise des cookies pour vous offrir le meilleur des
-              services, refuser ne vous empêchera pas de visiter le site.
+              Ce site utilise des cookies pour vous permettre de bénéficier des meilleurs services.
             </p>
 
             <div className="rgpdContent__btn">
