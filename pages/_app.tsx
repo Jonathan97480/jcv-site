@@ -47,10 +47,13 @@ export const globalStyles = css`
       --links-primary-color: #ED593C;
       --links-txt-primary-color:#ffffff;
       --table-border-color: #454851;
+      --bkg-rgpd-color: rgba(0, 0, 0, 0.8);
     }
   }
   [data-theme="dark"] {
     body {
+      --bkg-rgpd-color: rgba(255, 255, 255, 0.8);
+
       --bkg-primary-color: #1F1F35;
       --bkg-secondary-color: #24243b;
       --txt-secondary-color:#ffffff;
