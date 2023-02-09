@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jcvconsult.re
+
+# Sitemaps
+Sitemap: https://jcvconsult.re/sitemap.xml

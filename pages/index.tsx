@@ -63,7 +63,7 @@ export default function Home() {
             </div>
 
             <Image
-              src={require("../img/hero/home.jpg")}
+              src={require("../img/hero/home.webp")}
               alt="Image de représentation de"
               width={328}
               height={207}

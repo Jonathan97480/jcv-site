@@ -146,7 +146,7 @@ export default function Legal() {
           <p>
             Développeur Back-end :{" "}
             <a
-              href="http://www.portfolio.jon-dev.fr/"
+              href="http://www.site.jon-dev.fr/"
               title="Redirige ver le site du développeur Back-end"
               target={"_blank"}
             >
